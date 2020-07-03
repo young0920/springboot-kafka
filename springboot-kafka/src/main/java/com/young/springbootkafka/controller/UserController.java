@@ -3,7 +3,9 @@ package com.young.springbootkafka.controller;
 import com.young.springbootkafka.dao.User;
 import com.young.springbootkafka.exception.BizException;
 import com.young.springbootkafka.exception.ResultBody;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ import java.util.List;
  */
 @RestController
 @Slf4j
+@RequiredArgsConstructor(onConstructor_ = @Autowired)
 @RequestMapping(value = "/api")
 public class UserController {
 
