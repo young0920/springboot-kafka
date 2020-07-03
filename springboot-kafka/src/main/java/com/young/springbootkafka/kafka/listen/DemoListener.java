@@ -1,15 +1,16 @@
-package com.young.springbootkafka.listen;
+package com.young.springbootkafka.kafka.listen;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 
 /**
- * 类注释
+ * 监听实例
  *
  * @author yangbing
- * @date 2020/7/2 10:54
  * @version 1.0
+ * @date 2020/7/2 10:54
  */
+//@Component
 @Slf4j
 public class DemoListener {
     /**

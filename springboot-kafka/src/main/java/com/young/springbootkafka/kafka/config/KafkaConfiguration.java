@@ -1,5 +1,6 @@
-package com.young.springbootkafka.config;
+package com.young.springbootkafka.kafka.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.IntegerDeserializer;
@@ -7,10 +8,13 @@ import org.apache.kafka.common.serialization.IntegerSerializer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.kafka.annotation.EnableKafka;
+import org.springframework.context.annotation.Primary;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.*;
+import org.springframework.kafka.listener.ContainerProperties;
+import org.springframework.kafka.listener.KafkaMessageListenerContainer;
+import org.springframework.kafka.listener.MessageListener;
+import org.springframework.kafka.transaction.KafkaTransactionManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,11 +26,13 @@ import java.util.Map;
  * @Date 2020/7/2 10:46
  * @Version 1.0
  */
-@Configuration
-@EnableKafka
+//@Configuration
+//@EnableKafka
+@Slf4j
 public class KafkaConfiguration {
     /**
      * ConcurrentKafkaListenerContainerFactory为创建Kafka监听器的工程类，这里只配置了消费者
+     *
      * @return factory
      */
     @Bean
@@ -38,6 +44,7 @@ public class KafkaConfiguration {
 
     /**
      * 根据consumerProps填写的参数创建消费者工厂
+     *
      * @return ConsumerFactory
      */
     @Bean
@@ -46,25 +53,66 @@ public class KafkaConfiguration {
     }
 
     /**
+     * Bean方式创建监听容器
+     *
+     * @return KafkaMessageListenerContainer
+     */
+    @Bean
+    public KafkaMessageListenerContainer demoListenerContainer() {
+        ContainerProperties properties = new ContainerProperties("topic.quick.bean");
+
+        properties.setGroupId("bean");
+
+        properties.setMessageListener((MessageListener<Integer, String>) record -> log.info("topic.quick.bean receive : " + record.toString()));
+
+        return new KafkaMessageListenerContainer(consumerFactory(), properties);
+    }
+
+    /**
      * 根据senderProps填写的参数创建生产者工厂
+     * <p>
+     * 使用注解方式开启事务还是比较方便的，不过首先需要我们配置KafkaTransactionManager，
+     * 这个类就是Kafka提供给我们的事务管理类，我们需要使用生产者工厂来创建这个事务管理类。
+     * 需要注意的是，我们需要在producerFactory中开启事务功能，并设置TransactionIdPrefix，
+     * TransactionIdPrefix是用来生成Transactional.id的前缀。
+     *
      * @return DefaultKafkaProducerFactory
      */
     @Bean
     public ProducerFactory<Integer, String> producerFactory() {
-        return new DefaultKafkaProducerFactory<>(senderProps());
+        DefaultKafkaProducerFactory factory = new DefaultKafkaProducerFactory<>(senderProps());
+        factory.transactionCapable();
+        factory.setTransactionIdPrefix("tran-");
+        return factory;
+    }
+
+    @Bean
+    public KafkaTransactionManager transactionManager(ProducerFactory producerFactory) {
+        return new KafkaTransactionManager(producerFactory);
     }
 
     /**
      * kafkaTemplate实现了Kafka发送接收等功能
+     * Primary注解的意思是在拥有多个同类型的Bean时优先使用该Bean
+     *
      * @return KafkaTemplate
      */
     @Bean
+    @Primary
     public KafkaTemplate<Integer, String> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 
+    @Bean("defaultKafkaTemplate")
+    public KafkaTemplate<Integer, String> defaultKafkaTemplate() {
+        KafkaTemplate template = new KafkaTemplate<Integer, String>(producerFactory());
+        template.setDefaultTopic("topic.quick.default");
+        return template;
+    }
+
     /**
      * 消费者配置参数
+     *
      * @return props
      */
     private Map<String, Object> consumerProps() {
@@ -88,6 +136,7 @@ public class KafkaConfiguration {
 
     /**
      * 生产者配置
+     *
      * @return props
      */
     private Map<String, Object> senderProps() {
