@@ -1,6 +1,7 @@
-package com.young.springbootkafka.exception;
+package com.young.springbootkafka.constant;
 
 import com.alibaba.fastjson.JSON;
+import com.young.springbootkafka.exception.BaseErrorInfoInterface;
 import lombok.Data;
 
 import java.io.Serializable;

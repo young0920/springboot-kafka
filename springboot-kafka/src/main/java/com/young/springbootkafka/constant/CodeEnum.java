@@ -1,4 +1,6 @@
-package com.young.springbootkafka.exception;
+package com.young.springbootkafka.constant;
+
+import com.young.springbootkafka.exception.BaseErrorInfoInterface;
 
 /**
  * 枚举类异常

@@ -1,7 +1,7 @@
 package com.young.springbootkafka.controller;
 
 import com.young.springbootkafka.exception.BizException;
-import com.young.springbootkafka.exception.ResultBody;
+import com.young.springbootkafka.constant.ResultBody;
 import com.young.springbootkafka.pojo.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;

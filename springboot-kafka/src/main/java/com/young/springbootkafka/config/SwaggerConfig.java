@@ -1,4 +1,4 @@
-package com.young.springbootkafka.swagger;
+package com.young.springbootkafka.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,5 +1,7 @@
 package com.young.springbootkafka.exception;
 
+import com.young.springbootkafka.constant.CodeEnum;
+import com.young.springbootkafka.constant.ResultBody;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -26,7 +28,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = BizException.class)
     @ResponseBody
-    public  ResultBody<String> bizExceptionHandler(HttpServletRequest req, BizException e){
+    public ResultBody<String> bizExceptionHandler(HttpServletRequest req, BizException e){
         log.error("发生业务异常！原因是：{}",e);
         return ResultBody.error(e.getErrorCode(),e.getErrorMsg());
     }
