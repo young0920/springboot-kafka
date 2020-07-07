@@ -26,6 +26,13 @@ import java.util.List;
 @Api(tags = "用户管理相关接口")
 public class UserController {
 
+
+    @GetMapping("/index")
+    @ApiOperation("部署测试")
+    public ResultBody<String> index() {
+        return ResultBody.success("docker 测试！！！");
+    }
+
     @PostMapping("/user")
     @ApiOperation("插入接口")
     public ResultBody<Boolean> insert(@RequestBody User user) {
