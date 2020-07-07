@@ -3,6 +3,7 @@ package com.young.springbootkafka.controller;
 import com.young.springbootkafka.pojo.User;
 import com.young.springbootkafka.utils.RedisUtils;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +30,7 @@ public class RedisController {
     private RedisUtils redisUtils;
 
     @RequestMapping(value = "/hello/{id}")
+    @ApiOperation("redis测试接口")
     public String hello(@PathVariable(value = "id") String id) {
         //查询缓存中是否存在
         boolean hasKey = redisUtils.hasKey(id);

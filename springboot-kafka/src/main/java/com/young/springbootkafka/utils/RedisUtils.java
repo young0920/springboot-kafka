@@ -27,8 +27,9 @@ public final class RedisUtils {
     private RedisTemplate<String, Object> redisTemplate;
 
     /**
-     * 更新换成
-     * @param key key
+     * 更新缓存
+     *
+     * @param key   key
      * @param value value
      * @return boolean
      */
@@ -37,7 +38,7 @@ public final class RedisUtils {
             redisTemplate.opsForValue().getAndSet(key, value);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("更新缓存失败,key {} :", key, e);
             return false;
         }
     }
@@ -56,7 +57,7 @@ public final class RedisUtils {
             }
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("指定缓存失效时间失败,key {} :", key, e);
             return false;
         }
     }
@@ -81,7 +82,7 @@ public final class RedisUtils {
         try {
             return redisTemplate.hasKey(key);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("判断key是否存在失败,key {} :", key, e);
             return false;
         }
     }
@@ -124,7 +125,7 @@ public final class RedisUtils {
             redisTemplate.opsForValue().set(key, value);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("普通缓存放入失败,key {} :", key, e);
             return false;
         }
     }
@@ -141,7 +142,7 @@ public final class RedisUtils {
             redisTemplate.opsForValue().setIfAbsent(key, value);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("普通缓存放入, 不存在放入，存在返回失败,key {} :", key, e);
             return false;
         }
     }
@@ -163,7 +164,7 @@ public final class RedisUtils {
             }
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("普通缓存放入并设置时间失败,key {} :", key, e);
             return false;
         }
     }
@@ -185,7 +186,7 @@ public final class RedisUtils {
             }
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("普通缓存放入并设置时间,不存在放入，存在返回失败,key {} :", key, e);
             return false;
         }
     }
@@ -251,7 +252,7 @@ public final class RedisUtils {
             redisTemplate.opsForHash().putAll(key, map);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("HashSet失败,key {} :", key, e);
             return false;
         }
     }
@@ -272,7 +273,7 @@ public final class RedisUtils {
             }
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("HashSet 并设置时间失败,key {} :", key, e);
             return false;
         }
     }
@@ -290,13 +291,13 @@ public final class RedisUtils {
             redisTemplate.opsForHash().put(key, item, value);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("向一张hash表中放入数据,如果不存在将创建失败,key {} :", key, e);
             return false;
         }
     }
 
     /**
-     * 向一张hash表中放入数据,如果不存在将创建
+     * 向一张hash表中放入数据,如果不存在将创建,设值过期时间
      *
      * @param key   键
      * @param item  项
@@ -312,7 +313,7 @@ public final class RedisUtils {
             }
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("向一张hash表中放入数据,如果不存在将创建,设值过期时间失败,key {} :", key, e);
             return false;
         }
     }
@@ -372,7 +373,7 @@ public final class RedisUtils {
         try {
             return redisTemplate.opsForSet().members(key);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("根据key获取Set中的所有值失败,key {} :", key, e);
             return null;
         }
     }
@@ -388,7 +389,7 @@ public final class RedisUtils {
         try {
             return redisTemplate.opsForSet().isMember(key, value);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("根据value从一个set中查询,是否存在失败,key {} :", key, e);
             return false;
         }
     }
@@ -404,7 +405,7 @@ public final class RedisUtils {
         try {
             return redisTemplate.opsForSet().add(key, values);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("将数据放入set缓存失败,key {} :", key, e);
             return 0;
         }
     }
@@ -425,7 +426,7 @@ public final class RedisUtils {
             }
             return count;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("将set数据放入缓存失败,key {} :", key, e);
             return 0;
         }
     }
@@ -440,7 +441,7 @@ public final class RedisUtils {
         try {
             return redisTemplate.opsForSet().size(key);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("获取set缓存的长度失败,key {} :", key, e);
             return 0;
         }
     }
@@ -456,7 +457,7 @@ public final class RedisUtils {
         try {
             return redisTemplate.opsForSet().remove(key, values);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("移除值为value的 失败,key {} :", key, e);
             return 0;
         }
     }
@@ -474,7 +475,7 @@ public final class RedisUtils {
         try {
             return redisTemplate.opsForList().range(key, start, end);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("获取list缓存的内容失败,key {} :", key, e);
             return null;
         }
     }
@@ -489,7 +490,7 @@ public final class RedisUtils {
         try {
             return redisTemplate.opsForList().size(key);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("获取list缓存的长度失败,key {} :", key, e);
             return 0;
         }
     }
@@ -505,7 +506,7 @@ public final class RedisUtils {
         try {
             return redisTemplate.opsForList().index(key, index);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("通过索引 获取list中的值失败,key {} :", key, e);
             return null;
         }
     }
@@ -522,7 +523,7 @@ public final class RedisUtils {
             redisTemplate.opsForList().rightPush(key, value);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("将list放入缓存失败,key {} :", key, e);
             return false;
         }
     }
@@ -543,7 +544,7 @@ public final class RedisUtils {
             }
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("将list放入缓存失败,key {} :", key, e);
             return false;
         }
     }
@@ -560,7 +561,7 @@ public final class RedisUtils {
             redisTemplate.opsForList().rightPushAll(key, value);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("将list放入缓存失败,key {} :", key, e);
             return false;
         }
     }
@@ -581,7 +582,7 @@ public final class RedisUtils {
             }
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("将list放入缓存失败,key {} :", key, e);
             return false;
         }
     }
@@ -599,7 +600,7 @@ public final class RedisUtils {
             redisTemplate.opsForList().set(key, index, value);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("根据索引修改list中的某条数据失败,key {} :", key, e);
             return false;
         }
     }
@@ -616,7 +617,7 @@ public final class RedisUtils {
         try {
             return redisTemplate.opsForList().remove(key, count, value);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("移除N个值为value失败,key {} :", key, e);
             return 0;
         }
     }
