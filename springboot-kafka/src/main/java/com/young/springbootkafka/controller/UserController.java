@@ -26,10 +26,16 @@ import java.util.List;
 @Api(tags = "用户管理相关接口")
 public class UserController {
 
-
     @GetMapping("/index")
     @ApiOperation("部署测试")
     public ResultBody<String> index() {
+        //插件自动设值
+        User user = new User();
+        user.setId("");
+        user.setUsername("");
+        user.setPassword("");
+        user.setRealname("");
+
         return ResultBody.success("docker 测试！！！");
     }
 
