@@ -6,8 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /** 
-*  User实体类
+*  User实体类  实现序列化  不然redis报错
  * @author yangbing
  * @date  2020/7/6 11:53
  * @version 1.0
@@ -16,7 +18,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @ApiModel
-public class User {
+public class User implements Serializable {
     /**
     * id
     */

@@ -1,15 +1,17 @@
 package com.young.springbootkafka.controller;
 
+import com.young.springbootkafka.constant.ResultBody;
 import com.young.springbootkafka.pojo.User;
+import com.young.springbootkafka.service.RedisService;
 import com.young.springbootkafka.utils.RedisUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,12 +28,15 @@ import java.util.List;
 @Api(tags = "redis测试接口")
 public class RedisController {
 
-    @Autowired
+    @Resource
     private RedisUtils redisUtils;
+
+    @Resource
+    private RedisService redisService;
 
     @RequestMapping(value = "/hello/{id}")
     @ApiOperation("redis测试接口")
-    public String hello(@PathVariable(value = "id") String id) {
+    public ResultBody<String> hello(@PathVariable(value = "id") String id) {
         //查询缓存中是否存在
         boolean hasKey = redisUtils.hasKey(id);
         String str = "";
@@ -54,8 +59,21 @@ public class RedisController {
             }
             //数据插入缓存（set中的参数含义：key值，user对象，缓存存在时间10（long类型），时间单位）
             redisUtils.set(id, userList, 1000L);
+            redisUtils.set(id+1, userList);
             log.info("数据插入缓存" + str);
         }
-        return str;
+        return ResultBody.success(str);
+    }
+
+
+    @RequestMapping(value = "/cache/{id}")
+    @ApiOperation("redis测试接口")
+    public ResultBody<User> helloas(@PathVariable(value = "id") String id) {
+        User user = new User();
+//        User user1 = redisService.conditionFindById(id);
+//        User user2 = redisService.conditionSave(user);
+//        redisService.conditionSave2(user);
+        User user3 = redisService.conditionDelete(user);
+        return ResultBody.success(user3);
     }
 }
