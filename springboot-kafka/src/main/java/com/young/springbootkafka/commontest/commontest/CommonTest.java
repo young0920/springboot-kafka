@@ -11,6 +11,31 @@ import java.util.Arrays;
  * @date 2018/12/28
  */
 public class CommonTest {
+    /**
+     * 数组
+     * 数组，及时有序的想同类型元素序列，数组一旦定义后，长度就不会发生改变
+     * 数组的定义方式：
+     * 第一种：数据类型[] 变量名 = new 数据类型[长度];
+     * 第二种：数据类型[] 变量名名 = {元素，元素，元素};
+     * 第三种：数据类型[] 变量名 = new 数据类型[]{元素，元素...};
+     */
+    public  void createArray() {
+
+        //第一种：数据类型[] 变量名 = new 数据类型[长度];
+        int[] arrayOne = new int[10];
+        //第二种：数据类型[] 变量名名 = {元素，元素，元素};
+        int[] arrayTwo = {1,2,4,8,9};
+        //第三种：数据类型[] 变量名 = new 数据类型[]{元素，元素...};
+        int[] arrayThree = new int[]{4,8,7,6};
+
+        int [ ][ ]  arrOne=new  int [5][3];
+        int [ ][ ]  arrTwo={{22,15,32,20,18},{12,21,25,19,33},{14,58,34,24,66},{33,22}};
+        //一维数组打印
+        System.out.println(Arrays.toString(arrayTwo));
+        //二维数组打印
+        System.out.println(Arrays.deepToString(arrTwo));
+    }
+
 /*    1.使用ArrayUtils比较数组长度是否相等
     例如：比较array1和array2的长度
     String[] array1 = { "123", "321" };
@@ -146,5 +171,6 @@ public class CommonTest {
         ct.contains();//11. false
         ct.outString();//12
         ct.upperCase();//13.ASD
+        ct.createArray();
     }
 }
