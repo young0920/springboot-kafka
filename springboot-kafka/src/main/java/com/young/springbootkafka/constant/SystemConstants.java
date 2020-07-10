@@ -9,7 +9,19 @@ package com.young.springbootkafka.constant;
  */
 public final class SystemConstants {
     /**
-     * 字符串1
+     * 线程池核心线程数
      */
-    public static final String  STRING_ONE = "1";
+    public static final int CORE_POOL_SIZE = 5;
+    /**
+     * 线程池最大线程数
+     */
+    public static final int MAX_POOL_SIZE = 5;
+    /**
+     * 线程池队列大小
+     */
+    public static final int QUEUE_CAPACITY = 500;
+    /**
+     * 线程池中的线程的名称前缀
+     */
+    public static final String THREAD_NAME_PREFIX = "async-service-";
 }
