@@ -29,9 +29,13 @@ public class VisiableThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
         log.info("{}, {},taskCount [{}], completedTaskCount [{}], activeCount [{}], queueSize [{}]",
                 this.getThreadNamePrefix(),
                 prefix,
+                //线程池已执行和未执行的任务总数
                 threadPoolExecutor.getTaskCount(),
+                //已完成的任务数量
                 threadPoolExecutor.getCompletedTaskCount(),
+                //当前线程池中正在执行任务的线程数量
                 threadPoolExecutor.getActiveCount(),
+                //获取队列中的任务数
                 threadPoolExecutor.getQueue().size());
 
     }

@@ -1,11 +1,13 @@
 package com.young.springbootkafka.controller;
 
 import com.young.springbootkafka.service.ThreadPoolAsyncService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.concurrent.Future;
 
 /**
@@ -18,11 +20,13 @@ import java.util.concurrent.Future;
 
 @RestController
 @Slf4j
+@Api(tags = "线程池测试")
 public class TestThreadPoolController {
-    @Autowired
+    @Resource
     private ThreadPoolAsyncService threadPoolAsyncService;
 
 
+    @ApiOperation("线程池测试-三个线程打印0-100")
     @RequestMapping("/executor")
     public String submit() {
         log.info("start submit");

@@ -1,0 +1,69 @@
+（1）根节点<configuration>，包含下面三个属性：
+        scan: 当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。
+　　     scanPeriod: 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。
+        debug: 当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。
+            <configuration scan="true" scanPeriod="60 seconds" debug="false"> 
+　　              <!--其他配置省略--> 
+            </configuration>
+
+(2) 子节点<contextName>：用来设置上下文名称，每个logger都关联到logger上下文，默认上下文名称为default。但可以使用<contextName>设置成其他名字，用于区分不同应用程序的记录。一旦设置，不能修改。
+            <configuration scan="true" scanPeriod="60 seconds" debug="false"> 
+            　　  <!--其他配置省略--> 
+            </configuration>　
+
+(3) 子节点<property> ：用来定义变量值，它有两个属性name和value，通过<property>定义的值会被插入到logger上下文中，可以使“${}”来使用变量。
+　　　　name: 变量的名称
+　　　　value: 的值时变量定义的值
+            <configuration scan="true" scanPeriod="60 seconds" debug="false"> 
+            　　　<property name="APP_Name" value="myAppName" /> 
+            　　　<contextName>${APP_Name}</contextName> 
+            　　　<!--其他配置省略--> 
+            </configuration>
+
+(4) 子节点<timestamp>：获取时间戳字符串，他有两个属性key和datePattern
+　　　　key: 标识此<timestamp> 的名字；
+　　　　datePattern: 设置将当前时间（解析配置文件的时间）转换为字符串的模式，遵循java.txt.SimpleDateFormat的格式。
+            <configuration scan="true" scanPeriod="60 seconds" debug="false"> 
+            　　<timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/> 
+            　　<contextName>${bySecond}</contextName> 
+            　　<!-- 其他配置省略--> 
+            </configuration>
+            
+(5) 子节点<appender>：负责写日志的组件，它有两个必要属性name和class。name指定appender名称，class指定appender的全限定名
+　　　　5.1、ConsoleAppender 把日志输出到控制台，有以下子节点：
+　　　　　　<encoder>：对日志进行格式化。（具体参数稍后讲解 ）
+　　　　　　<target>：字符串System.out(默认)或者System.err（区别不多说了）
+            <configuration> 
+            　　　<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"> 
+            　　　　　 <encoder> 
+            　　　　　　　　　<pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern> 
+            　　　　　 </encoder> 
+            　　　</appender>
+            　　　<root level="DEBUG"> 
+            　　　　　　<appender-ref ref="STDOUT" /> 
+            　　　</root> 
+            </configuration>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
