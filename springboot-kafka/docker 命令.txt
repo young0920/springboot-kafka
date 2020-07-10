@@ -102,3 +102,5 @@ root权限下，创建swapfile  # dd  if=/dev/zero  of=swapfile  bs=1024  count=
 # mkswap swapfile
 （3）、启用交换空间，这个操作有点类似于mount操作（个人理解）：
 # swapon  swapfile （删除交换空间 swapoff swapfile）
+
+mvn package -Dmaven.test.skip=true  
