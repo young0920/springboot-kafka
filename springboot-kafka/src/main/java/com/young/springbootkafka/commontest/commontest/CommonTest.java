@@ -98,6 +98,8 @@ public class CommonTest {
         int a = 123;
         int b = 234;
         int c = 456;
+        int[] array = { 123, 456, 789 };
+        System.out.println(NumberUtils.max(array));
         System.out.println(NumberUtils.max(a,b,c)+","+NumberUtils.min(a,b,c));
 
     }

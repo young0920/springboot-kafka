@@ -104,3 +104,9 @@ root权限下，创建swapfile  # dd  if=/dev/zero  of=swapfile  bs=1024  count=
 # swapon  swapfile （删除交换空间 swapoff swapfile）
 
 mvn package -Dmaven.test.skip=true  
+
+
+#docker 从容器里面拷文件到宿主机
+ docker cp 容器名：要拷贝的文件在容器里面的路径       要拷贝到宿主机的相应路径 
+ docker cp  1c95304de879:logs /root/logs
+
