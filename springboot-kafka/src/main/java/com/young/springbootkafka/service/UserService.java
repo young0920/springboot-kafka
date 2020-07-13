@@ -14,6 +14,7 @@ import java.util.List;
 public interface UserService {
     /**
      * 批量新增
+     *
      * @param userList
      * @return
      */
@@ -21,6 +22,7 @@ public interface UserService {
 
     /**
      * 批量修改
+     *
      * @param userList
      * @return
      */
@@ -28,6 +30,7 @@ public interface UserService {
 
     /**
      * 批量查询
+     *
      * @param idList
      * @return
      */
@@ -35,8 +38,14 @@ public interface UserService {
 
     /**
      * 批量删除
+     *
      * @param idList
      * @return
      */
     int deleteBatchUser(List<String> idList);
+
+    /**
+     * 测试RestTemplate
+     */
+    void testRestTemplate();
 }
