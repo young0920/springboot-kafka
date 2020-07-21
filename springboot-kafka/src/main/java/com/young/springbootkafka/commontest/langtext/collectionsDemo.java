@@ -88,6 +88,10 @@ public class collectionsDemo {
         while(ite.hasNext()){
             System.out.println(ite.next());
         }
+        System.out.println("包中元素个数为：" + bag.size());
+        System.out.println("包中entity1个数为：" + bag.getCount("b"));
+        System.out.println("去重后个数为：" + bag.uniqueSet().size());
+
         //有序的包
         System.out.println("有序的包");
         Bag bagyx=new TreeBag();
