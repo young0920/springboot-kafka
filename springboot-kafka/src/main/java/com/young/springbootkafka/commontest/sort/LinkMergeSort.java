@@ -109,7 +109,7 @@ public class LinkMergeSort {
         ListNode slow = head;
         ListNode faster = head.next;
         //快2步，慢一步
-        while (faster.next != null && faster.next.next != null) {
+        while (faster != null && faster.next != null) {
             slow = slow.next;
             faster = faster.next.next;
         }

@@ -110,3 +110,6 @@ mvn package -Dmaven.test.skip=true
  docker cp 容器名：要拷贝的文件在容器里面的路径       要拷贝到宿主机的相应路径 
  docker cp  1c95304de879:logs /root/logs
 
+
+#IDEA 连docker 无ca方式
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock  -H tcp://0.0.0.0:2375 -H unix://var/run/docker.sock
