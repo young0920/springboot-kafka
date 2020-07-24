@@ -1,15 +1,16 @@
 # From java image, version : 8
+#FROM java:8
 #指定镜像，这里用网易云仓库的java8镜像
-#FROM hub.c.163.com/library/java:8-jre
-FROM java:8
+FROM hub.c.163.com/library/java:8-jre
 # 作者
 MAINTAINER young <youngbing0920@163.com>
 # 挂载test-docker目录
 VOLUME /tmp
 
-# COPY or ADD to image
+# COPY or ADD to image 复制jar，改名为app.jar
 ADD springboot-kafka-0.0.1-SNAPSHOT.jar app.jar
 
+#修改文件的访问时间和修改时间为当前时间
 RUN bash -c "touch /app.jar"
 ENV LANG C.UTF-8
 

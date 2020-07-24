@@ -112,10 +112,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
             <!--热部署配置-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -133,6 +129,7 @@
                 <executions>
                     <execution>
                         <id>build-image</id>
+                        <!--将插件绑定在package这个phase上。也就是说，用户只需执行mvn package ，就会自动执行mvn docker:build-->
                         <phase>package</phase>
                         <goals>
                             <goal>build</goal>
@@ -147,7 +144,9 @@
                     <!-- 指定 Dockerfile 路径-->
                     <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
                     <!--指定远程 docker api地址-->
-                    <dockerHost>http://47.93.236.174:2375</dockerHost>
+                    <dockerHost>https://47.93.236.174:2376</dockerHost>
+                    <!--指定pem证书文件路径地址 -->
+                    <dockerCertPath>${project.basedir}/src/main/docker/pem</dockerCertPath>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
