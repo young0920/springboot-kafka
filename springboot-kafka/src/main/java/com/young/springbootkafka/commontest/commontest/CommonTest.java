@@ -30,6 +30,22 @@ public class CommonTest {
         return arr;
     }
 
+    public void  mathMethed(){
+        /**
+         * Math.sqrt() : 计算平方根
+         * Math.cbrt() : 计算立方根
+         * Math.pow(a, b) : 计算a的b次方
+         * Math.max( , ) : 计算最大值
+         * Math.min( , ) : 计算最小值
+         * Math.abs() : 取绝对值
+         * Math.ceil(): 天花板的意思，就是逢余进一
+         * Math.floor() : 地板的意思，就是逢余舍一
+         * Math.rint(): 四舍五入，返回double值。注意.5的时候会取偶数
+         * Math.round(): 四舍五入，float时返回int值，double时返回long值L
+         *
+         */
+    }
+
 
     /**
      * 数组  List 互转
