@@ -1,12 +1,15 @@
 package com.young.springbootkafka.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /** 
 *  User实体类  实现序列化  不然redis报错
@@ -42,4 +45,11 @@ public class User implements Serializable {
     */
     @ApiModelProperty(value = "真名")
     private String realname;
+
+    /**
+     * 时间
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @DateTimeFormat(pattern = "yyy-MM-dd HH:mm:ss")
+    private Date time;
 }
