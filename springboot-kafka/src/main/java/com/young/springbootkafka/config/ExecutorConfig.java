@@ -1,6 +1,6 @@
 package com.young.springbootkafka.config;
 
-import com.young.springbootkafka.constant.SystemConstants;
+import com.young.springbootkafka.constant.GlobalConstants;
 import com.young.springbootkafka.thread.threadpool.VisiableThreadPoolTaskExecutor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
@@ -35,16 +35,16 @@ public class ExecutorConfig {
         ThreadPoolTaskExecutor executor = new VisiableThreadPoolTaskExecutor();
 
         //配置核心线程数
-        executor.setCorePoolSize(SystemConstants.CORE_POOL_SIZE);
+        executor.setCorePoolSize(GlobalConstants.CORE_POOL_SIZE);
 
         //配置最大线程数
-        executor.setMaxPoolSize(SystemConstants.MAX_POOL_SIZE);
+        executor.setMaxPoolSize(GlobalConstants.MAX_POOL_SIZE);
 
         //配置队列大小
-        executor.setQueueCapacity(SystemConstants.QUEUE_CAPACITY);
+        executor.setQueueCapacity(GlobalConstants.QUEUE_CAPACITY);
 
         //配置线程池中的线程的名称前缀
-        executor.setThreadNamePrefix(SystemConstants.THREAD_NAME_PREFIX);
+        executor.setThreadNamePrefix(GlobalConstants.THREAD_NAME_PREFIX);
 
         // rejection-policy：当pool已经达到max size的时候，如何处理新任务
         // CALLER_RUNS：不在新线程中执行任务，而是有调用者所在的线程来执行

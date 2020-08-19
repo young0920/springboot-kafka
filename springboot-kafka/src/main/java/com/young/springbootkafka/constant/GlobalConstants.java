@@ -7,7 +7,7 @@ package com.young.springbootkafka.constant;
  * @version 1.0
  * @date 2020/7/10 15:10
  */
-public final class SystemConstants {
+public final class GlobalConstants {
     /**
      * 线程池核心线程数
      */
