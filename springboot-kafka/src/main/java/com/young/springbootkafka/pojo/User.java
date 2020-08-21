@@ -23,7 +23,7 @@ import java.util.Date;
 @ApiModel
 public class User implements Serializable {
     /**
-    * id
+    * id @JsonProperty(value= "")
     */
     @ApiModelProperty(value = "用户id")
     private String id;
