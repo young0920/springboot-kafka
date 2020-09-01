@@ -1,147 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.young.springbootkafka.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="com.young.springbootkafka.pojo.User">
-    <!--@mbg.generated-->
-    <!--@Table t_user-->
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="realname" jdbcType="VARCHAR" property="realname" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--@mbg.generated-->
-    id, username, `password`, realname
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
-    from t_user
-    where id = #{id,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    <!--@mbg.generated-->
-    delete from t_user
-    where id = #{id,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.young.springbootkafka.pojo.User">
-    <!--@mbg.generated-->
-    insert into t_user (id, username, `password`, 
-      realname)
-    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{realname,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.young.springbootkafka.pojo.User">
-    <!--@mbg.generated-->
-    insert into t_user
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="username != null">
-        username,
-      </if>
-      <if test="password != null">
-        `password`,
-      </if>
-      <if test="realname != null">
-        realname,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="username != null">
-        #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
-        #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="realname != null">
-        #{realname,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.young.springbootkafka.pojo.User">
-    <!--@mbg.generated-->
-    update t_user
-    <set>
-      <if test="username != null">
-        username = #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
+    <resultMap id="BaseResultMap" type="com.young.springbootkafka.pojo.User">
+        <!--@mbg.generated-->
+        <!--@Table t_user-->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="realname" jdbcType="VARCHAR" property="realname"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, username, `password`, realname
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from t_user
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete from t_user
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.young.springbootkafka.pojo.User">
+        <!--@mbg.generated-->
+        insert into t_user (id, username, `password`,
+        realname)
+        values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+        #{realname,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.young.springbootkafka.pojo.User">
+        <!--@mbg.generated-->
+        insert into t_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="username != null">
+                username,
+            </if>
+            <if test="password != null">
+                `password`,
+            </if>
+            <if test="realname != null">
+                realname,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="realname != null">
+                #{realname,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.young.springbootkafka.pojo.User">
+        <!--@mbg.generated-->
+        update t_user
+        <set>
+            <if test="username != null">
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                `password` = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="realname != null">
+                realname = #{realname,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.young.springbootkafka.pojo.User">
+        <!--@mbg.generated-->
+        update t_user
+        set username = #{username,jdbcType=VARCHAR},
         `password` = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="realname != null">
-        realname = #{realname,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.young.springbootkafka.pojo.User">
-    <!--@mbg.generated-->
-    update t_user
-    set username = #{username,jdbcType=VARCHAR},
-      `password` = #{password,jdbcType=VARCHAR},
-      realname = #{realname,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-  <insert id="insertBatchUser" parameterType="java.util.List">
-    insert into t_user (
-    <include refid="Base_Column_List" />
-    )
-    values
-    <foreach collection="list" item="item" index="index" separator="," >
-      (#{item.id,jdbcType=VARCHAR}, #{item.username,jdbcType=VARCHAR}, #{item.password,jdbcType=VARCHAR},
-      #{item.realname,jdbcType=VARCHAR})
-    </foreach>
+        realname = #{realname,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <insert id="insertBatchUser" parameterType="java.util.List">
+        insert into t_user (
+        <include refid="Base_Column_List"/>
+        )
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id,jdbcType=VARCHAR}, #{item.username,jdbcType=VARCHAR}, #{item.password,jdbcType=VARCHAR},
+            #{item.realname,jdbcType=VARCHAR})
+        </foreach>
 
-  </insert>
-  <update id="updateBatchUser" parameterType="java.util.List">
-    update t_user
-    <trim prefix="set" suffixOverrides=",">
-      <trim prefix="username =case" suffix="end,">
-        <foreach collection="list" item="item" index="index">
-          <if test="item.username!=null">
-            when id=#{item.id} then #{item.username}
-          </if>
+    </insert>
+    <update id="updateBatchUser" parameterType="java.util.List">
+        update t_user
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="username =case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.username!=null">
+                        when id=#{item.id} then #{item.username}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="password =case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.password!=null">
+                        when id=#{item.id} then #{item.password}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="realname =case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                    <if test="item.realname!=null">
+                        when id=#{item.id} then #{item.realname}
+                    </if>
+                </foreach>
+            </trim>
+        </trim>
+        where
+        <foreach collection="list" separator="or" item="item" index="index">
+            id=#{item.id}
         </foreach>
-      </trim>
-      <trim prefix="password =case" suffix="end,">
-        <foreach collection="list" item="item" index="index">
-          <if test="item.password!=null">
-            when id=#{item.id} then #{item.password}
-          </if>
+    </update>
+    <select id="selectBatchByIdList" resultMap="BaseResultMap" parameterType="java.util.List">
+        select
+        <include refid="Base_Column_List"/>
+        from t_user
+        where id in
+        <foreach collection="list" item="item" index="index" open="(" close=")" separator=",">
+            #{item}
         </foreach>
-      </trim>
-      <trim prefix="realname =case" suffix="end,">
-        <foreach collection="list" item="item" index="index">
-          <if test="item.realname!=null">
-            when id=#{item.id} then #{item.realname}
-          </if>
+    </select>
+    <delete id="deleteBatchUser">
+        delete from t_user where id in
+        <foreach collection="list" item="item" separator="," open="(" close=")">
+            #{item}
         </foreach>
-      </trim>
-    </trim>
-    where
-    <foreach collection="list" separator="or" item="item" index="index" >
-      id=#{item.id}
-    </foreach>
-  </update>
-  <select id="selectBatchByIdList" resultMap="BaseResultMap" parameterType="java.util.List">
-    select
-    <include refid="Base_Column_List" />
-    from t_user
-    where id in
-    <foreach collection="list" item="item" index="index" open="(" close=")" separator=",">
-      #{item}
-    </foreach>
-  </select>
-  <delete id="deleteBatchUser">
-    delete from t_user where id in
-    <foreach collection="list" item="item" separator="," open="(" close=")">
-      #{item}
-    </foreach>
-  </delete>
+    </delete>
+    <select id="testPageHelper" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_user
+    </select>
 </mapper>

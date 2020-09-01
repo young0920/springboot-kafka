@@ -85,4 +85,9 @@ public class UserServiceImpl implements UserService {
         ResponseEntity<String> exchange = restTemplate.exchange(url4, HttpMethod.GET, httpEntity4, String.class, "youku1327");
         System.out.println(exchange.getBody());
     }
+
+    @Override
+    public List<User> testPageHelper() {
+        return userMapper.testPageHelper();
+    }
 }

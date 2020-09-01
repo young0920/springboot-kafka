@@ -19,6 +19,8 @@ public interface UserMapper {
 
     int insertSelective(User record);
 
+    List<User> testPageHelper();
+
     User selectByPrimaryKey(@Param("id") String id);
 
     int updateByPrimaryKeySelective(User record);

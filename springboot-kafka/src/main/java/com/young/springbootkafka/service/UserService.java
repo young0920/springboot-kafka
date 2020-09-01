@@ -48,4 +48,6 @@ public interface UserService {
      * 测试RestTemplate
      */
     void testRestTemplate();
+
+    List<User> testPageHelper();
 }
