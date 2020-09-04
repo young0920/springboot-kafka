@@ -3,6 +3,10 @@ spring:
   profiles:
     #激活的配置文件
     active: dev
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
 
 #分页插件
 pagehelper:
@@ -10,3 +14,10 @@ pagehelper:
   params: count=countSql
   reasonable: true
   support-methods-arguments: true
+
+# 文件系统
+minio:
+  url: http://47.93.236.174:9900/
+  access-key: admin
+  secret-key: admin123456
+  bucket-name: young
