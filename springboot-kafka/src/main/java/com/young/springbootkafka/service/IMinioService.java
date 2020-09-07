@@ -15,7 +15,7 @@ public interface IMinioService {
      *
      * @param data 文件字节数组
      * @param path 文件路径，包含文件名
-     * @return 返回http地址
+     * @return 返回存储路径
      */
     String upload(byte[] data, String path);
 
@@ -24,7 +24,7 @@ public interface IMinioService {
      *
      * @param data   文件字节数组
      * @param suffix 后缀
-     * @return 返回http地址
+     * @return 返回存储路径
      */
     String uploadSuffix(byte[] data, String suffix);
 
@@ -33,7 +33,7 @@ public interface IMinioService {
      *
      * @param inputStream 字节流
      * @param path        文件路径，包含文件名
-     * @return 返回http地址
+     * @return 返回存储路径
      */
     String upload(InputStream inputStream, String path);
 
@@ -42,14 +42,21 @@ public interface IMinioService {
      *
      * @param inputStream 字节流
      * @param suffix      后缀
-     * @return 返回http地址
+     * @return 返回存储路径
      */
     String uploadSuffix(InputStream inputStream, String suffix);
 
     /**
      * 文件删除
-     * @param filePath
+     * @param filePath 文件存储路径
      * @return
      */
     void delete(String filePath);
+
+    /**
+     * 获取文件外链路径
+     * @param filePath 文件存储路径
+     * @return 返回http地址
+     */
+    String getPresignedUrl(String filePath);
 }

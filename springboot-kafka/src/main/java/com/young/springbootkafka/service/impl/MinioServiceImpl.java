@@ -74,8 +74,6 @@ public class MinioServiceImpl implements IMinioService {
         } catch (Exception e) {
             log.error("上传文件失败", e);
         }
-        //外链路径
-        //client.presignedGetObject(bucketName, path, expires);
         return path;
     }
 
@@ -89,6 +87,13 @@ public class MinioServiceImpl implements IMinioService {
     @Override
     public void delete(String filePath) {
         client.removeObject(bucketName, filePath);
+    }
+
+    @SneakyThrows
+    @Override
+    public String getPresignedUrl(String filePath) {
+        //外链路径
+        return client.presignedGetObject(bucketName, filePath, expires);
     }
 
     @SneakyThrows
