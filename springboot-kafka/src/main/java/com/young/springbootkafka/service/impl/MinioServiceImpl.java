@@ -97,6 +97,12 @@ public class MinioServiceImpl implements IMinioService {
     }
 
     @SneakyThrows
+    @Override
+    public InputStream getFileInputStream(String filePath) {
+        return client.getObject(bucketName, filePath);
+    }
+
+    @SneakyThrows
     private void createBucket(String bucketName) {
         if (!client.bucketExists(bucketName)) {
             client.makeBucket(bucketName);

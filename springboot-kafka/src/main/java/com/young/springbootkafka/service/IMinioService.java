@@ -49,7 +49,6 @@ public interface IMinioService {
     /**
      * 文件删除
      * @param filePath 文件存储路径
-     * @return
      */
     void delete(String filePath);
 
@@ -59,4 +58,12 @@ public interface IMinioService {
      * @return 返回http地址
      */
     String getPresignedUrl(String filePath);
+
+    /**
+     *
+     * 获取文件流
+     * @param filePath 文件存储路径
+     * @return 返回文件流
+     */
+    InputStream getFileInputStream(String filePath);
 }
