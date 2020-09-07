@@ -45,4 +45,11 @@ public interface IMinioService {
      * @return 返回http地址
      */
     String uploadSuffix(InputStream inputStream, String suffix);
+
+    /**
+     * 文件删除
+     * @param filePath
+     * @return
+     */
+    void delete(String filePath);
 }

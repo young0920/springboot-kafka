@@ -69,16 +69,32 @@ public class MinioServiceImpl implements IMinioService {
     @Override
     public String upload(InputStream inputStream, String path) {
         try {
+            createBucket(bucketName);
             client.putObject(bucketName, path, inputStream, inputStream.available(), "application/octet-stream");
         } catch (Exception e) {
             log.error("上传文件失败", e);
         }
-        return client.presignedGetObject(bucketName, path, expires);
+        //外链路径
+        //client.presignedGetObject(bucketName, path, expires);
+        return path;
     }
 
     @SneakyThrows
     @Override
     public String uploadSuffix(InputStream inputStream, String suffix) {
         return upload(inputStream, newFileName(suffix));
+    }
+
+    @SneakyThrows
+    @Override
+    public void delete(String filePath) {
+        client.removeObject(bucketName, filePath);
+    }
+
+    @SneakyThrows
+    private void createBucket(String bucketName) {
+        if (!client.bucketExists(bucketName)) {
+            client.makeBucket(bucketName);
+        }
     }
 }
