@@ -1,5 +1,6 @@
 package com.young.springbootkafka.pojo;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -31,6 +32,7 @@ public class User implements Serializable {
     /**
     * 用户名字
     */
+    @JSONField(alternateNames = "us")
     @ApiModelProperty(value = "用户名字")
     private String username;
 
@@ -49,7 +51,7 @@ public class User implements Serializable {
     /**
      * 时间
      */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    @DateTimeFormat(pattern = "yyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")//出参格式化
+    @DateTimeFormat(pattern = "yyy-MM-dd HH:mm:ss")//入参格式化
     private Date time;
 }

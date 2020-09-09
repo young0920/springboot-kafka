@@ -1,11 +1,12 @@
 package com.young.springbootkafka.controller;
+import java.util.Date;
 
+import com.young.springbootkafka.pojo.Test;
 import com.young.springbootkafka.service.ThreadPoolAsyncService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.concurrent.Future;
@@ -27,7 +28,7 @@ public class TestThreadPoolController {
 
 
     @ApiOperation("线程池测试-三个线程打印0-100")
-    @RequestMapping("/executor")
+    @GetMapping("/executor")
     public String submit() {
         log.info("start submit");
 
@@ -38,6 +39,16 @@ public class TestThreadPoolController {
 
         log.info("end submit");
         return "success";
+    }
+
+    @PostMapping("testTime")
+    public Test testTime(@RequestBody Test test){
+        System.out.println(test);
+        Test t = new Test();
+        t.setTime1(new Date());
+        t.setTime2(new Date());
+        t.setTime3(new Date());
+        return t;
     }
 
 }

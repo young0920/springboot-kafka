@@ -7,6 +7,7 @@ import com.young.springbootkafka.utils.RedisUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,7 +35,7 @@ public class RedisController {
     @Resource
     private RedisService redisService;
 
-    @RequestMapping(value = "/hello/{id}")
+    @GetMapping(value = "/hello/{id}")
     @ApiOperation("redis测试接口")
     public ResultBody<String> hello(@PathVariable(value = "id") String id) {
         //查询缓存中是否存在
@@ -66,7 +67,7 @@ public class RedisController {
     }
 
 
-    @RequestMapping(value = "/cache/{id}")
+    @GetMapping(value = "/cache/{id}")
     @ApiOperation("redis测试接口")
     public ResultBody<User> helloas(@PathVariable(value = "id") String id) {
         User user = new User();
