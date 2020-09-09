@@ -12,50 +12,46 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * 测试类
- *
+/** 
+*  User实体类  实现序列化  不然redis报错
  * @author yangbing
+ * @date  2020/7/6 11:53
  * @version 1.0
- * @date 2020/7/6 15:42
- */
-@ApiModel(value = "com-young-springbootkafka-pojo-Test")
+*/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Test implements Serializable {
+@ApiModel
+public class User2 implements Serializable {
     /**
-     * id
-     */
-    @ApiModelProperty(value = "id")
+    * id @JsonProperty(value= "")
+    */
+    @ApiModelProperty(value = "用户id")
     private String id;
 
     /**
-     * 姓名
-     */
-    @ApiModelProperty(value = "姓名")
-    @JSONField(alternateNames = "username")
-    private String name;
+    * 用户名字
+    */
+    @JSONField(alternateNames = "us")
+    @ApiModelProperty(value = "用户名字")
+    private String username;
 
     /**
-     * 年龄
-     */
-    @ApiModelProperty(value = "年龄")
-    private Integer age;
+    * 密码
+    */
+    @ApiModelProperty(value = "密码")
+    private String password;
 
     /**
-     * 性别
-     */
-    @ApiModelProperty(value = "性别")
-    private String sex;
+    * 真名
+    */
+    @ApiModelProperty(value = "真名")
+    private String realname;
 
+    /**
+     * 时间
+     */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")//出参格式化
     @DateTimeFormat(pattern = "yyy-MM-dd HH:mm:ss")//入参格式化
-    private Date time1;
-
-    @JSONField(format = "yyy-MM-dd HH:mm:ss")//可以换换时间戳
-    private Date time2;
-
-    private Date time3;
-
+    private Date time;
 }
