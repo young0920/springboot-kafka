@@ -7,6 +7,8 @@ import com.young.springbootkafka.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
@@ -50,6 +52,21 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void testRestTemplate() {
+
+        //headers
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.add("api-version", "1.0");
+        //body
+        MultiValueMap<String, String> requestBody = new LinkedMultiValueMap<>();
+        requestBody.add("roundid", "1");
+        //HttpEntity
+        HttpEntity<MultiValueMap> requestEntity = new HttpEntity<>(requestBody, requestHeaders);
+        RestTemplate restTemplate = new RestTemplate();
+        //post
+        ResponseEntity<String> responseEntity = restTemplate.postForEntity("http://xxx", requestEntity, String.class);
+        System.out.println(responseEntity.getBody());
+
+
         //1.post
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("user","youku1327");
@@ -57,7 +74,7 @@ public class UserServiceImpl implements UserService {
         // 设置请求类型
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         // 封装参数和头信息
-        HttpEntity<JSONObject> httpEntity = new HttpEntity(jsonObject,httpHeaders);
+        HttpEntity<JSONObject> httpEntity = new HttpEntity<>(jsonObject,httpHeaders);
         String url = "http://localhost:8090/youku1327/provider";
         ResponseEntity<String> mapResponseEntity = restTemplate.postForEntity(url, httpEntity, String.class);
         System.out.println(mapResponseEntity.getBody());
@@ -69,7 +86,7 @@ public class UserServiceImpl implements UserService {
         // 设置请求类型
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         // 封装参数和头信息
-        HttpEntity<JSONObject> httpEntity2 = new HttpEntity(jsonObject,httpHeaders);
+        HttpEntity<JSONObject> httpEntity2 = new HttpEntity<>(jsonObject,httpHeaders);
         String url2 = "http://localhost:8090/youku1327/provider/{id}";
         restTemplate.put(url2, httpEntity2, 1327);
 
