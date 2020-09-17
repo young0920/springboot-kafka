@@ -3,9 +3,10 @@ package com.young.springbootkafka.controller;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.young.springbootkafka.exception.BizException;
 import com.young.springbootkafka.constant.ResultBody;
+import com.young.springbootkafka.exception.BizException;
 import com.young.springbootkafka.pojo.User;
+import com.young.springbootkafka.pojo.User2;
 import com.young.springbootkafka.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -15,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +35,12 @@ public class UserController {
 
     @Resource
     private UserService userService;
+
+    @PostMapping("testNotBlank")
+    public ResultBody<String> testNotBlank(@Valid @RequestBody User2 user2){
+        System.out.println(user2);
+        return ResultBody.success("成功");
+    }
 
     @GetMapping("/page")
     @ApiOperation("部署测试")
