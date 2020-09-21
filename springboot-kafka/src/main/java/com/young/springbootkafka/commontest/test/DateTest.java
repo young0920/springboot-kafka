@@ -10,7 +10,7 @@ import java.util.Date;
  * @Author yangbing
  * @Date 2020/9/9 5:29 下午
  */
-public class TestA {
+public class DateTest {
     public static void main(String[] args) throws ParseException {
         String dateStart = "2008-01-01";
         String dateEnd = "2009-12-31";
@@ -18,6 +18,7 @@ public class TestA {
     }
 
     private static void printDate(String dateStart, String dateEnd) throws ParseException {
+        //        DateFormatUtils.format()
         SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
         long startTime = date.parse(dateStart).getTime();
         long endTime = date.parse(dateEnd).getTime();

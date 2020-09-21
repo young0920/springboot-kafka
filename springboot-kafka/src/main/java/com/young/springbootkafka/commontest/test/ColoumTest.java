@@ -9,7 +9,7 @@ import java.util.List;
  * @Author yangbing
  * @Date 2020/9/18 2:48 下午
  */
-public class TestB {
+public class ColoumTest {
     public static void main(String[] args) {
         String s = "            <result property=\"approvalDocId\" column=\"F_APPROVAL_DOC_ID\" jdbcType=\"VARCHAR\"/>\n" +
                 "            <result property=\"approvalDocName\" column=\"F_APPROVAL_DOC_NAME\" jdbcType=\"VARCHAR\"/>\n" +
