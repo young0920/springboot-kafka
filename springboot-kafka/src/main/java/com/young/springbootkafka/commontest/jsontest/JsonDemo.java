@@ -48,6 +48,9 @@ public class JsonDemo {
         List<JsonVO> list = JSON.parseObject(s1, type);
         System.out.println(list);
 
+        List<JsonVO> jsonVOS = JSON.parseArray(s1, JsonVO.class);
+        System.out.println(jsonVOS);
+
         // 对象转byte
         byte[] jsonBytes = JSON.toJSONBytes(jsonVO);
         System.out.println(Arrays.toString(jsonBytes));

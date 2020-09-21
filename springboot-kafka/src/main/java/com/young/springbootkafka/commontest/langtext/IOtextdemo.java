@@ -70,7 +70,7 @@ public class IOtextdemo {
     public void fileUtilsDemo(){
 
         //1.读取文件内容
-        String content= null;
+        String content;
         try {
             content = FileUtils.readFileToString(file1,"gbk");
             System.out.println(content);
@@ -91,18 +91,15 @@ public class IOtextdemo {
         }
         //4.目录拷贝
         try {
-            FileUtils.copyDirectory(file2,file3, new FileFilter() {
-                        @Override
-                        public boolean accept(File pathname) {
-                            //过滤：拷贝目录活html结为的文件
-                            if(pathname.isDirectory()||pathname.getName().endsWith("html")){
-                                return true;
-                            }else{
-                                return false;
-                            }
+            FileUtils.copyDirectory(file2,file3, pathname -> {
+                //过滤：拷贝目录活html结为的文件
+                if(pathname.isDirectory()||pathname.getName().endsWith("html")){
+                    return true;
+                }else{
+                    return false;
+                }
 
-                        }
-                    });
+            });
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -235,7 +232,7 @@ public class IOtextdemo {
         }
 
         //3.从流中读取内容，并转换胃String的list
-        InputStream is= null;
+        InputStream is;
         try {
             is = new FileInputStream(file1);
             List<String> lines=IOUtils.readLines(is,"gbk");
@@ -243,8 +240,16 @@ public class IOtextdemo {
                 System.out.println(line);
             }
             is.close();
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        //3.从流中读取内容，并转换胃String的list
+        try(InputStream ism = new FileInputStream(file1)) {
+            List<String> lines=IOUtils.readLines(ism,"gbk");
+            for(String line:lines){
+                System.out.println(line);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

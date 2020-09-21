@@ -14,8 +14,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 
-import static org.apache.commons.collections.functors.ConstantFactory.getInstance;
-
 public class langtextdemo {
     /**
      * 查找嵌套字符串
@@ -147,7 +145,7 @@ public class langtextdemo {
         //格式化TimelnMills
         String date3= DateFormatUtils.format(Calendar.getInstance().getTimeInMillis(),"yyyy MMM dd EEE HH:mm:ss");
         System.out.println(date3);
-        DateUtils.isSameDay(new Date(),new Date());
+        System.out.println(DateUtils.isSameDay(new Date(),new Date()));
         //解析日期时间字符串日期时间Date对象，通过尝试各种不同的解析器来解析表示日期的字符串
         System.out.println(DateUtils.parseDate("2017年06月03日 23时51分44秒", "yyyy-MM-dd HH:mm:ss", "yyyy年MM月dd日 HH时mm分ss秒"));
 
