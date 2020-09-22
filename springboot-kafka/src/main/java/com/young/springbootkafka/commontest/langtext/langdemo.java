@@ -1,9 +1,7 @@
 package com.young.springbootkafka.commontest.langtext;
 
-import org.apache.commons.collections.BidiMap;
-import org.apache.commons.collections.MultiMap;
-import org.apache.commons.collections.bidimap.DualHashBidiMap;
-import org.apache.commons.collections.map.MultiValueMap;
+import org.apache.commons.collections4.BidiMap;
+import org.apache.commons.collections4.bidimap.DualHashBidiMap;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -24,17 +22,6 @@ public class langdemo {
         System.out.println("VALUE-KEY:CHENGDU  "+bidiMap.getKey("CHENGDU"));
         System.out.println(StringUtils.repeat("==",40));
 
-        /**
-         * 构造Map<String,Collection>
-         */
-        System.out.println(StringUtils.center("MultiMap",80,"="));
-        MultiMap multiMap=new MultiValueMap();
-        multiMap.put("SH","SHANGHAI");
-        multiMap.put("CD","CHENGDU");
-        multiMap.put("BJ","CHENGDU");
-        multiMap.put("SH","CHANGZHOU");
-        System.out.println("key:SH: "+multiMap.get("SH"));
-        System.out.println(StringUtils.repeat("==",40));
 
         System.out.println(StringUtils.repeat("==",40));
         Map colorMap = ArrayUtils.toMap(new String[][] {

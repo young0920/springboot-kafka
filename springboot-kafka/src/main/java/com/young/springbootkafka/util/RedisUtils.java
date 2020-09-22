@@ -1,4 +1,4 @@
-package com.young.springbootkafka.utils;
+package com.young.springbootkafka.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;

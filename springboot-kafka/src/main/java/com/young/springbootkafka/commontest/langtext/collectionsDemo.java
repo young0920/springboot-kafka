@@ -1,12 +1,11 @@
 package com.young.springbootkafka.commontest.langtext;
 
-import org.apache.commons.collections.*;
-import org.apache.commons.collections.bag.HashBag;
-import org.apache.commons.collections.bag.TreeBag;
-import org.apache.commons.collections.bidimap.TreeBidiMap;
-import org.apache.commons.collections.map.HashedMap;
-import org.apache.commons.collections.map.LinkedMap;
-import org.apache.commons.collections.map.MultiValueMap;
+import org.apache.commons.collections4.*;
+import org.apache.commons.collections4.bag.HashBag;
+import org.apache.commons.collections4.bag.TreeBag;
+import org.apache.commons.collections4.bidimap.TreeBidiMap;
+import org.apache.commons.collections4.map.HashedMap;
+import org.apache.commons.collections4.map.LinkedMap;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Arrays;
@@ -48,14 +47,6 @@ public class collectionsDemo {
         bidiMap.put("SH","CHANG");
         System.out.println(bidiMap.toString());
         System.out.println("KEY-VALUE:BJ  "+bidiMap.get("SH"));
-        // 构造Map<String,Collection>
-        MultiMap multiMap=new MultiValueMap();
-        multiMap.put("SH","SHANGHAI");
-        multiMap.put("CD","CHENGDU");
-        multiMap.put("BJ","CHENGDU");
-        multiMap.put("SH","CHANG");
-        System.out.println(multiMap.toString());
-        System.out.println("key:SH: "+multiMap.get("SH"));
         //得到集合里按顺序库存放的key之后的某一key
         OrderedMap map=new LinkedMap();
         map.put("one","1");

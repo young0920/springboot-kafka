@@ -12,39 +12,38 @@
     <artifactId>springboot-kafka</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>springboot-kafka</name>
-    <description>Demo project for Spring Boot</description>
+    <description>This is whole Demo</description>
 
     <properties>
+        <dockerHost.url>https://47.93.236.174:2376</dockerHost.url>
         <java.version>1.8</java.version>
         <!--docker镜像名-->
-        <docker.image.prefix>young-test</docker.image.prefix>
+        <docker.image.prefix.name>young-test</docker.image.prefix.name>
+        <spring-boot-devtools.version>2.2.10.RELEASE</spring-boot-devtools.version>
+        <ojdbc8.version>19.7.0.0</ojdbc8.version>
+        <mysql-connector-java.version>8.0.21</mysql-connector-java.version>
+        <lombok.version>1.16.10</lombok.version>
+        <mybatis-spring-boot-starter.version>2.0.1</mybatis-spring-boot-starter.version>
+        <pagehelper-spring-boot-starter.version>1.3.0</pagehelper-spring-boot-starter.version>
+        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+        <junit-jupiter-api.version>5.6.2</junit-jupiter-api.version>
+        <fastjson.version>1.2.70</fastjson.version>
+        <commons-lang3.version>3.11</commons-lang3.version>
+        <commons-collections4.version>4.4</commons-collections4.version>
+        <commons-io.version>2.8.0</commons-io.version>
+        <spring-boot-starter-data-redis.version>2.2.10.RELEASE</spring-boot-starter-data-redis.version>
+        <hutool-all.version>5.4.3</hutool-all.version>
+        <minio.version>6.0.2</minio.version>
+        <validation-api.version>2.0.1.Final</validation-api.version>
+        <hibernate-validator.version>6.1.5.Final</hibernate-validator.version>
+        <spring-kafka.version>2.5.6.RELEASE</spring-kafka.version>
+        <docker-maven-plugin.version>1.2.1</docker-maven-plugin.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.kafka</groupId>
-            <artifactId>spring-kafka</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>com.oracle.ojdbc</groupId>
-            <artifactId>ojdbc8</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -58,20 +57,45 @@
             </exclusions>
         </dependency>
         <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <scope>runtime</scope>
+            <version>${ojdbc8.version}</version>
+        </dependency>
+        <!--热部署-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>${spring-boot-devtools.version}</version>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector-java.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+            <version>${spring-kafka.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.10</version>
+            <version>${lombok.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.3.2</version>
+            <version>${mybatis-spring-boot-starter.version}</version>
         </dependency>
         <!-- 分页插件 -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.3.0</version>
+            <version>${pagehelper-spring-boot-starter.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.mybatis.spring.boot</groupId>
@@ -79,56 +103,65 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--swagger及其可视化-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>2.9.2</version>
+            <version>${springfox-swagger2.version}</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.9.2</version>
+            <version>${springfox-swagger2.version}</version>
         </dependency>
+        <!--测试依赖-->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit-jupiter-api.version}</version>
+            <scope>test</scope>
         </dependency>
+        <!--fastjson依赖-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.70</version>
+            <version>${fastjson.version}</version>
         </dependency>
+        <!--常用工具类包-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.8.1</version>
+            <version>${commons-lang3.version}</version>
         </dependency>
+        <!--集合工具类百-->
         <dependency>
-            <groupId>commons-collections</groupId>
-            <artifactId>commons-collections</artifactId>
-            <version>3.2</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${commons-collections4.version}</version>
         </dependency>
+        <!--流工具类包-->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.6</version>
+            <version>${commons-io.version}</version>
         </dependency>
         <!--reids 依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
-            <version>2.0.4.RELEASE</version>
+            <version>${spring-boot-starter-data-redis.version}</version>
         </dependency>
+        <!--hutool工具包 可选-->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <version>5.4.0</version>
+            <version>${hutool-all.version}</version>
         </dependency>
+        <!--文件保存-->
         <dependency>
             <groupId>io.minio</groupId>
             <artifactId>minio</artifactId>
-            <version>6.0.2</version>
+            <version>${minio.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>guava</artifactId>
@@ -140,16 +173,16 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
+        <!--实体类自动判空NotBlank-->
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
-            <version>2.0.1.Final</version>
+            <version>${validation-api.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>6.1.5.Final</version>
+            <version>${hibernate-validator.version}</version>
         </dependency>
     </dependencies>
 
@@ -168,7 +201,7 @@
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version> 1.2.1</version>
+                <version>${docker-maven-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>build-image</id>
@@ -180,14 +213,14 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <imageName>${docker.image.prefix.name}/${project.artifactId}</imageName>
                     <imageTags>
                         <imageTag>latest</imageTag>
                     </imageTags>
                     <!-- 指定 Dockerfile 路径-->
                     <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
                     <!--指定远程 docker api地址-->
-                    <dockerHost>https://47.93.236.174:2376</dockerHost>
+                    <dockerHost>${dockerHost.url}</dockerHost>
                     <!--指定pem证书文件路径地址 -->
                     <dockerCertPath>${project.basedir}/src/main/docker/pem</dockerCertPath>
                     <resources>

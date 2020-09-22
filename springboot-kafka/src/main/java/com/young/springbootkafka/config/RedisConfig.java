@@ -1,6 +1,7 @@
 package com.young.springbootkafka.config;
 
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
@@ -32,6 +33,7 @@ import java.time.Duration;
 @Configuration
 @ConditionalOnClass(RedisOperations.class)
 @EnableConfigurationProperties(RedisProperties.class)
+@Slf4j
 public class RedisConfig {
 
 
@@ -74,8 +76,8 @@ public class RedisConfig {
 
     @Bean
     @ConditionalOnMissingBean(StringRedisTemplate.class)
-    public StringRedisTemplate stringRedisTemplate(
-            RedisConnectionFactory redisConnectionFactory) {
+    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
+        log.info("RedisTemplate初始化！");
         StringRedisTemplate template = new StringRedisTemplate();
         template.setConnectionFactory(redisConnectionFactory);
         return template;

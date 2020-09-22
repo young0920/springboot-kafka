@@ -3,7 +3,7 @@ package com.young.springbootkafka.controller;
 import com.young.springbootkafka.constant.ResultBody;
 import com.young.springbootkafka.pojo.User;
 import com.young.springbootkafka.service.RedisService;
-import com.young.springbootkafka.utils.RedisUtils;
+import com.young.springbootkafka.util.RedisUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

@@ -1,9 +1,7 @@
 package com.young.springbootkafka.commontest.langtext;
 
-import org.apache.commons.collections.BidiMap;
-import org.apache.commons.collections.MultiMap;
-import org.apache.commons.collections.bidimap.DualHashBidiMap;
-import org.apache.commons.collections.map.MultiValueMap;
+import org.apache.commons.collections4.BidiMap;
+import org.apache.commons.collections4.bidimap.DualHashBidiMap;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
@@ -83,17 +81,6 @@ public class langtextdemo {
         System.out.println("VALUE-KEY:CHENGDU  "+bidiMap.getKey("CHENGDU"));
     }
 
-    /**
-     * 构造Map<String,Collection>——MultiMap
-     */
-    public void createCollection(){
-        MultiMap multiMap=new MultiValueMap();
-        multiMap.put("SH","SHANGHAI");
-        multiMap.put("CD","CHENGDU");
-        multiMap.put("BJ","CHENGDU");
-        multiMap.put("SH","CHANGZHOU");
-        System.out.println("key:SH: "+multiMap.get("SH"));
-    }
 
     /**
      * 数组转Map
@@ -159,7 +146,6 @@ public class langtextdemo {
         System.out.println(upperAndLower(str));
         System.out.println(swapCase(str));
         lt.valueKey();
-        lt.createCollection();
         lt.arrayToMap();
 
         lt.arrays();

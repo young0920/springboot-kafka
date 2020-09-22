@@ -1,5 +1,6 @@
 package com.young.springbootkafka.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.ClientHttpRequestFactory;
@@ -14,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
  * @date 2020/7/13 14:16
  */
 @Configuration
+@Slf4j
 public class RestTemplateConfig {
 
     @Bean
@@ -23,6 +25,7 @@ public class RestTemplateConfig {
 
     @Bean
     public ClientHttpRequestFactory simpleClientHttpRequestFactory() {
+        log.info("restTemplate初始化！");
         // 创建一个 httpCilent 简单工厂
         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
         //设置连接超时   时间单位为ms

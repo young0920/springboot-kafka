@@ -29,7 +29,7 @@ public class ExecutorConfig {
      */
     @Bean
     public Executor asyncServiceExecutor() {
-        log.info("start asyncServiceExecutor");
+        log.info("start asyncServiceExecutor：线程池配置初始化");
 
         //ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         ThreadPoolTaskExecutor executor = new VisiableThreadPoolTaskExecutor();
