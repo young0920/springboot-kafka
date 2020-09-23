@@ -107,4 +107,17 @@ public class UserServiceImpl implements UserService {
     public List<User> testPageHelper() {
         return userMapper.testPageHelper();
     }
+
+    @Override
+    public String testToken() {
+        String url = "http://192.168.0.23:8675/nccloud/opm/accesstoken?biz_center=NJDT&password=KlB6h006s%2F2u9lRDvQ2LqLlQyy2w4xbkOHYbI%2Bj9jeg0Zu3XSKC4to3lIMgaA6LRgRV%2BJiLBtRQw%0D%0AWZa66CKKEMzdaXxX3%2BoMFdgbpCbZCfBNYqEwdoDqspJGxVXL9hXOuFx2YniboElKRyiKiY2ecqRO%0D%0AUdWFe6FWgh0%2Bo3uM0k0%3D%0D%0A&grant_type=password&signature=b287efa18c5cf02078c807e260dad18a97580814be8582d0bbb634ede971c981&client_secret=df%2BXx8PG9HVJhO8B1ownUz0%2Fk0ubQ6IRn%2BWpTmAAl33VHb2FSLugnpVAelw7x8%2BiSltAGVk%2BvKxt%0D%0AIHve2oVEIhLv1VfqU970%2FTYvjQWj1Gu1maQK8ZVJQzN0v0daaFxZ%2Fm3Ci9uUpL2iD7WESWzGodZ9%0D%0A51N0Ms8K0ffnM7taPy0%3D%0D%0A&client_id=wenlifeng&username=wenlifeng";
+        HttpHeaders httpHeaders = new HttpHeaders();
+        // 设置请求类型
+        httpHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+        HttpEntity httpEntity = new HttpEntity<>(httpHeaders);
+        String token = restTemplate.postForObject(url, httpEntity, String.class);
+        return token;
+    }
+
+
 }

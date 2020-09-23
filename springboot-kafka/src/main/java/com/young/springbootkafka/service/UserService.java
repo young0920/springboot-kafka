@@ -50,4 +50,6 @@ public interface UserService {
     void testRestTemplate();
 
     List<User> testPageHelper();
+
+    String testToken();
 }

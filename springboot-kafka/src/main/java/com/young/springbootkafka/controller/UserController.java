@@ -141,4 +141,9 @@ public class UserController {
         return ResultBody.success(userList);
     }
 
+    @GetMapping("token")
+    public String testToken(){
+        return userService.testToken();
+    }
+
 }
