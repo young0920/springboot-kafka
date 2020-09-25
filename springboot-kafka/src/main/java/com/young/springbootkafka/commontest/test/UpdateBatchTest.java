@@ -30,7 +30,10 @@ public class UpdateBatchTest {
                 "\t\tUPDATE_TIME_=#{updateTime,jdbcType=TIMESTAMP}";
         String byWhat = "ID_=#{item.id}";
         String table = "nrcm_accounting_subject";
+        //获取批量修改
         getUpdateBatch(str, byWhat, table);
+        //拼接 if  text != null
+        getIfNullText(str);
     }
 
     private static void getUpdateBatch(String str, String byWhat, String table) {
@@ -55,6 +58,23 @@ public class UpdateBatchTest {
         sb.append("            " + byWhat + "\n").append("        </foreach>\n");
         sb.append("    </update>");
         System.out.println(sb.toString());
-        System.out.println("***********************批量修改开始*********************");
+        System.out.println("***********************批量修改接收*********************");
+    }
+
+    private static void getIfNullText(String str) {
+        System.out.println("***********************拼接if text != null开始*********************");
+        StringBuilder sb = new StringBuilder("        <set>\n");
+        String[] lineArray = str.split("\n");
+        for (String eachLine : lineArray) {
+            String trim = eachLine.replace(",", " ").trim();
+            String[] coloumAndProperty = trim.split("=");
+            String property = coloumAndProperty[1].trim().split(" ")[0].replace("#{", "");
+            sb.append("            <if test=\"").append(property).append(" != null\">\n");
+            sb.append("                ").append(eachLine.trim() + "\n");
+            sb.append("            </if>\n");
+        }
+        sb.append("        </set>");
+        System.out.println(sb.toString());
+        System.out.println("***********************拼接if text != null开始*********************");
     }
 }
