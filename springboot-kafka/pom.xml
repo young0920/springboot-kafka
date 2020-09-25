@@ -187,6 +187,8 @@
     </dependencies>
 
     <build>
+        <!-- 指定package生成的文件名为 -->
+<!--        <finalName>myApp</finalName>-->
         <plugins>
             <!--热部署配置-->
             <plugin>
