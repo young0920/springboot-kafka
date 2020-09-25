@@ -1,4 +1,4 @@
-package com.young.springbootkafka.commontest.test;
+package com.young.springbootkafka.commontest.utiltest;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
