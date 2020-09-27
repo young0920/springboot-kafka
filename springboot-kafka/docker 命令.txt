@@ -96,6 +96,11 @@ docker run -d --restart=always --log-driver json-file --log-opt max-size=100m --
 docker run --restart always --name svn -d -v /usr/data/svn/data:/var/opt/svn -p 3690:3690 garethflowers/svn-server
 #mongodb
 docker run -p 27017:27017 -v /usr/data/data/mongo:/data/db --name mongodb -d mongo  --auth
+#CAS
+docker run  --restart=always  --name cas -p 8443:8443 -p 8878:8080 apereo/cas:v5.3.10 /bin/sh /cas-overlay/bin/run-cas.sh
+
+keytool -importkeystore -srckeystore server.keystore -destkeystore server.keystore -deststoretype pkcs12
+
 # nacos
 docker run -d \
 -e PREFER_HOST_MODE=ip \

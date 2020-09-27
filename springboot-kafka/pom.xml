@@ -38,6 +38,7 @@
         <hibernate-validator.version>6.1.5.Final</hibernate-validator.version>
         <spring-kafka.version>2.5.6.RELEASE</spring-kafka.version>
         <docker-maven-plugin.version>1.2.1</docker-maven-plugin.version>
+        <cas-client-autoconfig-support.version>2.2.0-GA</cas-client-autoconfig-support.version>
     </properties>
 
     <dependencies>
@@ -183,6 +184,12 @@
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>${hibernate-validator.version}</version>
+        </dependency>
+        <!--集成单点登录-->
+        <dependency>
+            <groupId>net.unicon.cas</groupId>
+            <artifactId>cas-client-autoconfig-support</artifactId>
+            <version>${cas-client-autoconfig-support.version}</version>
         </dependency>
     </dependencies>
 
