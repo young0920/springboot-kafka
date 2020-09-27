@@ -42,4 +42,14 @@ public enum CodeEnum implements BaseErrorInfoInterface {
     public String getResultMsg() {
         return resultMsg;
     }
+
+
+    public static CodeEnum ofValue(String resultCode) {
+        for (CodeEnum codeEnum : values()) {
+            if (codeEnum.resultCode.equals(resultCode)) {
+                return codeEnum;
+            }
+        }
+        return null;
+    }
 }
