@@ -73,7 +73,7 @@ public class UserController {
         user.setUsername("");
         user.setPassword("");
         user.setRealname("");
-
+        log.info("print log!");
         return ResultBody.success("docker 测试！！！");
     }
 
