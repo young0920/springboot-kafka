@@ -30,14 +30,14 @@ public class AuthInterceptor implements HandlerInterceptor {
         request.setAttribute("startTime", System.currentTimeMillis());
 
 
-        response.setStatus(500);
-        String result = "{\"code\":500}";
-        responseJson(response, result);
+//        response.setStatus(500);
+//        String result = "{\"code\":500}";
+//        responseJson(response, result);
 
         //....处理逻辑
 
         // 只有返回true才会继续向下执行，返回false取消当前请求
-        return false;
+        return true;
     }
 
     /**
