@@ -11,13 +11,18 @@ import java.util.List;
  */
 public class GenerateAliases {
     public static void main(String[] args) {
-        String s = "\t\t\t<id property=\"id\" column=\"ID_\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t\t<result property=\"lineName\" column=\"F_LINE_NAME\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t\t<result property=\"lineLength\" column=\"F_LINE_LENGTH\" jdbcType=\"NUMERIC\"/>\n" +
-                "\t\t\t<result property=\"lineStatioan\" column=\"F_LINE_STATIOAN\" jdbcType=\"NUMERIC\"/>\n" +
-                "\t\t\t<result property=\"lineInvestment\" column=\"F_LINE_INVESTMENT\" jdbcType=\"NUMERIC\"/>\n" +
-                "\t\t\t<result property=\"constructionPeriod\" column=\"F_CONSTRUCTION_PERIOD\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t\t<result property=\"startEndStatioan\" column=\"F_START_END_STATIOAN\" jdbcType=\"VARCHAR\"/>";
+        String s = "\t\t<result property=\"createBy\" column=\"CREATE_BY_\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"createTime\" column=\"CREATE_TIME_\" jdbcType=\"TIMESTAMP\"/>\n" +
+                "\t\t<result property=\"constructionPeriod\" column=\"F_CONSTRUCTION_PERIOD\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"endStation\" column=\"F_END_STATION\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"lineColorId\" column=\"F_LINE_COLOR_ID\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"lineInvestment\" column=\"F_LINE_INVESTMENT\" jdbcType=\"NUMERIC\"/>\n" +
+                "\t\t<result property=\"lineLength\" column=\"F_LINE_LENGTH\" jdbcType=\"NUMERIC\"/>\n" +
+                "\t\t<result property=\"lineMark\" column=\"F_LINE_MARK\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"lineName\" column=\"F_LINE_NAME\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"lineStatioan\" column=\"F_LINE_STATIOAN\" jdbcType=\"NUMERIC\"/>\n" +
+                "\t\t<result property=\"startEndStatioan\" column=\"F_START_END_STATIOAN\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"startStation\" column=\"F_START_STATION\" jdbcType=\"VARCHAR\"/>";
         getColoum(s,"detail");
     }
 

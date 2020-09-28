@@ -37,8 +37,8 @@ logging:
         springbootkafka :
           mapper: debug
 
-cas:
-  server-url-prefix: http://47.93.236.174:8443/cas
-  server-login-url: http://47.93.236.174:8443/cas/login
-  client-host-url: http://127.0.0.1:${server.port}
-  validation-type: cas3
+#cas:
+#  server-url-prefix: https://47.93.236.174:8443/cas
+#  server-login-url: https://47.93.236.174:8443/cas/login
+#  client-host-url: http://127.0.0.1:${server.port}
+#  validation-type: cas3
