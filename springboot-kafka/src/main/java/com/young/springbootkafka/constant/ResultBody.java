@@ -46,9 +46,16 @@ public class ResultBody<T> implements Serializable {
         this.data = data;
     }
 
-    private ResultBody(String code,String message) {
+    private ResultBody(String code, String message) {
         this.code = code;
         this.message = message;
+    }
+
+
+    private ResultBody(String code, String message, T data) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
     }
 
     public String getCode() {
@@ -105,7 +112,11 @@ public class ResultBody<T> implements Serializable {
      * 失败
      */
     public static ResultBody<String> error(String code, String message) {
-        return new ResultBody<>(code,message);
+        return new ResultBody<>(code, message);
+    }
+
+    public static <T> ResultBody<T> error(String code, String message, T data) {
+        return new ResultBody<>(code, message, data);
     }
 
 

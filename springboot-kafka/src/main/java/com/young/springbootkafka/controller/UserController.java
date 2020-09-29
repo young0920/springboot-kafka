@@ -3,6 +3,7 @@ package com.young.springbootkafka.controller;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.young.springbootkafka.constant.CodeEnum;
 import com.young.springbootkafka.constant.ResultBody;
 import com.young.springbootkafka.exception.BizException;
 import com.young.springbootkafka.pojo.User;
@@ -13,6 +14,8 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -37,9 +40,19 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("testNotBlank")
-    public ResultBody<String> testNotBlank(@Valid @RequestBody User2 user2){
+    public <T> ResultBody<T> testNotBlank(@Valid @RequestBody User2 user2, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            List<FieldError> fieldErrors = bindingResult.getFieldErrors();
+            fieldErrors.forEach(fieldError -> {
+                String field = fieldError.getField();
+                String defaultMessage = fieldError.getDefaultMessage();
+                log.error("error field is : {} ,message is : {}", field, defaultMessage);
+
+            });
+            return (ResultBody<T>) ResultBody.error(CodeEnum.PARAM_BLANK.getResultCode(), CodeEnum.PARAM_BLANK.getResultMsg(), fieldErrors);
+        }
         System.out.println(user2);
-        return ResultBody.success("成功");
+        return (ResultBody<T>) ResultBody.success("成功");
     }
 
     @GetMapping("/page")
@@ -142,7 +155,7 @@ public class UserController {
     }
 
     @GetMapping("token")
-    public String testToken(){
+    public String testToken() {
         return userService.testToken();
     }
 
