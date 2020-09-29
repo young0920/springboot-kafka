@@ -2,6 +2,7 @@ package com.young.springbootkafka.component;
 
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -48,7 +49,7 @@ public class AuthInterceptor implements HandlerInterceptor {
      * @throws Exception
      */
     private static void responseJson(HttpServletResponse response, String obj) throws Exception {
-        response.setContentType("application/json; charset=utf-8");
+        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         PrintWriter writer = response.getWriter();
         writer.print(JSONObject.parseObject(obj));
         writer.close();
