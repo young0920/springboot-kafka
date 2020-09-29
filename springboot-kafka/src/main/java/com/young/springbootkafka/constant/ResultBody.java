@@ -35,9 +35,10 @@ public class ResultBody<T> implements Serializable {
     public ResultBody() {
     }
 
-    public ResultBody(BaseErrorInfoInterface errorInfo) {
+    public ResultBody(BaseErrorInfoInterface errorInfo, T data) {
         this.code = errorInfo.getResultCode();
         this.message = errorInfo.getResultMsg();
+        this.data = data;
     }
 
     private ResultBody(T data) {
@@ -49,14 +50,9 @@ public class ResultBody<T> implements Serializable {
     private ResultBody(String code, String message) {
         this.code = code;
         this.message = message;
+        this.data = null;
     }
 
-
-    private ResultBody(String code, String message, T data) {
-        this.code = code;
-        this.message = message;
-        this.data = data;
-    }
 
     public String getCode() {
         return code;
@@ -105,7 +101,7 @@ public class ResultBody<T> implements Serializable {
      * 失败
      */
     public static ResultBody<String> error(BaseErrorInfoInterface errorInfo) {
-        return new ResultBody<>(errorInfo);
+        return new ResultBody<>(errorInfo, null);
     }
 
     /**
@@ -115,8 +111,8 @@ public class ResultBody<T> implements Serializable {
         return new ResultBody<>(code, message);
     }
 
-    public static <T> ResultBody<T> error(String code, String message, T data) {
-        return new ResultBody<>(code, message, data);
+    public static <T> ResultBody<T> error(BaseErrorInfoInterface errorInfo, T data) {
+        return new ResultBody<>(errorInfo, data);
     }
 
 
