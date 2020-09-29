@@ -74,11 +74,11 @@ public class ResultBody<T> implements Serializable {
         this.message = message;
     }
 
-    public T getResult() {
+    public T getData() {
         return data;
     }
 
-    public void setResult(T data) {
+    public void setData(T data) {
         this.data = data;
     }
 
