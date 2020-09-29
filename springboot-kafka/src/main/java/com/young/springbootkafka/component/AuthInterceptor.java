@@ -1,6 +1,8 @@
 package com.young.springbootkafka.component;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.JSON;
+import com.young.springbootkafka.constant.CodeEnum;
+import com.young.springbootkafka.constant.ResultBody;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -31,14 +33,12 @@ public class AuthInterceptor implements HandlerInterceptor {
         request.setAttribute("startTime", System.currentTimeMillis());
 
 
-//        response.setStatus(500);
-//        String result = "{\"code\":500}";
-//        responseJson(response, result);
+        responseJson(response, ResultBody.error(CodeEnum.CALIBRATION_FAILS));
 
         //....处理逻辑
 
         // 只有返回true才会继续向下执行，返回false取消当前请求
-        return true;
+        return false;
     }
 
     /**
@@ -48,10 +48,11 @@ public class AuthInterceptor implements HandlerInterceptor {
      * @param obj
      * @throws Exception
      */
-    private static void responseJson(HttpServletResponse response, String obj) throws Exception {
+    private static <T> void responseJson(HttpServletResponse response, T obj) throws Exception {
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+        response.setCharacterEncoding("UTF-8");
         PrintWriter writer = response.getWriter();
-        writer.print(JSONObject.parseObject(obj));
+        writer.print(JSON.toJSONString(obj));
         writer.close();
         response.flushBuffer();
     }
