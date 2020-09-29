@@ -9,13 +9,13 @@ import com.young.springbootkafka.exception.BizException;
 import com.young.springbootkafka.pojo.User;
 import com.young.springbootkafka.pojo.User2;
 import com.young.springbootkafka.service.UserService;
+import com.young.springbootkafka.util.BindingResultUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -40,19 +40,12 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("testNotBlank")
-    public <T> ResultBody<T> testNotBlank(@Valid @RequestBody User2 user2, BindingResult bindingResult) {
+    public ResultBody<String> testNotBlank(@Valid @RequestBody User2 user2, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            List<FieldError> fieldErrors = bindingResult.getFieldErrors();
-            fieldErrors.forEach(fieldError -> {
-                String field = fieldError.getField();
-                String defaultMessage = fieldError.getDefaultMessage();
-                log.error("error field is : {} ,message is : {}", field, defaultMessage);
-
-            });
-            return (ResultBody<T>) ResultBody.error(CodeEnum.PARAM_BLANK.getResultCode(), CodeEnum.PARAM_BLANK.getResultMsg(), fieldErrors);
+            String bindingMessage = BindingResultUtils.getBindingMessage(bindingResult);
+            return ResultBody.error(CodeEnum.CALIBRATION_FAILS.getResultCode(), bindingMessage);
         }
-        System.out.println(user2);
-        return (ResultBody<T>) ResultBody.success("成功");
+        return ResultBody.success("成功");
     }
 
     @GetMapping("/page")
