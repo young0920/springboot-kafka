@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.young.springbootkafka.constant.CodeEnum;
 import com.young.springbootkafka.constant.ResultBody;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.CharEncoding;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -50,7 +51,7 @@ public class AuthInterceptor implements HandlerInterceptor {
      */
     private static <T> void responseJson(HttpServletResponse response, T obj) throws Exception {
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-        response.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding(CharEncoding.UTF_8);
         PrintWriter writer = response.getWriter();
         writer.print(JSON.toJSONString(obj));
         writer.close();
