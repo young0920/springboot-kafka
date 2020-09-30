@@ -77,6 +77,7 @@ public class User2 implements Serializable {
     * 密码
     */
     @ApiModelProperty(value = "密码")
+    @JSONField(alternateNames = "pass")
     @NotBlank(message = "密码不能为空")
     private String password;
 
