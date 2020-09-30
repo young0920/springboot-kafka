@@ -43,7 +43,7 @@ public class UserController {
     public ResultBody<String> testNotBlank(@Valid @RequestBody User2 user2, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             String bindingMessage = BindingResultUtils.getBindingMessage(bindingResult);
-            return ResultBody.error(CodeEnum.CALIBRATION_FAILS.getResultCode(), bindingMessage);
+            return ResultBody.error(CodeEnum.DATA_VALIDATION_FAILS.getResultCode(), bindingMessage);
         }
         return ResultBody.success("成功");
     }

@@ -42,8 +42,8 @@ public class ResultBody<T> implements Serializable {
     }
 
     private ResultBody(T data) {
-        this.code = CodeEnum.SUCCESS.getResultCode();
-        this.message = CodeEnum.SUCCESS.getResultMsg();
+        this.code = CodeEnum.EXECUTE_SUCCESS.getResultCode();
+        this.message = CodeEnum.EXECUTE_SUCCESS.getResultMsg();
         this.data = data;
     }
 

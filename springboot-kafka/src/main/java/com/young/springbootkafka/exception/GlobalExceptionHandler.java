@@ -45,7 +45,7 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public ResultBody<String> exceptionHandler(HttpServletRequest req, NullPointerException e) {
         log.error("发生空指针异常！原因是:", e);
-        return ResultBody.error(CodeEnum.BODY_NOT_MATCH);
+        return ResultBody.error(CodeEnum.SYSTEM_EXECUTION_ERROR);
     }
 
 
@@ -60,6 +60,6 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public ResultBody<String> exceptionHandler(HttpServletRequest req, Exception e) {
         log.error("未知异常！原因是:", e);
-        return ResultBody.error(CodeEnum.INTERNAL_SERVER_ERROR.getResultCode(), e.getMessage());
+        return ResultBody.error(CodeEnum.SYSTEM_EXECUTION_ERROR.getResultCode(), e.getMessage());
     }
 }
