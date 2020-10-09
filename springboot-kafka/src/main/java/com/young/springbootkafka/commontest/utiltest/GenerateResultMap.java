@@ -8,62 +8,15 @@ package com.young.springbootkafka.commontest.utiltest;
  */
 public class GenerateResultMap {
     public static void main(String[] args) {
-        String s ="    private String serialNumber;\n" +
-                "\n" +
-                "    private String materialNo;\n" +
-                "\n" +
-                "    private String materialName;\n" +
-                "\n" +
-                "    private String materialClassificationNo;\n" +
-                "\n" +
-                "    private String materialClassificationName;\n" +
-                "\n" +
-                "    private String specificationType;\n" +
-                "\n" +
-                "    private String unit;\n" +
-                "\n" +
-                "    private String unitName;\n" +
-                "\n" +
-                "    private String number;\n" +
-                "\n" +
-                "    private String intaxPrice;\n" +
-                "\n" +
-                "    private String intaxAmount;\n" +
-                "\n" +
-                "    private String taxRate;\n" +
-                "\n" +
-                "    private String outtaxedUnitPrice;\n" +
-                "\n" +
-                "    private String outtaxedAmount;\n" +
-                "\n" +
-                "    private String lineNum;\n" +
-                "\n" +
-                "    private String line;\n" +
-                "\n" +
-                "    private String demandDepId;\n" +
-                "\n" +
-                "    private String demandDepName;\n" +
-                "\n" +
-                "    private String demanderId;\n" +
-                "\n" +
-                "    private String demanderName;\n" +
-                "\n" +
-                "    private String biddingBrand;\n" +
-                "\n" +
-                "    private String warranty;\n" +
-                "\n" +
-                "    private String assetClassificationNo;\n" +
-                "\n" +
-                "    private String assetClassificationName;\n" +
-                "\n" +
-                "    private String budgetType;\n" +
-                "\n" +
-                "    private String budgetTypeName;\n" +
-                "\n" +
-                "    @JsonProperty(\"isFixedCapital\")\n" +
-                "    private String isFixedCapital;\n" +
-                "    \n" +
-                "    private String remarks;";
+        String s ="    private String proNo;\n" +
+                "    private String proName;\n" +
+                "    private String proCompany;\n" +
+                "    private String proStartDate;\n" +
+                "    private String proEndDate;\n" +
+                "    private String proMoney;\n" +
+                "    private String proLastTotalmoney;\n" +
+                "    private String proPlanMoney;\n" +
+                "    private String proInPlan;";
         getResult(s);
     }
 
