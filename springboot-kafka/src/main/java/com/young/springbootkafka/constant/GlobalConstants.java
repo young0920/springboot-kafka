@@ -8,6 +8,11 @@ package com.young.springbootkafka.constant;
  * @date 2020/7/10 15:10
  */
 public final class GlobalConstants {
+
+    private GlobalConstants() {
+        throw new IllegalStateException("Utility class");
+    }
+
     /**
      * 线程池核心线程数
      */
