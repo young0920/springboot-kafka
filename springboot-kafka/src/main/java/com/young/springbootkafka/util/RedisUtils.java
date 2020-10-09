@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -23,6 +24,7 @@ import java.util.concurrent.TimeUnit;
 @Component
 @Slf4j
 public final class RedisUtils {
+    public static final String PUT_CACHE_ERROR = "将list放入缓存失败,key {} :";
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
@@ -374,7 +376,7 @@ public final class RedisUtils {
             return redisTemplate.opsForSet().members(key);
         } catch (Exception e) {
             log.error("根据key获取Set中的所有值失败,key {} :", key, e);
-            return null;
+            return Collections.emptySet();
         }
     }
 
@@ -476,7 +478,7 @@ public final class RedisUtils {
             return redisTemplate.opsForList().range(key, start, end);
         } catch (Exception e) {
             log.error("获取list缓存的内容失败,key {} :", key, e);
-            return null;
+            return Collections.emptyList();
         }
     }
 
@@ -523,7 +525,7 @@ public final class RedisUtils {
             redisTemplate.opsForList().rightPush(key, value);
             return true;
         } catch (Exception e) {
-            log.error("将list放入缓存失败,key {} :", key, e);
+            log.error(PUT_CACHE_ERROR, key, e);
             return false;
         }
     }
@@ -544,7 +546,7 @@ public final class RedisUtils {
             }
             return true;
         } catch (Exception e) {
-            log.error("将list放入缓存失败,key {} :", key, e);
+            log.error(PUT_CACHE_ERROR, key, e);
             return false;
         }
     }
@@ -561,7 +563,7 @@ public final class RedisUtils {
             redisTemplate.opsForList().rightPushAll(key, value);
             return true;
         } catch (Exception e) {
-            log.error("将list放入缓存失败,key {} :", key, e);
+            log.error(PUT_CACHE_ERROR, key, e);
             return false;
         }
     }
@@ -582,7 +584,7 @@ public final class RedisUtils {
             }
             return true;
         } catch (Exception e) {
-            log.error("将list放入缓存失败,key {} :", key, e);
+            log.error(PUT_CACHE_ERROR, key, e);
             return false;
         }
     }

@@ -1,8 +1,8 @@
 package com.young.springbootkafka.controller;
 
 import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.page.PageMethod;
 import com.young.springbootkafka.constant.CodeEnum;
 import com.young.springbootkafka.constant.ResultBody;
 import com.young.springbootkafka.exception.BizException;
@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,6 +49,17 @@ public class UserController {
         return ResultBody.success("成功");
     }
 
+    @PostMapping("testNotBlankList")
+    public ResultBody<String> testNotBlankList(@RequestBody List<User2> user2) {
+        for (User2 u : user2) {
+            String bindingMessage = BindingResultUtils.validEntity(u);
+            if(StringUtils.isNotBlank(bindingMessage)){
+                return ResultBody.error(CodeEnum.DATA_VALIDATION_FAILS.getResultCode(), bindingMessage);
+            }
+        }
+        return ResultBody.success("成功");
+    }
+
     @GetMapping("/page")
     @ApiOperation("部署测试")
     public ResultBody<PageInfo<User>> testPageHelper(@RequestParam("pageNum") Integer pageNum,
@@ -55,16 +67,16 @@ public class UserController {
         //紧跟着的第一个select方法会被分页
         //后面的不会被分页，除非再次调用PageHelper.startPage
         //1.非lambda 表达式
-        PageHelper.startPage(pageNum, pageSize);
+        PageMethod.startPage(pageNum, pageSize);
         List<User> users = userService.testPageHelper();
         PageInfo<User> pageInfo = new PageInfo<>(users);
 
         //2. lambada pageInfo  分页信息
-        PageInfo<User> userPageInfo = PageHelper.startPage(pageNum, pageSize)
+        PageInfo<User> userPageInfo = PageMethod.startPage(pageNum, pageSize)
                 .doSelectPageInfo(() -> userService.testPageHelper());
 
         //3. 返回page  没有分页信息
-        Page<User> userPage = PageHelper.startPage(pageNum, pageSize)
+        Page<User> userPage = PageMethod.startPage(pageNum, pageSize)
                 .doSelectPage(() -> userService.testPageHelper());
 
         return ResultBody.success(pageInfo);
