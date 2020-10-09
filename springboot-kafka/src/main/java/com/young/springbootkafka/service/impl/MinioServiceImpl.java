@@ -47,7 +47,7 @@ public class MinioServiceImpl implements IMinioService {
         StringBuilder sb = new StringBuilder();
         String date = DateUtil.format(new Date(), "yyyy-MM-dd");
         sb.append(date).append("/");
-        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+        String uuid = UUID.randomUUID().toString().replace("-", "");
         sb.append(uuid).append(".").append(suffix);
         return sb.toString();
     }
