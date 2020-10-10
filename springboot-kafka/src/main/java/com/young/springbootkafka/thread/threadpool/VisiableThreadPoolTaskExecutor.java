@@ -70,7 +70,6 @@ public class VisiableThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
 
 
     @Override
-
     public ListenableFuture<?> submitListenable(Runnable task) {
         showThreadPoolInfo("1. do submitListenable");
         return super.submitListenable(task);

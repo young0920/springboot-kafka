@@ -30,7 +30,7 @@ public class ResultBody<T> implements Serializable {
     /**
      * 响应结果
      */
-    private T data;
+    private transient T data;
 
     public ResultBody() {
     }

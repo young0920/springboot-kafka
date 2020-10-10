@@ -35,7 +35,7 @@ public class MinioServiceImpl implements IMinioService {
      * 1、可以通过命令设置共享域（桶）为 public 就可以永久外链了
      * 2、可以通过代码层返回文件流
      */
-    private Integer expires = 7 * 3600;
+    private static final Integer EXPIRES = 7 * 3600;
 
     /**
      * 生成新文件名
@@ -93,7 +93,7 @@ public class MinioServiceImpl implements IMinioService {
     @Override
     public String getPresignedUrl(String filePath) {
         //外链路径
-        return client.presignedGetObject(bucketName, filePath, expires);
+        return client.presignedGetObject(bucketName, filePath, EXPIRES);
     }
 
     @SneakyThrows
