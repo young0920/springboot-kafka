@@ -126,6 +126,10 @@ docker run -p 9900:9000 --name minio -d --restart=always -e "MINIO_ACCESS_KEY=ad
 docker run -d -p 8000:8080 -p 50000:50000 -v /home/jenkins:/var/jenkins_home --name jenkins --privileged=true  -u root jenkins
 ##sentinel
 docker run --name sentinel -d -p 8858:8858 -d bladex/sentinel-dashboard:1.7.1
+# sh
+source /etc/profile
+pkill -f /root/springcloud/cloudalibaba-sentinel-service8401-1.0-SNAPSHOT.jar
+nohup java -jar /root/springcloud/cloudalibaba-sentinel-service8401-1.0-SNAPSHOT.jar > nohup.log 2>&1 &
 
 
 #kafka 一直重启解决办法
