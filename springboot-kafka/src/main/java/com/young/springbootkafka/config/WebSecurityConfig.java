@@ -1,7 +1,7 @@
 package com.young.springbootkafka.config;
 
-import com.young.springbootkafka.component.JWTAuthenticationFilter;
-import com.young.springbootkafka.component.JWTAuthorizationFilter;
+import com.young.springbootkafka.component.JwtAuthenticationFilter;
+import com.young.springbootkafka.component.JwtAuthorizationFilter;
 import com.young.springbootkafka.service.authservice.AuthenticationEntryPointImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -55,8 +55,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // 其他都放行了
                 .anyRequest().permitAll()
                 .and()
-                .addFilter(new JWTAuthenticationFilter(authenticationManager()))
-                .addFilter(new JWTAuthorizationFilter(authenticationManager()))
+                .addFilter(new JwtAuthenticationFilter(authenticationManager()))
+                .addFilter(new JwtAuthorizationFilter(authenticationManager()))
                 // 不需要session
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
