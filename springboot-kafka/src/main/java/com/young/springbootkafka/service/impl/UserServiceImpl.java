@@ -2,7 +2,9 @@ package com.young.springbootkafka.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.young.springbootkafka.mapper.UserMapper;
+import com.young.springbootkafka.mapper.UsersMapper;
 import com.young.springbootkafka.pojo.User;
+import com.young.springbootkafka.pojo.Users;
 import com.young.springbootkafka.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
@@ -26,6 +28,9 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
+
+    @Resource
+    private UsersMapper usersMapper;
 
     @Resource
     private RestTemplate restTemplate;
@@ -117,6 +122,12 @@ public class UserServiceImpl implements UserService {
         HttpEntity httpEntity = new HttpEntity<>(httpHeaders);
         String token = restTemplate.postForObject(url, httpEntity, String.class);
         return token;
+    }
+
+    @Override
+    public void insertToUsers(Users user) {
+        user.setId(111);
+        usersMapper.insert(user);
     }
 
 

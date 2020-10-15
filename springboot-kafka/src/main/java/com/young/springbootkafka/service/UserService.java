@@ -1,6 +1,7 @@
 package com.young.springbootkafka.service;
 
 import com.young.springbootkafka.pojo.User;
+import com.young.springbootkafka.pojo.Users;
 
 import java.util.List;
 
@@ -52,4 +53,6 @@ public interface UserService {
     List<User> testPageHelper();
 
     String testToken();
+
+    void insertToUsers(Users user);
 }

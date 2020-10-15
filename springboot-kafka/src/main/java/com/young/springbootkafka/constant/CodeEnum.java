@@ -32,6 +32,10 @@ public enum CodeEnum implements BaseErrorInfoInterface {
      */
     CLIENT_ERROR("A0001", "用户端错误"),
     /**
+     * 权限错误
+     */
+    AUTHOR_ERROR("A0002", "权限错误"),
+    /**
      * 系统执行出错
      */
     SYSTEM_EXECUTION_ERROR("B0001", "系统执行出错"),

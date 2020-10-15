@@ -39,6 +39,10 @@
         <spring-kafka.version>2.5.6.RELEASE</spring-kafka.version>
         <docker-maven-plugin.version>1.2.1</docker-maven-plugin.version>
         <cas-client-autoconfig-support.version>2.2.0-GA</cas-client-autoconfig-support.version>
+        <spring-security-oauth2.version>2.3.5.RELEASE</spring-security-oauth2.version>
+        <spring-security-jwt.version>1.0.10.RELEASE</spring-security-jwt.version>
+        <spring-security-oauth2-autoconfigure.version>2.1.4.RELEASE</spring-security-oauth2-autoconfigure.version>
+        <jjwt.version>0.9.1</jjwt.version>
     </properties>
 
     <dependencies>
@@ -191,6 +195,32 @@
             <artifactId>cas-client-autoconfig-support</artifactId>
             <version>${cas-client-autoconfig-support.version}</version>
         </dependency>
+        <!--Spring-Security+JWT-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security.oauth</groupId>
+            <artifactId>spring-security-oauth2</artifactId>
+            <version>${spring-security-oauth2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-jwt</artifactId>
+            <version>${spring-security-jwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security.oauth.boot</groupId>
+            <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+            <version>${spring-security-oauth2-autoconfigure.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jjwt.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>

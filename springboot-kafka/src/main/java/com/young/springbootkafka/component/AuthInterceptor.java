@@ -1,15 +1,11 @@
 package com.young.springbootkafka.component;
 
-import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.codec.CharEncoding;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.PrintWriter;
 
 /**
  * 拦截器配置（只能处理到类中的方法，但是不能记录方法的参数是什么）
@@ -32,7 +28,7 @@ public class AuthInterceptor implements HandlerInterceptor {
         request.setAttribute("startTime", System.currentTimeMillis());
 
 
-//        responseJson(response, ResultBody.error(CodeEnum.CALIBRATION_FAILS));
+//        ResponseUtils.responseJson(response, ResultBody.error(CodeEnum.CALIBRATION_FAILS));
 
         //....处理逻辑
 
@@ -40,19 +36,4 @@ public class AuthInterceptor implements HandlerInterceptor {
         return true;
     }
 
-    /**
-     * 返回JSON数据
-     *
-     * @param response
-     * @param obj
-     * @throws Exception
-     */
-    private static <T> void responseJson(HttpServletResponse response, T obj) throws Exception {
-        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-        response.setCharacterEncoding(CharEncoding.UTF_8);
-        PrintWriter writer = response.getWriter();
-        writer.print(JSON.toJSONString(obj));
-        writer.close();
-        response.flushBuffer();
-    }
 }

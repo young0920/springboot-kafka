@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.young.springbootkafka.mapper.UsersMapper">
+  <resultMap id="BaseResultMap" type="com.young.springbootkafka.pojo.Users">
+    <!--@mbg.generated-->
+    <!--@Table young.user-->
+    <id column="id" property="id" />
+    <result column="username" property="username" />
+    <result column="password" property="password" />
+    <result column="role" property="role" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, username, `password`, `role`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from young.user
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from young.user
+    where id = #{id}
+  </delete>
+  <insert id="insert" parameterType="com.young.springbootkafka.pojo.Users">
+    <!--@mbg.generated-->
+    insert into young.user (id, username, `password`, `role`)
+    values (#{id}, #{username}, #{password}, #{role})
+  </insert>
+  <insert id="insertSelective" parameterType="com.young.springbootkafka.pojo.Users">
+    <!--@mbg.generated-->
+    insert into young.user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="role != null">
+        `role`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id},
+      </if>
+      <if test="username != null">
+        #{username},
+      </if>
+      <if test="password != null">
+        #{password},
+      </if>
+      <if test="role != null">
+        #{role},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.young.springbootkafka.pojo.Users">
+    <!--@mbg.generated-->
+    update young.user
+    <set>
+      <if test="username != null">
+        username = #{username},
+      </if>
+      <if test="password != null">
+        `password` = #{password},
+      </if>
+      <if test="role != null">
+        `role` = #{role},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.young.springbootkafka.pojo.Users">
+    <!--@mbg.generated-->
+    update young.user
+    set username = #{username},
+      `password` = #{password},
+      `role` = #{role}
+    where id = #{id}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update young.user
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="username = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.username}
+        </foreach>
+      </trim>
+      <trim prefix="`password` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.password}
+        </foreach>
+      </trim>
+      <trim prefix="`role` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.role}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update young.user
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="username = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.username != null">
+            when id = #{item.id} then #{item.username}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`password` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.password != null">
+            when id = #{item.id} then #{item.password}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`role` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.role != null">
+            when id = #{item.id} then #{item.role}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into young.user
+    (id, username, `password`, `role`)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.id}, #{item.username}, #{item.password}, #{item.role})
+    </foreach>
+  </insert>
+
+<!--auto generated by MybatisCodeHelper on 2020-10-15-->
+  <select id="findByUsername" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from young.user
+    where username=#{username}
+  </select>
+</mapper>
