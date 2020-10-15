@@ -1,8 +1,7 @@
 package com.young.springbootkafka.component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.young.springbootkafka.pojo.JwtUser;
-import com.young.springbootkafka.pojo.LoginUser;
+import com.young.springbootkafka.pojo.auth.JwtUser;
 import com.young.springbootkafka.util.JwtTokenUtils;
 import com.young.springbootkafka.util.ResponseUtils;
 import lombok.SneakyThrows;
@@ -31,13 +30,6 @@ import java.util.Collection;
  * @Author yangbing
  * @Date 2020/10/15 3:59 下午
  */
-
-/**
- * 验证用户名密码正确后，生成一个token，并将token返回给客户端
- * 该类继承自UsernamePasswordAuthenticationFilter，重写了其中的2个方法 ,
- * attemptAuthentication：接收并解析用户凭证。
- * successfulAuthentication：用户成功登录后，这个方法会被调用，我们在这个方法里生成token并返回。
- */
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private AuthenticationManager authenticationManager;
@@ -53,7 +45,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         // 从输入流中获取到登录的信息
         try {
-            LoginUser loginUser = new ObjectMapper().readValue(request.getInputStream(), LoginUser.class);
+            JwtUser loginUser = new ObjectMapper().readValue(request.getInputStream(), JwtUser.class);
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(loginUser.getUsername(), loginUser.getPassword())
             );
@@ -63,8 +55,14 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         }
     }
 
-    // 成功验证后调用的方法
-    // 如果验证成功，就生成token并返回
+    /**
+     * 成功验证后调用的方法
+     * 如果验证成功，就生成token并返回
+     * @param request
+     * @param response
+     * @param chain
+     * @param authResult
+     */
     @SneakyThrows
     @Override
     protected void successfulAuthentication(HttpServletRequest request,

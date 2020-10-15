@@ -1,4 +1,4 @@
-package com.young.springbootkafka.service.impl;
+package com.young.springbootkafka.service.authservice;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.young.springbootkafka.constant.CodeEnum;
@@ -7,23 +7,24 @@ import org.apache.commons.codec.CharEncoding;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.stereotype.Component;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by echisan on 2018/6/24
+ * 统一处理权限异常
  *
  * @author young
  */
-public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
+@Component
+public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint {
 
     @Override
     public void commence(HttpServletRequest request,
                          HttpServletResponse response,
-                         AuthenticationException authException) throws IOException, ServletException {
+                         AuthenticationException authException) throws IOException {
 
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setCharacterEncoding(CharEncoding.UTF_8);

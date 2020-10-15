@@ -2,7 +2,7 @@ package com.young.springbootkafka.config;
 
 import com.young.springbootkafka.component.JWTAuthenticationFilter;
 import com.young.springbootkafka.component.JWTAuthorizationFilter;
-import com.young.springbootkafka.service.impl.JwtAuthenticationEntryPoint;
+import com.young.springbootkafka.service.authservice.AuthenticationEntryPointImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -27,7 +27,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
  */
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     @Qualifier("userDetailsServiceImpl")
@@ -62,7 +62,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .exceptionHandling()
-                .authenticationEntryPoint(new JwtAuthenticationEntryPoint());
+                .authenticationEntryPoint(new AuthenticationEntryPointImpl());
+
+
+        // 记住我
+/*        http.rememberMe().rememberMeParameter("remember-me")
+                .userDetailsService(userDetailsService)
+                .tokenValiditySeconds(1000);*/
     }
 
     @Bean

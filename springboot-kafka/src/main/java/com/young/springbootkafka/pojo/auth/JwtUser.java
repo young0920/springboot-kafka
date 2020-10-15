@@ -1,5 +1,6 @@
-package com.young.springbootkafka.pojo;
+package com.young.springbootkafka.pojo.auth;
 
+import com.young.springbootkafka.pojo.Users;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
