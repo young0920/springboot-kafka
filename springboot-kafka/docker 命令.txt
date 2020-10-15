@@ -130,6 +130,14 @@ docker run --name sentinel -d -p 8858:8858 -d bladex/sentinel-dashboard:1.7.1
 source /etc/profile
 pkill -f /root/springcloud/cloudalibaba-sentinel-service8401-1.0-SNAPSHOT.jar
 nohup java -jar /root/springcloud/cloudalibaba-sentinel-service8401-1.0-SNAPSHOT.jar > nohup.log 2>&1 &
+##seata
+docker run -d --name seata-server --privileged=true\
+        -p 8091:8091 \
+        -e SEATA_IP=47.93.236.174 \
+        -e STORE_MODE=db \
+        -e SEATA_CONFIG_NAME=file:/root/seata-config/registry \
+        -v /root/seata-config:/root/seata-config  \
+        seataio/seata-server:1.2.0
 
 
 #kafka 一直重启解决办法
