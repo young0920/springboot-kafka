@@ -29,7 +29,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     /**
      * 过期时间七天
      */
-    public static final long EXPIRE = 60 * 60 * 24 * 7L;
+    public static final long EXPIRES = 60 * 60 * 24 * 7L;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -38,7 +38,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         Users user;
         if (hasKey) {
             //获取缓存
-            user = JSON.toJavaObject((JSON) redisUtils.get(key),Users.class);
+            user = JSON.toJavaObject((JSON) redisUtils.get(key), Users.class);
 
         } else {
             user = usersMapper.findByUsername(username);
@@ -47,7 +47,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 throw new UsernameNotFoundException("该用户不存在");
             }
 
-            redisUtils.set(key,user, EXPIRE);
+            redisUtils.set(key, user, EXPIRES);
         }
         return new JwtUser(user);
     }
