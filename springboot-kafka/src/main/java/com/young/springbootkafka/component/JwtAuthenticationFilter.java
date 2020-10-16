@@ -5,6 +5,7 @@ import com.young.springbootkafka.pojo.auth.JwtUser;
 import com.young.springbootkafka.util.JwtTokenUtils;
 import com.young.springbootkafka.util.ResponseUtils;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.CharEncoding;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -30,6 +31,7 @@ import java.util.Collection;
  * @Author yangbing
  * @Date 2020/10/15 3:59 下午
  */
+@Slf4j
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private AuthenticationManager authenticationManager;
@@ -50,7 +52,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                     new UsernamePasswordAuthenticationToken(loginUser.getUsername(), loginUser.getPassword())
             );
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("从输入流中获取登录信息失败", e);
             return null;
         }
     }
@@ -58,6 +60,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     /**
      * 成功验证后调用的方法
      * 如果验证成功，就生成token并返回
+     *
      * @param request
      * @param response
      * @param chain

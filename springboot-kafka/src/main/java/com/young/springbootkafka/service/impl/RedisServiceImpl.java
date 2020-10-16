@@ -2,10 +2,12 @@ package com.young.springbootkafka.service.impl;
 
 import com.young.springbootkafka.pojo.User;
 import com.young.springbootkafka.service.RedisService;
+import com.young.springbootkafka.util.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.*;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,6 +29,10 @@ import java.util.Map;
 //全局什么 value 的值
 @CacheConfig(cacheNames = "vvv")
 public class RedisServiceImpl implements RedisService {
+
+    @Resource
+    RedisUtils redisUtils;
+
     private static Map<String, User> userList = new HashMap<>();
 
     static {

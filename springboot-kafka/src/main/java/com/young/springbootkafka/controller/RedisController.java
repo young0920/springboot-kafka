@@ -71,10 +71,10 @@ public class RedisController {
     @ApiOperation("redis测试接口")
     public ResultBody<User> helloas(@PathVariable(value = "id") String id) {
         User user = new User();
-//        User user1 = redisService.conditionFindById(id);
+        User user1 = redisService.conditionFindById(id);
 //        User user2 = redisService.conditionSave(user);
 //        redisService.conditionSave2(user);
-        User user3 = redisService.conditionDelete(user);
-        return ResultBody.success(user3);
+//        User user3 = redisService.conditionDelete(user);
+        return ResultBody.success(user1);
     }
 }

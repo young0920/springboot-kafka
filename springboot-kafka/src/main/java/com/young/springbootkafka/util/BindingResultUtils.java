@@ -46,7 +46,7 @@ public class BindingResultUtils {
         StringBuilder sb = new StringBuilder();
         if (null != validResult && !validResult.isEmpty()) {
             for (ConstraintViolation<Object> constraintViolation : validResult) {
-                //这里只取了字段名，如果需要其他信息可以自己处理
+                //这里只取了字段名
                 sb.append(constraintViolation.getPropertyPath().toString()).
                         append(constraintViolation.getMessage()).append(";");
             }

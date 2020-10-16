@@ -2,12 +2,13 @@ package com.young.springbootkafka.controller;
 
 import com.young.springbootkafka.pojo.Users;
 import com.young.springbootkafka.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * AuthController
@@ -19,10 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/auth")
 public class AuthController {
 
-    @Autowired
+    @Resource
     private UserService userService;
 
-    @Autowired
+    @Resource
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @PostMapping("/register")
