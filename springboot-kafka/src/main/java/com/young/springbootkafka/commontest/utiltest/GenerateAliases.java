@@ -13,15 +13,17 @@ import java.util.List;
  */
 public class GenerateAliases {
     public static void main(String[] args) {
-        String s = "<result property=\"proNo\" column=\"proNo\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"proName\" column=\"proName\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"proCompany\" column=\"proCompany\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"proStartDate\" column=\"proStartDate\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"proEndDate\" column=\"proEndDate\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"proMoney\" column=\"proMoney\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"proLastTotalmoney\" column=\"proLastTotalmoney\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"proPlanMoney\" column=\"proPlanMoney\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"proInPlan\" column=\"proInPlan\" jdbcType=\"VARCHAR\"/>";
+        String s = "<result property=\"uscc\" column=\"uscc\" jdbcType=\"VARCHAR\"/>\n" +
+                "<result property=\"supplierName\" column=\"supplierName\" jdbcType=\"VARCHAR\"/>\n" +
+                "<result property=\"supplierNo\" column=\"supplierNo\" jdbcType=\"VARCHAR\"/>\n" +
+                "<result property=\"accountName\" column=\"accountName\" jdbcType=\"VARCHAR\"/>\n" +
+                "<result property=\"bankName\" column=\"bankName\" jdbcType=\"VARCHAR\"/>\n" +
+                "<result property=\"bankBranchName\" column=\"bankBranchName\" jdbcType=\"VARCHAR\"/>\n" +
+                "<result property=\"bankAccount\" column=\"bankAccount\" jdbcType=\"VARCHAR\"/>\n" +
+                "<result property=\"bankID\" column=\"bankID\" jdbcType=\"VARCHAR\"/>\n" +
+                "<result property=\"bankType\" column=\"bankType\" jdbcType=\"VARCHAR\"/>\n" +
+                "<result property=\"branchNumber\" column=\"branchNumber\" jdbcType=\"VARCHAR\"/>\n" +
+                "<result property=\"isDelete\" column=\"isDelete\" jdbcType=\"VARCHAR\"/>";
         getColoum(s,"");
     }
 
