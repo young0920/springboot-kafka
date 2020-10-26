@@ -31,6 +31,7 @@ class P344ReverseString {
     public static void main(String[] args) {
         Solution solution = new P344ReverseString().new Solution();
         // TO TEST
+        solution.reverseString(new char[]{'h','e','l','l','o'});
     }
 
     /**
