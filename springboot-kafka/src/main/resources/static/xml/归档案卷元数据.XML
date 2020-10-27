@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<szdag-gdajysj explain="归档案卷元数据" type="AJ">
+    <ITEM>
+        <fields explain="著录项">
+            <field id="AJTM" explain="案卷题名">AJTM1</field>
+            <field id="LJDW" explain="立卷单位">LJDW1</field>
+            <field id="QSRQ" explain="起始日期">QSRQ1</field>
+            <field id="JSRQ" explain="结束日期">JSRQ1</field>
+            <field id="HTBH" explain="合同编号">HTBH1</field>
+            <field id="HTMC" explain="合同名称">HTMC1</field>
+            <field id="HTJB" explain="合同级别">HTJB1</field>
+            <field id="HTLX" explain="合同类型">HTLX1</field>
+            <field id="XMMC" explain="项目名称">XMMC1</field>
+            <field id="XLMC" explain="线路名称">XLMC1</field>
+            <field id="QDRQ" explain="签订日期">QDRQ1</field>
+            <field id="SXRQ" explain="生效日期">SXRQ1</field>
+            <field id="ZBBM" explain="主办部门">ZBBM1</field>
+            <field id="LYBM" explain="履约部门">LYBM1</field>
+            <field id="BGXYBH" explain="变更协议编号">LJDW</field>
+            <field id="BGXYMC" explain="变更协议名称">LJDW</field>
+        </fields>
+    </ITEM>
+</szdag-gdajysj>

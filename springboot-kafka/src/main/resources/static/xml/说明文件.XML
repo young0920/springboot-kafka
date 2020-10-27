@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<szdag-smwj explain="说明文件">
+    <!--档案系统合同案卷库编码。档案库表名为“T_102”,填写值为“102”-->
+    <kbm explain="合同案卷库编码">kbm</kbm>
+    <!--填写封装包批次名称（不含扩展名）。例如：YYSWSP 120171030，为营运系统（YYSWSP）第1批2017年10月30日推送的封装包-->
+    <ztbh explain="载体编号">ztbh</ztbh>
+    <!--填写封装包中文件夹的名称，系统名称+封装包批次。例如：YCHT1,为业财合同子系统（YCHT）第1批-->
+    <wjjmc>wjjmc</wjjmc>
+    <!--封装包制作时间，例如：2017-10-30-->
+    <zzsj explain="制作时间">zzsj</zzsj>
+    <!--业务部门，值为：所属单位(部门）-->
+    <lddwmc explain="立档单位名称">lddwmc</lddwmc>
+    <!--封装包封装四位年度，例如：2017-->
+    <nd explain="年度">nd</nd>
+    <!--封装包中电子文件数量（不含.xml文件），例如：“2”-->
+    <gdwjsl explain="归档文件数量">gdwjsl</gdwjsl>
+    <!--业财合同子系统名称简写，值为“YCHT”-->
+    <xxxtmc explain="信息系统名称">xxxtmc</xxxtmc>
+</szdag-smwj>
