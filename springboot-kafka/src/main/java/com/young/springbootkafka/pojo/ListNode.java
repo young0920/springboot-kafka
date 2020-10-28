@@ -22,4 +22,23 @@ public class ListNode {
         this.val = val;
         this.next = next;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb  = new StringBuilder();
+        sb.append(this.val);
+        if (this.next != null) {
+            ListNode n = this.next;
+            while (true) {
+                sb.append("->").append(n.val);
+                //没下一个了
+                if (n.next == null){
+                    break;
+                }
+                //有下一个
+                n = n.next;
+            }
+        }
+        return sb.toString();
+    }
 }
