@@ -27,7 +27,7 @@ public class ZipUtils {
      * @throws RuntimeException 压缩失败会抛出运行时异常
      */
 
-    public static void toZip(String srcDir, OutputStream out, boolean keepDirStructure) throws RuntimeException {
+    public static void toZip(String srcDir, OutputStream out, boolean keepDirStructure) {
         long start = System.currentTimeMillis();
         ZipOutputStream zos = null;
         try {
