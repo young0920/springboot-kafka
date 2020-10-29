@@ -1,17 +1,8 @@
 package com.young.springbootkafka.commontest.xmlTest;
 
 import com.alibaba.fastjson.JSONObject;
-import org.apache.commons.lang3.StringUtils;
-import org.dom4j.Document;
-import org.dom4j.Element;
-import org.dom4j.io.OutputFormat;
-import org.dom4j.io.SAXReader;
-import org.dom4j.io.XMLWriter;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -24,11 +15,6 @@ public class GdwjysjXMLTest {
 
     public static final String FILE_PATH_GDWJYSJ = "src/main/resources/static/xml/归档文件元数据.XML";
     public static final String FILE_PATH_GDWJYSJ_OUT = "src/main/resources/static/xml/out/归档文件元数据.XML";
-    public static final String ITEM_ELEMENT = "ITEM";
-    public static final String FIELDS_ELEMENT = "fields";
-    public static final String FILES_ELEMENT = "files";
-    public static final String FILE_ELEMENT = "file";
-    public static final String ATTRIBUTE_ID = "id";
 
     private static JSONObject jsonObject = new JSONObject();
 
@@ -63,38 +49,6 @@ public class GdwjysjXMLTest {
     }
 
     public static void main(String[] args) throws Exception {
-        //1.创建SAXReader对象用于读取xml文件
-        SAXReader reader = new SAXReader();
-        //2.读取xml文件，获得Document对象
-        Document doc = reader.read(new File(FILE_PATH_GDWJYSJ));
-        //3.获取根节点
-        Element rootElement = doc.getRootElement();
-        Iterator<Element> iterator = rootElement.element(ITEM_ELEMENT).elementIterator();
-        while (iterator.hasNext()) {
-            Element element = iterator.next();
-            if(StringUtils.equals(element.getName(),FIELDS_ELEMENT)){
-                Iterator<Element> iterator2 = element.elementIterator();
-                while (iterator2.hasNext()){
-                    Element element2 = iterator2.next();
-                    element2.setText(jsonObject.getString(element2.attributeValue(ATTRIBUTE_ID)));
-                }
-            }
-            if(StringUtils.equals(element.getName(),FILES_ELEMENT)){
-                Element element3 = element.element(FILE_ELEMENT);
-                XmlUtils.forEachFileElement(jsonObjectList, element, element3);
-            }
-        }
-
-        //根据值写入新文件
-        OutputFormat format = new OutputFormat();
-        format.setEncoding("GBK");
-        format.setSuppressDeclaration(false);
-        File file = new File(FILE_PATH_GDWJYSJ_OUT);
-        if (!file.getParentFile().exists()) {
-            file.getParentFile().mkdirs();
-        }
-        XMLWriter writer = new XMLWriter(new FileOutputStream(FILE_PATH_GDWJYSJ_OUT), format);
-        writer.write(doc);
-        writer.close();
+        XmlUtils.generateGdwjysj(jsonObject, jsonObjectList, FILE_PATH_GDWJYSJ, FILE_PATH_GDWJYSJ_OUT);
     }
 }

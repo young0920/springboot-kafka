@@ -124,7 +124,7 @@ public class XmlUtils {
      * @param element ITEM节点
      * @param element3 file 节点
      */
-    static void forEachFileElement(List<JSONObject> jsonObjectList, Element element, Element element3) {
+    private static void forEachFileElement(List<JSONObject> jsonObjectList, Element element, Element element3) {
         jsonObjectList.forEach(jsonObject1 -> {
             Iterator<Element> iterator3 = element3.elementIterator();
             while (iterator3.hasNext()) {
