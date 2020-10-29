@@ -20,6 +20,7 @@ import java.util.Iterator;
 public class SmwjXMLTest {
 
     public static final String FILE_PATH_SMWJ = "src/main/resources/static/xml/说明文件.XML";
+    public static final String FILE_PATH_SMWJ_OUT = "src/main/resources/static/xml/out/说明文件.XML";
 
     private static JSONObject jsonObject = new JSONObject();
 
@@ -51,8 +52,9 @@ public class SmwjXMLTest {
 
         //根据值写入新文件
         OutputFormat format = new OutputFormat();
+        format.setEncoding("GBK");
         format.setSuppressDeclaration(false);
-        XMLWriter writer = new XMLWriter(new FileOutputStream(FILE_PATH_SMWJ), format);
+        XMLWriter writer = new XMLWriter(new FileOutputStream(FILE_PATH_SMWJ_OUT), format);
         writer.write(doc);
         writer.close();
     }

@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<szdag-gdajysj explain="å½’æ¡£æ¡ˆå·å…ƒæ•°æ®" type="AJ">
+<?xml version="1.0" encoding="GBK"?>
+<szdag-gdajysj explain="¹éµµ°¸¾íÔªÊý¾Ý" type="AJ">
     <ITEM>
-        <fields explain="è‘—å½•é¡¹">
-            <field id="AJTM" explain="æ¡ˆå·é¢˜å">AJTM1</field>
-            <field id="LJDW" explain="ç«‹å·å•ä½">LJDW1</field>
-            <field id="QSRQ" explain="èµ·å§‹æ—¥æœŸ">QSRQ1</field>
-            <field id="JSRQ" explain="ç»“æŸæ—¥æœŸ">JSRQ1</field>
-            <field id="HTBH" explain="åˆåŒç¼–å·">HTBH1</field>
-            <field id="HTMC" explain="åˆåŒåç§°">HTMC1</field>
-            <field id="HTJB" explain="åˆåŒçº§åˆ«">HTJB1</field>
-            <field id="HTLX" explain="åˆåŒç±»åž‹">HTLX1</field>
-            <field id="XMMC" explain="é¡¹ç›®åç§°">XMMC1</field>
-            <field id="XLMC" explain="çº¿è·¯åç§°">XLMC1</field>
-            <field id="QDRQ" explain="ç­¾è®¢æ—¥æœŸ">QDRQ1</field>
-            <field id="SXRQ" explain="ç”Ÿæ•ˆæ—¥æœŸ">SXRQ1</field>
-            <field id="ZBBM" explain="ä¸»åŠžéƒ¨é—¨">ZBBM1</field>
-            <field id="LYBM" explain="å±¥çº¦éƒ¨é—¨">LYBM1</field>
-            <field id="BGXYBH" explain="å˜æ›´åè®®ç¼–å·">LJDW</field>
-            <field id="BGXYMC" explain="å˜æ›´åè®®åç§°">LJDW</field>
+        <fields explain="ÖøÂ¼Ïî">
+            <field id="AJTM" explain="°¸¾íÌâÃû"></field>
+            <field id="LJDW" explain="Á¢¾íµ¥Î»"></field>
+            <field id="QSRQ" explain="ÆðÊ¼ÈÕÆÚ"></field>
+            <field id="JSRQ" explain="½áÊøÈÕÆÚ"></field>
+            <field id="HTBH" explain="ºÏÍ¬±àºÅ"></field>
+            <field id="HTMC" explain="ºÏÍ¬Ãû³Æ"></field>
+            <field id="HTJB" explain="ºÏÍ¬¼¶±ð"></field>
+            <field id="HTLX" explain="ºÏÍ¬ÀàÐÍ"></field>
+            <field id="XMMC" explain="ÏîÄ¿Ãû³Æ"></field>
+            <field id="XLMC" explain="ÏßÂ·Ãû³Æ"></field>
+            <field id="QDRQ" explain="Ç©¶©ÈÕÆÚ"></field>
+            <field id="SXRQ" explain="ÉúÐ§ÈÕÆÚ"></field>
+            <field id="ZBBM" explain="Ö÷°ì²¿ÃÅ"></field>
+            <field id="LYBM" explain="ÂÄÔ¼²¿ÃÅ"></field>
+            <field id="BGXYBH" explain="±ä¸üÐ­Òé±àºÅ"></field>
+            <field id="BGXYMC" explain="±ä¸üÐ­ÒéÃû³Æ"></field>
         </fields>
     </ITEM>
 </szdag-gdajysj>

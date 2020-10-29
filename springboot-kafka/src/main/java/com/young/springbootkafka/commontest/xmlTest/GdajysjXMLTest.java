@@ -20,6 +20,7 @@ import java.util.Iterator;
 public class GdajysjXMLTest {
 
     public static final String FILE_PATH_GDAJYSJ = "src/main/resources/static/xml/归档案卷元数据.XML";
+    public static final String FILE_PATH_GDAJYSJ_OUT = "src/main/resources/static/xml/out/归档案卷元数据.XML";
     public static final String ITEM_ELEMENT = "ITEM";
     public static final String FIELDS_ELEMENT = "fields";
     public static final String ATTRIBUTE_ID = "id";
@@ -60,8 +61,9 @@ public class GdajysjXMLTest {
         }
         //根据值写入新文件
         OutputFormat format = new OutputFormat();
+        format.setEncoding("GBK");
         format.setSuppressDeclaration(false);
-        XMLWriter writer = new XMLWriter(new FileOutputStream(FILE_PATH_GDAJYSJ), format);
+        XMLWriter writer = new XMLWriter(new FileOutputStream(FILE_PATH_GDAJYSJ_OUT), format);
         writer.write(doc);
         writer.close();
     }
