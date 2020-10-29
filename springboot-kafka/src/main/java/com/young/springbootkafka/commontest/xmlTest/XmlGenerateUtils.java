@@ -21,7 +21,7 @@ import java.util.List;
  * @author yangbing
  * @date 2020/10/29 3:55 下午
  */
-public class XmlUtils {
+public class XmlGenerateUtils {
 
     /**
      * 获取xml文件对象
@@ -89,8 +89,8 @@ public class XmlUtils {
      *
      * @param jsonObject     著录项
      * @param jsonObjectList 文件内容
-     * @param filePath    文件所在地址
-     * @param filePathOut 输出文件地址
+     * @param filePath       文件所在地址
+     * @param filePathOut    输出文件地址
      * @throws Exception
      */
     public static void generateGdwjysj(JSONObject jsonObject, List<JSONObject> jsonObjectList, String filePath, String filePathOut) throws Exception {
@@ -120,9 +120,10 @@ public class XmlUtils {
 
     /**
      * 历生成归档文件元数据 文件信息
+     *
      * @param jsonObjectList 文件内容信息
-     * @param element ITEM节点
-     * @param element3 file 节点
+     * @param element        ITEM节点
+     * @param element3       file 节点
      */
     private static void forEachFileElement(List<JSONObject> jsonObjectList, Element element, Element element3) {
         jsonObjectList.forEach(jsonObject1 -> {
@@ -147,7 +148,7 @@ public class XmlUtils {
     private static void outPutXml(String filePathOut, Document doc) throws IOException {
         //根据值写入新文件
         OutputFormat format = new OutputFormat();
-        format.setEncoding("GBK");
+        format.setEncoding(XmlConstants.GBK_STR);
         format.setSuppressDeclaration(false);
         File file = new File(filePathOut);
         if (!file.getParentFile().exists()) {

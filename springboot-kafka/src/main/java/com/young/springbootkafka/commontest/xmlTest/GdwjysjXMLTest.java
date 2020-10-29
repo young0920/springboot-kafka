@@ -49,6 +49,6 @@ public class GdwjysjXMLTest {
     }
 
     public static void main(String[] args) throws Exception {
-        XmlUtils.generateGdwjysj(jsonObject, jsonObjectList, FILE_PATH_GDWJYSJ, FILE_PATH_GDWJYSJ_OUT);
+        XmlGenerateUtils.generateGdwjysj(jsonObject, jsonObjectList, FILE_PATH_GDWJYSJ, FILE_PATH_GDWJYSJ_OUT);
     }
 }

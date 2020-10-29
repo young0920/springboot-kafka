@@ -36,7 +36,7 @@ public class GdajysjXMLTest {
 
 
     public static void main(String[] args) throws Exception {
-        XmlUtils.generateGdajysj(jsonObject, FILE_PATH_GDAJYSJ, FILE_PATH_GDAJYSJ_OUT);
+        XmlGenerateUtils.generateGdajysj(jsonObject, FILE_PATH_GDAJYSJ, FILE_PATH_GDAJYSJ_OUT);
 
     }
 }

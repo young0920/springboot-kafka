@@ -29,7 +29,7 @@ public class SmwjXMLTest {
 
     public static void main(String[] args) throws Exception {
 
-        XmlUtils.generateSmwj(jsonObject,FILE_PATH_SMWJ,FILE_PATH_SMWJ_OUT);
+        XmlGenerateUtils.generateSmwj(jsonObject,FILE_PATH_SMWJ,FILE_PATH_SMWJ_OUT);
 
     }
 }
