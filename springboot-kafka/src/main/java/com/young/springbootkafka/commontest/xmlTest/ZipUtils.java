@@ -1,7 +1,9 @@
 package com.young.springbootkafka.commontest.xmlTest;
 
+import cn.hutool.core.io.FileUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.io.FileUtils;
 
 import java.io.*;
 import java.util.zip.ZipEntry;
@@ -29,23 +31,13 @@ public class ZipUtils {
 
     public static void toZip(String srcDir, OutputStream out, boolean keepDirStructure) {
         long start = System.currentTimeMillis();
-        ZipOutputStream zos = null;
-        try {
-            zos = new ZipOutputStream(out);
+        try(ZipOutputStream zos = new ZipOutputStream(out)) {
             File sourceFile = new File(srcDir);
             compress(sourceFile, zos, sourceFile.getName(), keepDirStructure);
             long end = System.currentTimeMillis();
             log.info("压缩完成，耗时：" + (end - start) + " ms");
         } catch (Exception e) {
             throw new RuntimeException("zip error from ZipUtils", e);
-        } finally {
-            if (zos != null) {
-                try {
-                    zos.close();
-                } catch (IOException e) {
-                    log.error("close error", e);
-                }
-            }
         }
     }
 
@@ -112,5 +104,9 @@ public class ZipUtils {
         //获取文件字节大小
         System.out.println(file.length());
         System.out.println(md5Hex);
+
+        //获取16进制文件头
+        String result = FileHeaderUtils.getFileHead(file);
+        System.out.println(result.substring(0,8));
     }
 }
