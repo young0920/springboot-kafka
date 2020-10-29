@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="GBK"?>
+<szdag-gdwjysj explain="归档文件元数据" type="YWYJ">
+    <ITEM>
+        <fields explain="著录项">
+            <field id="WJBH" explain="文件编号">WJBH</field>
+            <field id="WJTM" explain="文件题名">WJTM</field>
+            <field id="ZRZ" explain="责任者">ZRZ</field>
+            <field id="BZRQ" explain="编制日期">BZRQ</field>
+            <field id="WJLX" explain="文件类型">WJLX</field>
+        </fields>
+        <files explain="原文列表">
+            
+        <file explain="原文">
+                <!--电子文件标题（显示名称）-->
+                <title explain="标题" type="string">title1</title>
+                <!--电子文件大小，字节-->
+                <size explain="大小" type="integer">size1</size>
+                <!-- 实际电子文件名称，不要包含中文-->
+                <name explain="名称(文件名),包含扩展名" type="string">name1</name>
+                <!--类型有正文、附件、过程稿-->
+                <type explain="类型" type="string">type1</type>
+                <!--电子文件的MD5码（转为小写）-->
+                <abstract explain="数字摘要值">abstract1</abstract>
+                <!--电子文件16进制文件头-->
+                <fileheader>fileheader1</fileheader>
+            </file><file explain="原文">
+                <!--电子文件标题（显示名称）-->
+                <title explain="标题" type="string">title2</title>
+                <!--电子文件大小，字节-->
+                <size explain="大小" type="integer">size2</size>
+                <!-- 实际电子文件名称，不要包含中文-->
+                <name explain="名称(文件名),包含扩展名" type="string">name2</name>
+                <!--类型有正文、附件、过程稿-->
+                <type explain="类型" type="string">type2</type>
+                <!--电子文件的MD5码（转为小写）-->
+                <abstract explain="数字摘要值">abstract2</abstract>
+                <!--电子文件16进制文件头-->
+                <fileheader>fileheader2</fileheader>
+            </file></files>
+    </ITEM>
+</szdag-gdwjysj>

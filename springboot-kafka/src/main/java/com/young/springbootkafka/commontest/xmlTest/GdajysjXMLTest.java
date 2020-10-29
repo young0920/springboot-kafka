@@ -63,6 +63,10 @@ public class GdajysjXMLTest {
         OutputFormat format = new OutputFormat();
         format.setEncoding("GBK");
         format.setSuppressDeclaration(false);
+        File file = new File(FILE_PATH_GDAJYSJ_OUT);
+        if (!file.getParentFile().exists()) {
+            file.getParentFile().mkdirs();
+        }
         XMLWriter writer = new XMLWriter(new FileOutputStream(FILE_PATH_GDAJYSJ_OUT), format);
         writer.write(doc);
         writer.close();
