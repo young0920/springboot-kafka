@@ -38,7 +38,7 @@ public class Demo01JDBCUtils {
             //执行sql
             result = st.executeUpdate(sql);
         } catch (SQLException e) {
-            log.error("SQL execute error", e);
+            log.error("SQL inset error", e);
         } finally {
             JDBCUtils.close(null, st, conn);
         }
