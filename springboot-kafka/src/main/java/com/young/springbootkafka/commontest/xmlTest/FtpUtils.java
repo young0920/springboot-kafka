@@ -28,7 +28,7 @@ public class FtpUtils {
      * @param input    输入流
      * @return 成功返回true，否则返回false
      */
-    public static boolean uploadFile(String host, int port, String username, String password, String basePath,
+    private static boolean uploadFile(String host, int port, String username, String password, String basePath,
                                      String filePath, String filename, InputStream input) {
         boolean result = false;
         FTPClient ftp = new FTPClient();
@@ -85,10 +85,14 @@ public class FtpUtils {
         return result;
     }
 
+    public static boolean uploadFile(String filename, InputStream input){
+        return  uploadFile("47.93.236.174", 21, "test", "test", "/", "/aaa", filename, input);
+    }
+
     public static void main(String[] args) {
         try {
             FileInputStream in = new FileInputStream(new File("/Users/young/SvnWorkPlace/Temp/aa.zip"));
-            boolean flag = uploadFile("47.93.236.174", 21, "test", "test", "/", "/aaa", "aaa.zip", in);
+            boolean flag = uploadFile("aaa.zip", in);
             System.out.println(flag);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
