@@ -1,5 +1,7 @@
 package com.young.springbootkafka.commontest.xmlTest;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -12,11 +14,12 @@ import java.util.Properties;
  * @author yangbing
  * @date 2020/10/29 8:38 下午
  */
+@Slf4j
 public class JDBCUtils {
     private static String url;
     private static String user;
     private static String password;
-    private  static String driver;
+    private static String driver;
 
     /**
      * 文件读取，只会执行一次，使用静态代码块
@@ -28,7 +31,8 @@ public class JDBCUtils {
             Properties pro = new Properties();
             //获取src路径下的文件--->ClassLoader类加载器
             ClassLoader classLoader = JDBCUtils.class.getClassLoader();
-            URL resource = classLoader.getResource("jdbc.properties");;
+            URL resource = classLoader.getResource("jdbc.properties");
+            ;
             String path = resource.getPath();
             //2.加载文件
             pro.load(new FileReader(path));
@@ -40,44 +44,46 @@ public class JDBCUtils {
             //4.注册驱动
             Class.forName(driver);
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            log.error("connect database error", e);
         }
     }
+
     /**
      * 获取连接
+     *
      * @return 连接对象
      */
     public static Connection getConnection() throws SQLException {
-        Connection conn = DriverManager.getConnection(url, user, password);
-        return conn;
+        return DriverManager.getConnection(url, user, password);
     }
 
     /**
      * 释放资源
+     *
      * @param rs
      * @param st
      * @param conn
      */
-    public static void close(ResultSet rs, Statement st, Connection conn){
-        if (rs != null){
+    public static void close(ResultSet rs, Statement st, Connection conn) {
+        if (rs != null) {
             try {
                 rs.close();
             } catch (SQLException e) {
-                e.printStackTrace();
+                log.error("close ResultSet error", e);
             }
         }
-        if(st != null){
+        if (st != null) {
             try {
                 st.close();
             } catch (SQLException e) {
-                e.printStackTrace();
+                log.error("close Statement error", e);
             }
         }
-        if (conn != null){
+        if (conn != null) {
             try {
                 conn.close();
             } catch (SQLException e) {
-                e.printStackTrace();
+                log.error("close Connection error", e);
             }
         }
     }

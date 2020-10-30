@@ -1,6 +1,7 @@
 package com.young.springbootkafka.commontest.xmlTest;
 
 import com.young.springbootkafka.pojo.User;
+import lombok.extern.slf4j.Slf4j;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -16,6 +17,7 @@ import java.util.List;
  * @author yangbing
  * @date 2020/10/29 8:43 下午
  */
+@Slf4j
 public class Demo01JDBCUtils {
     public static void main(String[] args) {
         List<User> list = findAll();
@@ -46,7 +48,7 @@ public class Demo01JDBCUtils {
                 list.add(bean);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("SQL execute error", e);
         }finally {
             JDBCUtils.close(rs,st,conn);
         }
