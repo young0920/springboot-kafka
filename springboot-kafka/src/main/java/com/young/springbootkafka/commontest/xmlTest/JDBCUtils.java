@@ -32,7 +32,6 @@ public class JDBCUtils {
             //获取src路径下的文件--->ClassLoader类加载器
             ClassLoader classLoader = JDBCUtils.class.getClassLoader();
             URL resource = classLoader.getResource("jdbc.properties");
-            ;
             String path = resource.getPath();
             //2.加载文件
             pro.load(new FileReader(path));

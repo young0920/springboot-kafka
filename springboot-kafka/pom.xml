@@ -44,6 +44,7 @@
         <spring-security-oauth2-autoconfigure.version>2.1.4.RELEASE</spring-security-oauth2-autoconfigure.version>
         <jjwt.version>0.9.1</jjwt.version>
         <dom4j.version>1.6.1</dom4j.version>
+        <commons-net.version>3.6</commons-net.version>
     </properties>
 
     <dependencies>
@@ -225,6 +226,11 @@
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
             <version>${dom4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>${commons-net.version}</version>
         </dependency>
     </dependencies>
 
