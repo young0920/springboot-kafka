@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.young.springbootkafka.mapper.EtlSxjyOanewMapper">
+  <resultMap id="BaseResultMap" type="com.young.springbootkafka.pojo.EtlSxjyOanew">
+    <!--@mbg.generated-->
+    <!--@Table young.ETL_SXJY_OANEW-->
+    <id column="id" property="id" />
+    <result column="nrms" property="nrms" />
+    <result column="xxxtmc" property="xxxtmc" />
+    <result column="yjzt" property="yjzt" />
+    <result column="yjdw_zqxjy" property="yjdwZqxjy" />
+    <result column="jyzt" property="jyzt" />
+    <result column="filename" property="filename" />
+    <result column="qzh" property="qzh" />
+    <result column="kbm" property="kbm" />
+    <result column="nd" property="nd" />
+    <result column="yjdw_tbr" property="yjdwTbr" />
+    <result column="yjdw_tbsj" property="yjdwTbsj" />
+    <result column="ztbh" property="ztbh" />
+    <result column="jyxx" property="jyxx" />
+    <result column="path" property="path" />
+    <result column="times" property="times" />
+    <result column="szzyz" property="szzyz" />
+    <result column="wjrl" property="wjrl" />
+    <result column="yjdw_dasl" property="yjdwDasl" />
+    <result column="yjdw_wzxjy" property="yjdwWzxjy" />
+    <result column="yjdw_kyxjy" property="yjdwKyxjy" />
+    <result column="yjdw_aqxjy" property="yjdwAqxjy" />
+    <result column="yjdw" property="yjdw" />
+    <result column="createdate" property="createdate" />
+    <result column="oldid" property="oldid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, nrms, xxxtmc, yjzt, yjdw_zqxjy, jyzt, filename, qzh, kbm, nd, yjdw_tbr, yjdw_tbsj, 
+    ztbh, jyxx, `path`, times, szzyz, wjrl, yjdw_dasl, yjdw_wzxjy, yjdw_kyxjy, yjdw_aqxjy, 
+    yjdw, createdate, oldid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from young.ETL_SXJY_OANEW
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from young.ETL_SXJY_OANEW
+    where id = #{id}
+  </delete>
+  <insert id="insert" parameterType="com.young.springbootkafka.pojo.EtlSxjyOanew">
+    <!--@mbg.generated-->
+    insert into young.ETL_SXJY_OANEW (id, nrms, xxxtmc, yjzt, yjdw_zqxjy, jyzt, filename, qzh, 
+      kbm, nd, yjdw_tbr, yjdw_tbsj, ztbh, jyxx, `path`, times, szzyz, 
+      wjrl, yjdw_dasl, yjdw_wzxjy, yjdw_kyxjy, yjdw_aqxjy, yjdw, createdate, 
+      oldid)
+    values (#{id}, #{nrms}, #{xxxtmc}, #{yjzt}, #{yjdwZqxjy}, #{jyzt}, #{filename}, #{qzh}, 
+      #{kbm}, #{nd}, #{yjdwTbr}, #{yjdwTbsj}, #{ztbh}, #{jyxx}, #{path}, #{times}, #{szzyz}, 
+      #{wjrl}, #{yjdwDasl}, #{yjdwWzxjy}, #{yjdwKyxjy}, #{yjdwAqxjy}, #{yjdw}, #{createdate}, 
+      #{oldid})
+  </insert>
+  <insert id="insertSelective" parameterType="com.young.springbootkafka.pojo.EtlSxjyOanew">
+    <!--@mbg.generated-->
+    insert into young.ETL_SXJY_OANEW
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="nrms != null">
+        nrms,
+      </if>
+      <if test="xxxtmc != null">
+        xxxtmc,
+      </if>
+      <if test="yjzt != null">
+        yjzt,
+      </if>
+      <if test="yjdwZqxjy != null">
+        yjdw_zqxjy,
+      </if>
+      <if test="jyzt != null">
+        jyzt,
+      </if>
+      <if test="filename != null">
+        filename,
+      </if>
+      <if test="qzh != null">
+        qzh,
+      </if>
+      <if test="kbm != null">
+        kbm,
+      </if>
+      <if test="nd != null">
+        nd,
+      </if>
+      <if test="yjdwTbr != null">
+        yjdw_tbr,
+      </if>
+      <if test="yjdwTbsj != null">
+        yjdw_tbsj,
+      </if>
+      <if test="ztbh != null">
+        ztbh,
+      </if>
+      <if test="jyxx != null">
+        jyxx,
+      </if>
+      <if test="path != null">
+        `path`,
+      </if>
+      <if test="times != null">
+        times,
+      </if>
+      <if test="szzyz != null">
+        szzyz,
+      </if>
+      <if test="wjrl != null">
+        wjrl,
+      </if>
+      <if test="yjdwDasl != null">
+        yjdw_dasl,
+      </if>
+      <if test="yjdwWzxjy != null">
+        yjdw_wzxjy,
+      </if>
+      <if test="yjdwKyxjy != null">
+        yjdw_kyxjy,
+      </if>
+      <if test="yjdwAqxjy != null">
+        yjdw_aqxjy,
+      </if>
+      <if test="yjdw != null">
+        yjdw,
+      </if>
+      <if test="createdate != null">
+        createdate,
+      </if>
+      <if test="oldid != null">
+        oldid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id},
+      </if>
+      <if test="nrms != null">
+        #{nrms},
+      </if>
+      <if test="xxxtmc != null">
+        #{xxxtmc},
+      </if>
+      <if test="yjzt != null">
+        #{yjzt},
+      </if>
+      <if test="yjdwZqxjy != null">
+        #{yjdwZqxjy},
+      </if>
+      <if test="jyzt != null">
+        #{jyzt},
+      </if>
+      <if test="filename != null">
+        #{filename},
+      </if>
+      <if test="qzh != null">
+        #{qzh},
+      </if>
+      <if test="kbm != null">
+        #{kbm},
+      </if>
+      <if test="nd != null">
+        #{nd},
+      </if>
+      <if test="yjdwTbr != null">
+        #{yjdwTbr},
+      </if>
+      <if test="yjdwTbsj != null">
+        #{yjdwTbsj},
+      </if>
+      <if test="ztbh != null">
+        #{ztbh},
+      </if>
+      <if test="jyxx != null">
+        #{jyxx},
+      </if>
+      <if test="path != null">
+        #{path},
+      </if>
+      <if test="times != null">
+        #{times},
+      </if>
+      <if test="szzyz != null">
+        #{szzyz},
+      </if>
+      <if test="wjrl != null">
+        #{wjrl},
+      </if>
+      <if test="yjdwDasl != null">
+        #{yjdwDasl},
+      </if>
+      <if test="yjdwWzxjy != null">
+        #{yjdwWzxjy},
+      </if>
+      <if test="yjdwKyxjy != null">
+        #{yjdwKyxjy},
+      </if>
+      <if test="yjdwAqxjy != null">
+        #{yjdwAqxjy},
+      </if>
+      <if test="yjdw != null">
+        #{yjdw},
+      </if>
+      <if test="createdate != null">
+        #{createdate},
+      </if>
+      <if test="oldid != null">
+        #{oldid},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.young.springbootkafka.pojo.EtlSxjyOanew">
+    <!--@mbg.generated-->
+    update young.ETL_SXJY_OANEW
+    <set>
+      <if test="nrms != null">
+        nrms = #{nrms},
+      </if>
+      <if test="xxxtmc != null">
+        xxxtmc = #{xxxtmc},
+      </if>
+      <if test="yjzt != null">
+        yjzt = #{yjzt},
+      </if>
+      <if test="yjdwZqxjy != null">
+        yjdw_zqxjy = #{yjdwZqxjy},
+      </if>
+      <if test="jyzt != null">
+        jyzt = #{jyzt},
+      </if>
+      <if test="filename != null">
+        filename = #{filename},
+      </if>
+      <if test="qzh != null">
+        qzh = #{qzh},
+      </if>
+      <if test="kbm != null">
+        kbm = #{kbm},
+      </if>
+      <if test="nd != null">
+        nd = #{nd},
+      </if>
+      <if test="yjdwTbr != null">
+        yjdw_tbr = #{yjdwTbr},
+      </if>
+      <if test="yjdwTbsj != null">
+        yjdw_tbsj = #{yjdwTbsj},
+      </if>
+      <if test="ztbh != null">
+        ztbh = #{ztbh},
+      </if>
+      <if test="jyxx != null">
+        jyxx = #{jyxx},
+      </if>
+      <if test="path != null">
+        `path` = #{path},
+      </if>
+      <if test="times != null">
+        times = #{times},
+      </if>
+      <if test="szzyz != null">
+        szzyz = #{szzyz},
+      </if>
+      <if test="wjrl != null">
+        wjrl = #{wjrl},
+      </if>
+      <if test="yjdwDasl != null">
+        yjdw_dasl = #{yjdwDasl},
+      </if>
+      <if test="yjdwWzxjy != null">
+        yjdw_wzxjy = #{yjdwWzxjy},
+      </if>
+      <if test="yjdwKyxjy != null">
+        yjdw_kyxjy = #{yjdwKyxjy},
+      </if>
+      <if test="yjdwAqxjy != null">
+        yjdw_aqxjy = #{yjdwAqxjy},
+      </if>
+      <if test="yjdw != null">
+        yjdw = #{yjdw},
+      </if>
+      <if test="createdate != null">
+        createdate = #{createdate},
+      </if>
+      <if test="oldid != null">
+        oldid = #{oldid},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.young.springbootkafka.pojo.EtlSxjyOanew">
+    <!--@mbg.generated-->
+    update young.ETL_SXJY_OANEW
+    set nrms = #{nrms},
+      xxxtmc = #{xxxtmc},
+      yjzt = #{yjzt},
+      yjdw_zqxjy = #{yjdwZqxjy},
+      jyzt = #{jyzt},
+      filename = #{filename},
+      qzh = #{qzh},
+      kbm = #{kbm},
+      nd = #{nd},
+      yjdw_tbr = #{yjdwTbr},
+      yjdw_tbsj = #{yjdwTbsj},
+      ztbh = #{ztbh},
+      jyxx = #{jyxx},
+      `path` = #{path},
+      times = #{times},
+      szzyz = #{szzyz},
+      wjrl = #{wjrl},
+      yjdw_dasl = #{yjdwDasl},
+      yjdw_wzxjy = #{yjdwWzxjy},
+      yjdw_kyxjy = #{yjdwKyxjy},
+      yjdw_aqxjy = #{yjdwAqxjy},
+      yjdw = #{yjdw},
+      createdate = #{createdate},
+      oldid = #{oldid}
+    where id = #{id}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update young.ETL_SXJY_OANEW
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="nrms = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.nrms}
+        </foreach>
+      </trim>
+      <trim prefix="xxxtmc = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.xxxtmc}
+        </foreach>
+      </trim>
+      <trim prefix="yjzt = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.yjzt}
+        </foreach>
+      </trim>
+      <trim prefix="yjdw_zqxjy = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.yjdwZqxjy}
+        </foreach>
+      </trim>
+      <trim prefix="jyzt = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.jyzt}
+        </foreach>
+      </trim>
+      <trim prefix="filename = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.filename}
+        </foreach>
+      </trim>
+      <trim prefix="qzh = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.qzh}
+        </foreach>
+      </trim>
+      <trim prefix="kbm = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.kbm}
+        </foreach>
+      </trim>
+      <trim prefix="nd = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.nd}
+        </foreach>
+      </trim>
+      <trim prefix="yjdw_tbr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.yjdwTbr}
+        </foreach>
+      </trim>
+      <trim prefix="yjdw_tbsj = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.yjdwTbsj}
+        </foreach>
+      </trim>
+      <trim prefix="ztbh = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.ztbh}
+        </foreach>
+      </trim>
+      <trim prefix="jyxx = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.jyxx}
+        </foreach>
+      </trim>
+      <trim prefix="`path` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.path}
+        </foreach>
+      </trim>
+      <trim prefix="times = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.times}
+        </foreach>
+      </trim>
+      <trim prefix="szzyz = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.szzyz}
+        </foreach>
+      </trim>
+      <trim prefix="wjrl = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.wjrl}
+        </foreach>
+      </trim>
+      <trim prefix="yjdw_dasl = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.yjdwDasl}
+        </foreach>
+      </trim>
+      <trim prefix="yjdw_wzxjy = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.yjdwWzxjy}
+        </foreach>
+      </trim>
+      <trim prefix="yjdw_kyxjy = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.yjdwKyxjy}
+        </foreach>
+      </trim>
+      <trim prefix="yjdw_aqxjy = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.yjdwAqxjy}
+        </foreach>
+      </trim>
+      <trim prefix="yjdw = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.yjdw}
+        </foreach>
+      </trim>
+      <trim prefix="createdate = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.createdate}
+        </foreach>
+      </trim>
+      <trim prefix="oldid = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id} then #{item.oldid}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update young.ETL_SXJY_OANEW
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="nrms = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.nrms != null">
+            when id = #{item.id} then #{item.nrms}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="xxxtmc = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.xxxtmc != null">
+            when id = #{item.id} then #{item.xxxtmc}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="yjzt = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.yjzt != null">
+            when id = #{item.id} then #{item.yjzt}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="yjdw_zqxjy = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.yjdwZqxjy != null">
+            when id = #{item.id} then #{item.yjdwZqxjy}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="jyzt = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.jyzt != null">
+            when id = #{item.id} then #{item.jyzt}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="filename = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.filename != null">
+            when id = #{item.id} then #{item.filename}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="qzh = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.qzh != null">
+            when id = #{item.id} then #{item.qzh}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="kbm = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.kbm != null">
+            when id = #{item.id} then #{item.kbm}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="nd = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.nd != null">
+            when id = #{item.id} then #{item.nd}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="yjdw_tbr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.yjdwTbr != null">
+            when id = #{item.id} then #{item.yjdwTbr}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="yjdw_tbsj = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.yjdwTbsj != null">
+            when id = #{item.id} then #{item.yjdwTbsj}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="ztbh = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.ztbh != null">
+            when id = #{item.id} then #{item.ztbh}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="jyxx = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.jyxx != null">
+            when id = #{item.id} then #{item.jyxx}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`path` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.path != null">
+            when id = #{item.id} then #{item.path}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="times = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.times != null">
+            when id = #{item.id} then #{item.times}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="szzyz = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.szzyz != null">
+            when id = #{item.id} then #{item.szzyz}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="wjrl = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.wjrl != null">
+            when id = #{item.id} then #{item.wjrl}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="yjdw_dasl = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.yjdwDasl != null">
+            when id = #{item.id} then #{item.yjdwDasl}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="yjdw_wzxjy = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.yjdwWzxjy != null">
+            when id = #{item.id} then #{item.yjdwWzxjy}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="yjdw_kyxjy = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.yjdwKyxjy != null">
+            when id = #{item.id} then #{item.yjdwKyxjy}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="yjdw_aqxjy = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.yjdwAqxjy != null">
+            when id = #{item.id} then #{item.yjdwAqxjy}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="yjdw = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.yjdw != null">
+            when id = #{item.id} then #{item.yjdw}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="createdate = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createdate != null">
+            when id = #{item.id} then #{item.createdate}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="oldid = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.oldid != null">
+            when id = #{item.id} then #{item.oldid}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into young.ETL_SXJY_OANEW
+    (id, nrms, xxxtmc, yjzt, yjdw_zqxjy, jyzt, filename, qzh, kbm, nd, yjdw_tbr, yjdw_tbsj, 
+      ztbh, jyxx, `path`, times, szzyz, wjrl, yjdw_dasl, yjdw_wzxjy, yjdw_kyxjy, yjdw_aqxjy, 
+      yjdw, createdate, oldid)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.id}, #{item.nrms}, #{item.xxxtmc}, #{item.yjzt}, #{item.yjdwZqxjy}, #{item.jyzt}, 
+        #{item.filename}, #{item.qzh}, #{item.kbm}, #{item.nd}, #{item.yjdwTbr}, #{item.yjdwTbsj}, 
+        #{item.ztbh}, #{item.jyxx}, #{item.path}, #{item.times}, #{item.szzyz}, #{item.wjrl}, 
+        #{item.yjdwDasl}, #{item.yjdwWzxjy}, #{item.yjdwKyxjy}, #{item.yjdwAqxjy}, #{item.yjdw}, 
+        #{item.createdate}, #{item.oldid})
+    </foreach>
+  </insert>
+</mapper>

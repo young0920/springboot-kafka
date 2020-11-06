@@ -17,7 +17,7 @@ import java.io.InputStream;
  */
 @RestController
 @RequestMapping("file")
-@CrossOrigin//结局跨域
+@CrossOrigin//解决跨域
 @Slf4j
 public class FileController {
 

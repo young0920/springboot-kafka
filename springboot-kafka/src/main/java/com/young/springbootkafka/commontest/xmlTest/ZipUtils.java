@@ -107,7 +107,7 @@ public class ZipUtils {
         System.out.println(md5Hex);
 
         //获取16进制文件头
-        String result = FileHeaderUtils.getFileHead(file);
+        String result = FileHeaderUtils.getFileHeader(file);
         System.out.println(result.substring(0,8));
     }
 }

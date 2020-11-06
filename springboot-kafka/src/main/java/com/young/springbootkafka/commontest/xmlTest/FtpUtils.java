@@ -32,15 +32,20 @@ public class FtpUtils {
                                      String filePath, String filename, InputStream input) {
         boolean result = false;
         FTPClient ftp = new FTPClient();
+        ftp.setControlEncoding(XmlConstants.GBK_STR);
         try {
             int reply;
             // 连接FTP服务器
             ftp.connect(host, port);
             // 如果采用默认端口，可以使用ftp.connect(host)的方式直接连接FTP服务器
-            ftp.login(username, password);
             reply = ftp.getReplyCode();
+            //ftp.enterLocalPassiveMode();
+            ftp.setFileTransferMode(FTP.STREAM_TRANSFER_MODE);
             if (!FTPReply.isPositiveCompletion(reply)) {
                 ftp.disconnect();
+                return result;
+            }
+            if (!ftp.login(username, password)) {
                 return result;
             }
             //切换到上传目录
@@ -73,6 +78,7 @@ public class FtpUtils {
             result = true;
         } catch (IOException e) {
             log.error("upload file error", e);
+            throw new RuntimeException("上传FTP失败");
         } finally {
             if (ftp.isConnected()) {
                 try {
@@ -91,8 +97,8 @@ public class FtpUtils {
 
     public static void main(String[] args) {
         try {
-            FileInputStream in = new FileInputStream(new File("/Users/young/SvnWorkPlace/Temp/aa.zip"));
-            boolean flag = uploadFile("aaa.zip", in);
+            FileInputStream in = new FileInputStream(new File("/Users/young/SvnWorkPlace/Temp/HTXT620201106.zip"));
+            boolean flag = uploadFile("HTXT620201106.zip", in);
             System.out.println(flag);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
