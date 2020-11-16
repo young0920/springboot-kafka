@@ -1,5 +1,6 @@
 package com.young.springbootkafka.commontest.utiltest;
 
+import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
 import java.text.ParseException;
@@ -18,6 +19,11 @@ public class DateTest {
         String dateStart = "2008-01-01";
         String dateEnd = "2009-12-31";
         printDate(dateStart, dateEnd);
+
+        //是否为数字
+        System.out.println(NumberUtils.isCreatable("2"));
+        //是否全数字
+        System.out.println(NumberUtils.isDigits("2"));
     }
 
     private static void printDate(String dateStart, String dateEnd) throws ParseException {
