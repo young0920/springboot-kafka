@@ -18,6 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @EnableAsync
 //@EnableCasClient
+//@EnableScheduling//定时任务
 public class SpringbootKafkaApplication {
 
     public static void main(String[] args) {
