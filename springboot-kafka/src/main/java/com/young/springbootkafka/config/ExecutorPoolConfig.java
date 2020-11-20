@@ -20,7 +20,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  */
 @Configuration
 @Slf4j
-public class ExecutorConfig {
+public class ExecutorPoolConfig {
 
 
     /**
