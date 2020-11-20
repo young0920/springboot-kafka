@@ -46,7 +46,7 @@ class P88MergeSortedArray {
         // TO TEST
         int[] num1 = new int[]{1, 2, 3, 4, 0, 0};
         int[] num2 = new int[]{2, 5, 6};
-        solution.merge(num1, 4, num2, 3);
+        solution.merge(num1, 3, num2, 3);
     }
 
     /**
