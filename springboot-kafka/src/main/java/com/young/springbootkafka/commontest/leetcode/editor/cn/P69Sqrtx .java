@@ -23,6 +23,8 @@
 
 package com.young.springbootkafka.commontest.leetcode.editor.cn;
 
+import java.math.BigDecimal;
+
 /**
  * x 的平方根
  *
@@ -33,6 +35,7 @@ class P69Sqrtx {
         Solution solution = new P69Sqrtx().new Solution();
         // TO TEST
         System.out.println(solution.mySqrt(8));
+        BigDecimal b = new BigDecimal(64);
     }
 
     /**
