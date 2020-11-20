@@ -5,7 +5,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 /**
- * SchedulerTask  SpringBoot自带的定时
+ * SchedulerTask  SpringBoot自带的定时任务
  *
  * @author yangbing
  * @date 2020/11/19 下午3:42

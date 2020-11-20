@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 
 /**
- * SchedulerListener 定时执行定时任务脚本
+ * SchedulerListener 方式2：定时执行定时任务脚本
  *
  * @author yangbing
  * @date 2020/11/19 下午4:09

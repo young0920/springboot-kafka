@@ -6,7 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import javax.annotation.Resource;
 
 /**
- * MyStartupRunner  项目启动时执行定时任务
+ * MyStartupRunner  方式1：项目启动时执行定时任务
  *
  * @author yangbing
  * @date 2020/11/19 下午4:06
