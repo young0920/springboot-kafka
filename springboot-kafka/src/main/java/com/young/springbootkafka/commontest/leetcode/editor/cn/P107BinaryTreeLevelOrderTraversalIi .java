@@ -69,6 +69,7 @@ class P107BinaryTreeLevelOrderTraversalIi {
                 int count = queue.size();
                 for (int i = 0; i < count; i++) {
                     TreeNode node = queue.poll();
+                    assert node != null;
                     oneLevel.add(node.val);
                     if (node.left != null) {
                         queue.add(node.left);
