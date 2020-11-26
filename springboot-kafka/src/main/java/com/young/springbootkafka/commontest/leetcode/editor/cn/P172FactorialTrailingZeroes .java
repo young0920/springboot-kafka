@@ -18,29 +18,32 @@
 
 
 package com.young.springbootkafka.commontest.leetcode.editor.cn;
+
 /**
  * 阶乘后的零
+ *
  * @author young
- */ 
-class P172FactorialTrailingZeroes{
+ */
+class P172FactorialTrailingZeroes {
     public static void main(String[] args) {
         Solution solution = new P172FactorialTrailingZeroes().new Solution();
         // TO TEST
     }
+
     /**
-    * 阶乘后的零
-    */ 
+     * 阶乘后的零
+     */
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int trailingZeroes(int n) {
-        int res = 0;
-        while (n>0){
-            n /=5;
-            res += n;
+    class Solution {
+        public int trailingZeroes(int n) {
+            int res = 0;
+            while (n > 0) {
+                n /= 5;
+                res += n;
+            }
+            return res;
         }
-        return res;
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
