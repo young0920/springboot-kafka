@@ -44,10 +44,8 @@ class P231PowerOfTwo {
                 return false;
             }
             int count = 0;
-            int i = 0;
             while (n != 0) {
-                i = n & 1;
-                if (i == 1) {
+                if ((n & 1) == 1) {
                     count++;
                 }
                 n = n >> 1;
