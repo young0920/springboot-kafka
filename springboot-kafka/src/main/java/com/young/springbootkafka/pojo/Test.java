@@ -24,6 +24,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Test implements Serializable, Cloneable {
+    private static final long serialVersionUID = 93009398172215288L;
     /**
      * id
      */
@@ -62,7 +63,7 @@ public class Test implements Serializable, Cloneable {
 
     /**
      * 基本类型 和String 类型直接深拷贝  对象浅拷贝-需修改方法
-     *         SerializationUtils.clone  深拷贝util
+     * SerializationUtils.clone  深拷贝util
      *
      * @return
      * @throws CloneNotSupportedException
