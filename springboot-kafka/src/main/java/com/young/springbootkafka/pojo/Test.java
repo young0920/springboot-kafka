@@ -23,7 +23,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Test implements Serializable {
+public class Test implements Serializable, Cloneable {
     /**
      * id
      */
@@ -58,4 +58,21 @@ public class Test implements Serializable {
 
     private Date time3;
 
+    private User user;
+
+    /**
+     * 基本类型 和String 类型直接深拷贝  对象浅拷贝-需修改方法
+     *
+     * @return
+     * @throws CloneNotSupportedException
+     */
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Test test = (Test) super.clone();
+        test.setTime1((Date) this.getTime1().clone());
+        if (this.getUser() != null) {
+            test.setUser((User) this.getUser().clone());
+        }
+        return test;
+    }
 }
