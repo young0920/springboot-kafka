@@ -62,6 +62,7 @@ public class Test implements Serializable, Cloneable {
 
     /**
      * 基本类型 和String 类型直接深拷贝  对象浅拷贝-需修改方法
+     *         SerializationUtils.clone  深拷贝util
      *
      * @return
      * @throws CloneNotSupportedException

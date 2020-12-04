@@ -4,6 +4,7 @@ import com.young.springbootkafka.SpringbootKafkaApplication;
 import com.young.springbootkafka.pojo.User;
 import com.young.springbootkafka.service.IMinioService;
 import com.young.springbootkafka.service.UserService;
+import org.apache.commons.lang3.SerializationUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
