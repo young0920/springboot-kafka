@@ -45,6 +45,7 @@
         <jjwt.version>0.9.1</jjwt.version>
         <dom4j.version>1.6.1</dom4j.version>
         <commons-net.version>3.6</commons-net.version>
+        <jsch.version>0.1.55</jsch.version>
     </properties>
 
     <dependencies>
@@ -235,6 +236,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-quartz</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>${jsch.version}</version>
         </dependency>
     </dependencies>
 
