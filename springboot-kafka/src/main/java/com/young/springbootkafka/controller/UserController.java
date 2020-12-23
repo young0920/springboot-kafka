@@ -3,6 +3,7 @@ package com.young.springbootkafka.controller;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.page.PageMethod;
+import com.young.springbootkafka.annotation.ValidList;
 import com.young.springbootkafka.constant.CodeEnum;
 import com.young.springbootkafka.constant.ResultBody;
 import com.young.springbootkafka.exception.BizException;
@@ -17,6 +18,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -40,8 +42,31 @@ public class UserController {
     @Resource
     private UserService userService;
 
+    /**
+     * 推荐
+     *
+     * @param user2
+     * @param bindingResult
+     * @return
+     */
     @PostMapping("testNotBlank")
     public ResultBody<String> testNotBlank(@Valid @RequestBody User2 user2, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String bindingMessage = BindingResultUtils.getBindingMessage(bindingResult);
+            return ResultBody.error(CodeEnum.DATA_VALIDATION_FAILS.getResultCode(), bindingMessage);
+        }
+        return ResultBody.success("成功");
+    }
+
+    /**
+     * 推荐 Validated 可以分组
+     *
+     * @param user2
+     * @param bindingResult
+     * @return
+     */
+    @PostMapping("testBindList")
+    public ResultBody<String> testBindList(@Validated @RequestBody ValidList<User2> user2, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             String bindingMessage = BindingResultUtils.getBindingMessage(bindingResult);
             return ResultBody.error(CodeEnum.DATA_VALIDATION_FAILS.getResultCode(), bindingMessage);
@@ -53,7 +78,7 @@ public class UserController {
     public ResultBody<String> testNotBlankList(@RequestBody List<User2> user2) {
         for (User2 u : user2) {
             String bindingMessage = BindingResultUtils.validEntity(u);
-            if(StringUtils.isNotBlank(bindingMessage)){
+            if (StringUtils.isNotBlank(bindingMessage)) {
                 return ResultBody.error(CodeEnum.DATA_VALIDATION_FAILS.getResultCode(), bindingMessage);
             }
         }

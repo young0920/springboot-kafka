@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -81,4 +82,7 @@ public class User2 implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")//出参格式化
     @DateTimeFormat(pattern = "yyy-MM-dd HH:mm:ss")//入参格式化
     private Date time;
+
+    @Valid
+    private Users users;
 }
