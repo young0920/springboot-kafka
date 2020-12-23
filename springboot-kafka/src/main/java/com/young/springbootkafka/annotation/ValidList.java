@@ -8,7 +8,7 @@ import javax.validation.constraints.NotEmpty;
 import java.util.*;
 
 /**
- * ValidList
+ * ValidList 自定义定义一个ValidList  既然List不是JavaBean，那就把它封装成JavaBean
  *
  * @author yangbing
  * @date 2020/12/23 下午2:33
