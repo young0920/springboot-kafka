@@ -6,6 +6,7 @@ import org.springframework.validation.FieldError;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
+import javax.validation.Validator;
 import java.util.List;
 import java.util.Set;
 
@@ -21,6 +22,8 @@ public class BindingResultUtils {
     private BindingResultUtils() {
         throw new IllegalStateException("Utility class");
     }
+
+    private static Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 
     /**
      * 获取必填项校验结果
@@ -40,15 +43,19 @@ public class BindingResultUtils {
         return sb.toString();
     }
 
-    public static <T> String validEntity(T requestVO) {
-        Set<ConstraintViolation<Object>> validResult = Validation.buildDefaultValidatorFactory().getValidator()
-                .validate(requestVO);
+    /**
+     * 校验实体类字段
+     * @param entity 对象
+     * @param <T>
+     * @return 错误信息
+     */
+    public static <T> String validEntity(T entity) {
+        Set<ConstraintViolation<T>> validate = validator.validate(entity);
         StringBuilder sb = new StringBuilder();
-        if (null != validResult && !validResult.isEmpty()) {
-            for (ConstraintViolation<Object> constraintViolation : validResult) {
-                //这里只取了字段名
-                sb.append(constraintViolation.getPropertyPath().toString()).append(":").
-                        append(constraintViolation.getMessage()).append(";");
+        if (validate != null && !validate.isEmpty()) {
+            for (ConstraintViolation<T> constraintViolation : validate) {
+                sb.append(constraintViolation.getPropertyPath().toString()).append(":")
+                        .append(constraintViolation.getMessage()).append("; ");
             }
         }
         return sb.toString();

@@ -35,7 +35,7 @@ public class JacaTest {
 //        System.out.println(user2);
 
         User2 u = new User2();
-        u.setPassword("2332");
+        u.setPassword("111111111111111111111111");
         u.setRealname("zhan");
         String bindingMessage = BindingResultUtils.validEntity(u);
         if(StringUtils.isNotBlank(bindingMessage)){

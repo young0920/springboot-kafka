@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
@@ -63,7 +64,8 @@ public class User2 implements Serializable {
      */
     @ApiModelProperty(value = "密码")
     @JSONField(alternateNames = "pass")
-    @Size(min = 5, max = 10, message = "密码的长度应该在5和10之间")
+    @NotBlank(message = "密码不能为空")
+    @Size(max = 10, message = "密码的长度不能超过10")
     private String password;
 
     /**
