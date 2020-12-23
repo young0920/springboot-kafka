@@ -12,9 +12,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * User实体类  实现序列化  不然redis报错
@@ -84,5 +87,11 @@ public class User2 implements Serializable {
     private Date time;
 
     @Valid
+    @NotNull(message = "users对象不能为空")
     private Users users;
+
+    @Valid
+    @NotEmpty(message = "usersValidList不能为空")
+    private List<Users> usersValidList;
+
 }

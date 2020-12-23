@@ -7,6 +7,7 @@ import com.young.springbootkafka.util.BindingResultUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -37,6 +38,13 @@ public class JacaTest {
         User2 u = new User2();
         u.setPassword("111111111111111111111111");
         u.setRealname("zhan");
+        Users users = new Users();
+        u.setUsers(users);
+
+        List<Users> usersList = new ArrayList<>();
+        usersList.add(users);
+        u.setUsersValidList(usersList);
+
         String bindingMessage = BindingResultUtils.validEntity(u);
         if(StringUtils.isNotBlank(bindingMessage)){
             System.out.println(bindingMessage);
