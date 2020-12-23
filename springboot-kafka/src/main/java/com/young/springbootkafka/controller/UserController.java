@@ -66,11 +66,11 @@ public class UserController {
      * @return
      */
     @PostMapping("testBindList")
-    public ResultBody<String> testBindList(@Validated @RequestBody ValidList<User2> user2, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            String bindingMessage = BindingResultUtils.getBindingMessage(bindingResult);
-            return ResultBody.error(CodeEnum.DATA_VALIDATION_FAILS.getResultCode(), bindingMessage);
-        }
+    public ResultBody<String> testBindList(@Validated @RequestBody ValidList<User2> user2/*, BindingResult bindingResult*/) {
+//        if (bindingResult.hasErrors()) {
+//            String bindingMessage = BindingResultUtils.getBindingMessage(bindingResult);
+//            return ResultBody.error(CodeEnum.DATA_VALIDATION_FAILS.getResultCode(), bindingMessage);
+//        }
         return ResultBody.success("成功");
     }
 

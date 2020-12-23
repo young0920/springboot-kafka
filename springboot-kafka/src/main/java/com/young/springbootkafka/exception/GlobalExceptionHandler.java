@@ -2,7 +2,9 @@ package com.young.springbootkafka.exception;
 
 import com.young.springbootkafka.constant.CodeEnum;
 import com.young.springbootkafka.constant.ResultBody;
+import com.young.springbootkafka.util.BindingResultUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -61,5 +63,20 @@ public class GlobalExceptionHandler {
     public ResultBody<String> exceptionHandler(HttpServletRequest req, Exception e) {
         log.error("未知异常！原因是:", e);
         return ResultBody.error(CodeEnum.SYSTEM_EXECUTION_ERROR.getResultCode(), e.getMessage());
+    }
+
+    /**
+     * 处理其他异常
+     *
+     * @param req
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(value = MethodArgumentNotValidException.class)
+    @ResponseBody
+    public ResultBody<String> methodArgumentNotValidExceptionHandler(HttpServletRequest req, MethodArgumentNotValidException e) {
+        log.error("数据校验异常！原因是:", e);
+        String bindingMessage = BindingResultUtils.getBindingMessage(e.getBindingResult());
+        return ResultBody.error(CodeEnum.DATA_VALIDATION_FAILS.getResultCode(), bindingMessage);
     }
 }
