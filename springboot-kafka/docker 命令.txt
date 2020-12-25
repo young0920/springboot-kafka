@@ -139,6 +139,12 @@ docker run -d --name seata-server --privileged=true\
         -v /root/seata-config:/root/seata-config  \
         seataio/seata-server:1.2.0
 
+##rocket mq
+docker run -d -p 9876:9876 -v /usr/data/mq/data/namesrv/logs:/root/logs -v /usr/data/mq/data/namesrv/store:/root/store --name rmqnamesrv -e "MAX_POSSIBLE_HEAP=100000000" rocketmqinc/rocketmq:4.4.0 sh mqnamesrv
+
+docker run -d -p 10911:10911 -p 10909:10909 -v  /usr/data/mq/data/broker/logs:/root/logs -v  /usr/data/mq/rocketmq/data/broker/store:/root/store -v  /usr/data/mq/conf/broker.conf:/opt/rocketmq-4.4.0/conf/broker.conf --name rmqbroker --link rmqnamesrv:namesrv -e "NAMESRV_ADDR=namesrv:9876" -e "MAX_POSSIBLE_HEAP=200000000" rocketmqinc/rocketmq:4.4.0 sh mqbroker -c /opt/rocketmq-4.4.0/conf/broker.conf
+
+docker run -e "JAVA_OPTS=-Drocketmq.namesrv.addr=47.93.236.174:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false" -p 8083:8080 -t styletang/rocketmq-console-ng
 
 #kafka 一直重启解决办法
 （1）、创建swapfile：
