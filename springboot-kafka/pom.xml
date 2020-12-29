@@ -46,6 +46,7 @@
         <dom4j.version>1.6.1</dom4j.version>
         <commons-net.version>3.6</commons-net.version>
         <jsch.version>0.1.55</jsch.version>
+        <rocketmq-spring-boot-starter.version>2.1.0</rocketmq-spring-boot-starter.version>
     </properties>
 
     <dependencies>
@@ -241,6 +242,11 @@
             <groupId>com.jcraft</groupId>
             <artifactId>jsch</artifactId>
             <version>${jsch.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-spring-boot-starter</artifactId>
+            <version>${rocketmq-spring-boot-starter.version}</version>
         </dependency>
     </dependencies>
 

@@ -26,3 +26,30 @@ spring:
         min-idle: 0
     #连接超时时间（毫秒）
     timeout: 5000
+
+
+# RocketMQ配置
+rocketmq:
+  #nameserver  集群地址用；分割
+  name-server: 47.93.236.174:9876
+  #生产者参数配置
+  producer:
+    group: my-group1
+    #设置超时时间 默认3秒
+    sendMessageTimeout: 3000
+    #消息体压缩阀值(当消息体超过 4k 的时候会被压缩)。默认值: 4096
+    compress-message-body-threshold: 4096
+    #消息发送的最大字节数。默认值: 4194304.
+    max-message-size: 4194304
+    #在异步发送消息的模式下，消息发送失败的重试次数。默认值: 2.
+    retry-times-when-send-async-failed: 2
+    #消息发送失败的情况下是否重试其它的 broker。默认值: false.
+    retry-next-server: false
+    #在同步发送消息的模式下，消息发送失败的重试次数。默认值: 2.
+    retry-times-when-send-failed: 2
+    topic: my_topic
+  #消费者参数配置
+  consumer:
+    topic: my_topic
+  # 非标的RocketMQTemplate的nameServer
+  extNameServer: 47.93.236.174:9876
