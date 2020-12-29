@@ -27,7 +27,7 @@
         <!--滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--路径-->
-            <fileNamePattern>./logs/info/springboot_kafka_info.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>./logs/info/%d{yyyy-MM}/springboot_kafka_info.%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
     </appender>
@@ -41,7 +41,7 @@
         <!--滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--路径-->
-            <fileNamePattern>./logs/error/springboot_kafka_error.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>./logs/error/%d{yyyy-MM}/springboot_kafka_error.%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
     </appender>
@@ -72,7 +72,7 @@
     <!-- rocketmq日志 -->
     <appender name="RocketmqClientAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>./logs/rocketmq/rocketmq_client.%d{yyyyMMdd}.%i.log</fileNamePattern>
+            <fileNamePattern>./logs/rocketmq/%d{yyyy-MM}/rocketmq_client.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>1073741824</maxFileSize>
             <!--保留时间,单位:天-->
             <maxHistory>30</maxHistory>
