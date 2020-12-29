@@ -1,6 +1,7 @@
 package com.young.springbootkafka;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.rocketmq.client.log.ClientLogger;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,6 +23,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SpringbootKafkaApplication {
 
     public static void main(String[] args) {
+        //设置rocketmq client 日志配置
+        System.setProperty(ClientLogger.CLIENT_LOG_USESLF4J,"true");
         SpringApplication.run(SpringbootKafkaApplication.class, args);
         log.info("程序正在运行");
     }

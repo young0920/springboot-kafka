@@ -2,8 +2,6 @@ package com.young.springbootkafka.component;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.common.message.MessageExt;
-import org.apache.rocketmq.spring.annotation.ConsumeMode;
-import org.apache.rocketmq.spring.annotation.MessageModel;
 import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.core.RocketMQListener;
 import org.springframework.stereotype.Component;
@@ -20,11 +18,11 @@ import org.springframework.stereotype.Component;
         topic = "${rocketmq.producer.topic}",
         consumerGroup = "${rocketmq.producer.group}",
         //选择tag  || 分割
-        selectorExpression = "*",
+        selectorExpression = "*"
         //顺序消费
-        consumeMode = ConsumeMode.ORDERLY,
+        //consumeMode = ConsumeMode.ORDERLY,
         // 设置为广播消费
-        messageModel = MessageModel.BROADCASTING
+        //messageModel = MessageModel.BROADCASTING
 )
 public class RocketMqConsumer implements RocketMQListener<MessageExt> {
     @Override

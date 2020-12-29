@@ -68,4 +68,21 @@
         <!-- 添加附加的appender,最多只能添加一个 -->
         <appender-ref ref="ERROR-LOG"/>
     </appender>
+
+    <!-- rocketmq日志 -->
+    <appender name="RocketmqClientAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>./logs/rocketmq/rocketmq_client.%d{yyyyMMdd}.%i.log</fileNamePattern>
+            <maxFileSize>1073741824</maxFileSize>
+            <!--保留时间,单位:天-->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd' 'HH:mm:ss.sss}] [%C] [%t] [%L] [%-5p] %m%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="RocketmqClient" additivity="false">
+        <level value="warn" />
+        <appender-ref ref="RocketmqClientAppender"/>
+    </logger>
 </configuration>
