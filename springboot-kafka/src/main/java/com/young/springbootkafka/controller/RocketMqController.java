@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * RocketMqController
@@ -49,9 +51,17 @@ public class RocketMqController {
     @PostMapping("sync")
     public ResultBody<SendResult> testSync(@Validated @RequestBody Users users) {
         log.info("sync 入参：" + users);
+        // 创建多条 消息    同步批量发送消息
+        List<Message<Message<Users>>> messages = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            Message<Users> message = MessageBuilder.withPayload(users).setHeader("KEYS", IdUtil.simpleUUID()).build();
+            messages.add(MessageBuilder.withPayload(message).build());
+
+        }
+        //syncSendOrderly 顺序消费
         //设置key
-        Message<Users> message = MessageBuilder.withPayload(users).setHeader("KEYS", IdUtil.simpleUUID()).build();
-        SendResult syncSend = rocketMQTemplate.syncSend(topic + ":tag1", message);
+        //Message<Users> message = MessageBuilder.withPayload(users).setHeader("KEYS", IdUtil.simpleUUID()).build();
+        SendResult syncSend = rocketMQTemplate.syncSend(topic + ":tag1", messages);
         return ResultBody.success(syncSend);
     }
 
