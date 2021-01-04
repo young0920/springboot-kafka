@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 @RocketMQMessageListener(
-        topic = "${rocketmq.producer.topic}",
+        topic = "${rocketmq.consumer.topic}",
         consumerGroup = "${rocketmq.producer.group}",
         //选择tag  || 分割
         selectorExpression = "*"
