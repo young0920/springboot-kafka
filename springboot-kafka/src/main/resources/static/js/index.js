@@ -10,6 +10,18 @@ var app = new Vue({
     mounted() {
     },
     methods: {
+        async onlinePreview() {
+            //要预览文件的访问地址
+            let res = await fetch("minio/presigned", {
+                method: 'get'
+            }).then(res => res.json());
+            console.log(res);
+            let originUrl = res.data; //要预览文件的访问地址
+            console.log(originUrl);
+            let previewUrl = originUrl + '&fullfilename=aaa.docx';
+            console.log(previewUrl);
+            window.open('http://localhost:8012/onlinePreview?url=' + encodeURIComponent(previewUrl));
+        },
         _changeFile(event) {
             let a = event.target.files;
             console.log(a);

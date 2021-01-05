@@ -146,6 +146,9 @@ docker run -d -p 10911:10911 -p 10909:10909 -v  /usr/data/mq/data/broker/logs:/r
 
 docker run -e "JAVA_OPTS=-Drocketmq.namesrv.addr=47.93.236.174:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false" -p 8083:8080 -t styletang/rocketmq-console-ng
 
+#kkfileview
+docker run -it -p 8012:8012 keking/kkfileview
+
 #kafka 一直重启解决办法
 （1）、创建swapfile：
 root权限下，创建swapfile  # dd  if=/dev/zero  of=swapfile  bs=1024  count=500000  （有时会遇到dd命令不识别 可能是你安装过一次了 没事 先把swapfile删除就ok了）
