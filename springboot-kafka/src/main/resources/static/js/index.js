@@ -15,12 +15,10 @@ var app = new Vue({
             let res = await fetch("minio/presigned", {
                 method: 'get'
             }).then(res => res.json());
-            console.log(res);
-            let originUrl = res.data; //要预览文件的访问地址
-            console.log(originUrl);
-            let previewUrl = originUrl + '&fullfilename=aaa.docx';
-            console.log(previewUrl);
-            window.open('http://localhost:8012/onlinePreview?url=' + encodeURIComponent(previewUrl));
+            let url = res.data; //要预览文件的访问地址
+            // let previewUrl = originUrl + '&fullfilename=aaa.pdf';
+            //btoa base64加密   atob解密
+            open('http://47.93.236.174:8012/onlinePreview?url=' + btoa(url));
         },
         _changeFile(event) {
             let a = event.target.files;
@@ -30,7 +28,7 @@ var app = new Vue({
             console.log(this.a_fileList)
         },
         async _upload() {
-            let fd = new FormData()
+            let fd = new FormData();
             this.a_fileList.map((item, index) => {
                 fd.append('file' + index, item);
             });

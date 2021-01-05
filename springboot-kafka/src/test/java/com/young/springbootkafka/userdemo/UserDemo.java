@@ -4,7 +4,6 @@ import com.young.springbootkafka.SpringbootKafkaApplication;
 import com.young.springbootkafka.pojo.User;
 import com.young.springbootkafka.service.IMinioService;
 import com.young.springbootkafka.service.UserService;
-import org.apache.commons.lang3.SerializationUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -36,12 +35,12 @@ public class UserDemo {
 
     @Test
     public void getDate() throws IOException {
-        File file=new File("/Users/young/Desktop/Java.pdf");
+        File file=new File("/Users/young/Downloads/05 NJDTAFM-业财一体化平台与行政事务办公系统接口规格书-20201218v1.0.docx");
         InputStream inputStream = new FileInputStream(file);
         MultipartFile multipartFile = new MockMultipartFile(file.getName(), inputStream);
         //上传文件
         //String suffix = multipartFile.getOriginalFilename().substring(multipartFile.getOriginalFilename().lastIndexOf("."));
-        String url = minioService.uploadSuffix(multipartFile.getBytes(), "pdf");
+        String url = minioService.uploadSuffix(multipartFile.getBytes(), "docx");
         System.out.println(url);
     }
 

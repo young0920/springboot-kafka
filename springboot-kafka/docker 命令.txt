@@ -44,6 +44,9 @@ docer -p hostPort:containerPort # 映射本机的指定端口到容器的指定�
 # 例如：docker -p 3306:3306 # 映射本机的3306端口到容器的3306端口
 # 映射数据卷
 docker -v /home/data:/opt/data # 这里/home/data 指的是宿主机的目录地址，后者则是容器的目录地址
+--restart=always：在docker run后面加上--restart=always就会进行断开自动重启
+-d:将docker运行在后台
+
 
 #查看日志
 docker logs -f -t --since="2017-05-31" --tail=10 edu_web_1
@@ -147,7 +150,7 @@ docker run -d -p 10911:10911 -p 10909:10909 -v  /usr/data/mq/data/broker/logs:/r
 docker run -e "JAVA_OPTS=-Drocketmq.namesrv.addr=47.93.236.174:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false" -p 8083:8080 -t styletang/rocketmq-console-ng
 
 #kkfileview
-docker run -it -p 8012:8012 keking/kkfileview
+docker run -d -it -p 8012:8012 keking/kkfileview
 
 #kafka 一直重启解决办法
 （1）、创建swapfile：
