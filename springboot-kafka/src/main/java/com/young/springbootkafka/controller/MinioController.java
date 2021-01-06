@@ -26,7 +26,7 @@ public class MinioController {
 
     @GetMapping("presigned")
     public ResultBody<String> getPresignedUrl(){
-        String presignedUrl = minioService.getPresignedUrl("2021-01-05/84688a559dab490fad5ea60d8f4b29f0.docx");
+        String presignedUrl = minioService.getPresignedUrl("2021-01-06/19fbc7535f3248e6818f0f5935a2dc8b.xlsx");
         return ResultBody.success(presignedUrl);
     }
 

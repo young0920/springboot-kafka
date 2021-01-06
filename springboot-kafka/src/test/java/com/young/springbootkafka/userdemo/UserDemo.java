@@ -35,12 +35,12 @@ public class UserDemo {
 
     @Test
     public void getDate() throws IOException {
-        File file=new File("/Users/young/Downloads/05 NJDTAFM-业财一体化平台与行政事务办公系统接口规格书-20201218v1.0.docx");
+        File file=new File("/Users/young/Documents/测试文件/工作簿1-xlsx.xlsx");
         InputStream inputStream = new FileInputStream(file);
         MultipartFile multipartFile = new MockMultipartFile(file.getName(), inputStream);
         //上传文件
         //String suffix = multipartFile.getOriginalFilename().substring(multipartFile.getOriginalFilename().lastIndexOf("."));
-        String url = minioService.uploadSuffix(multipartFile.getBytes(), "docx");
+        String url = minioService.uploadSuffix(multipartFile.getBytes(), "xlsx");
         System.out.println(url);
     }
 
