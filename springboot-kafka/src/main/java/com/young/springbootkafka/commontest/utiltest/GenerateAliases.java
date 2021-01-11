@@ -13,18 +13,39 @@ import java.util.List;
  */
 public class GenerateAliases {
     public static void main(String[] args) {
-        String s = "<result property=\"uscc\" column=\"uscc\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"supplierName\" column=\"supplierName\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"supplierNo\" column=\"supplierNo\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"accountName\" column=\"accountName\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"bankName\" column=\"bankName\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"bankBranchName\" column=\"bankBranchName\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"bankAccount\" column=\"bankAccount\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"bankID\" column=\"bankID\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"bankType\" column=\"bankType\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"branchNumber\" column=\"branchNumber\" jdbcType=\"VARCHAR\"/>\n" +
-                "<result property=\"isDelete\" column=\"isDelete\" jdbcType=\"VARCHAR\"/>";
-        getColoum(s,"");
+        String s = "\t\t<result property=\"belongCompany\" column=\"F_BELONG_COMPANY\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"belongCompanyName\" column=\"F_BELONG_COMPANY_NAME\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"contractEffectiveDate\" column=\"F_CONTRACT_EFFECTIVE_DATE\" jdbcType=\"TIMESTAMP\"/>\n" +
+                "\t\t<result property=\"contractLevel\" column=\"F_CONTRACT_LEVEL\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"contractName\" column=\"F_CONTRACT_NAME\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"contractNo\" column=\"F_CONTRACT_NO\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"contractNoName\" column=\"F_CONTRACT_NO_NAME\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"contractState\" column=\"F_CONTRACT_STATE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"contractType\" column=\"F_CONTRACT_TYPE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"dealScore\" column=\"F_DEAL_SCORE\" jdbcType=\"NUMERIC\"/>\n" +
+                "\t\t<result property=\"djmc\" column=\"F_DJMC\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"docNo\" column=\"F_DOC_NO\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"evaluateAttentionItem\" column=\"F_EVALUATE_ATTENTION_ITEM\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"evaluatePerson\" column=\"F_EVALUATE_PERSON\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"evaluatePersonName\" column=\"F_EVALUATE_PERSON_NAME\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"evaluateQuarter\" column=\"F_EVALUATE_QUARTER\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"evaluateQuarterName\" column=\"F_EVALUATE_QUARTER_NAME\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"evaluateTemplate\" column=\"F_EVALUATE_TEMPLATE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"evaluateTemplateName\" column=\"F_EVALUATE_TEMPLATE_NAME\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"evaluateYear\" column=\"F_EVALUATE_YEAR\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"evaluateYearName\" column=\"F_EVALUATE_YEAR_NAME\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"indentGrade\" column=\"F_INDENT_GRADE\" jdbcType=\"NUMERIC\"/>\n" +
+                "\t\t<result property=\"nowAmount\" column=\"F_NOW_AMOUNT\" jdbcType=\"NUMERIC\"/>\n" +
+                "\t\t<result property=\"orignAmount\" column=\"F_ORIGN_AMOUNT\" jdbcType=\"NUMERIC\"/>\n" +
+                "\t\t<result property=\"procState\" column=\"F_PROC_STATE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"procStateName\" column=\"F_PROC_STATE_NAME\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"quarterGrade\" column=\"F_QUARTER_GRADE\" jdbcType=\"NUMERIC\"/>\n" +
+                "\t\t<result property=\"reviewPerson\" column=\"F_REVIEW_PERSON\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"reviewPersonName\" column=\"F_REVIEW_PERSON_NAME\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"scoreDate\" column=\"F_SCORE_DATE\" jdbcType=\"TIMESTAMP\"/>\n" +
+                "\t\t<result property=\"vendorName\" column=\"F_VENDOR_NAME\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t<result property=\"yearGrade\" column=\"F_YEAR_GRADE\" jdbcType=\"NUMERIC\"/>";
+        getColoum(s,"c8");
     }
 
     private static void getColoum(String str,String per){

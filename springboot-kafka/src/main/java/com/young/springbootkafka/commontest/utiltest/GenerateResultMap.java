@@ -8,18 +8,10 @@ package com.young.springbootkafka.commontest.utiltest;
  */
 public class GenerateResultMap {
     public static void main(String[] args) {
-        String s ="    private String uscc;\n" +
-                "    private String supplierName;\n" +
-                "    private String supplierNo;\n" +
-                "    private String accountName;\n" +
-                "    private String bankName;\n" +
-                "    private String bankBranchName;\n" +
-                "    private String bankAccount;\n" +
-                "    private String bankID;\n" +
-                "    private String bankType;\n" +
-                "    private String branchNumber;\n" +
-                "    @JsonProperty(value = \"isDelete\")\n" +
-                "    private String isDelete;";
+        String s ="    private String dpsType;\n" +
+                "    private String dpsName;\n" +
+                "    private String dpsNo;\n" +
+                "    private String dpsAmount;";
         getResult(s);
     }
 
