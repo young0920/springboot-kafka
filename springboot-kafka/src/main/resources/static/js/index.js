@@ -6,10 +6,34 @@ var app = new Vue({
         date: '',
         fileList: [],
         a_fileList: [],
+        apiToken: ''
     },
     mounted() {
+        this.getToken();
     },
     methods: {
+        async getToken() {
+            let res = await fetch("submit/token", {
+                method: 'get'
+            }).then(res => res.json());
+            this.apiToken = res.data;
+        },
+        async testSubmitRepeat() {
+            setTimeout(async () => {
+                let res = await fetch("submit/header", {
+                    method: 'get',
+                    headers: {
+                        token: this.apiToken
+                    }
+                }).then(res => res.json());
+                if (res.code === '00000') {
+                    this.apiToken = res.data;
+                } else {
+                    alert(res.message);
+                }
+                console.log('等待两秒');
+            }, 2000);
+        },
         async onlinePreview() {
             //要预览文件的访问地址
             let res = await fetch("minio/presigned", {

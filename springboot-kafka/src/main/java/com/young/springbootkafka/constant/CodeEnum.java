@@ -52,6 +52,14 @@ public enum CodeEnum implements BaseErrorInfoInterface {
      */
     DATABASE_EXCEPTION("B0300", "数据库异常"),
     /**
+     * 重复提交
+     */
+    SUBMIT_REPEAT("B0400", "重复提交"),
+    /**
+     * 没有token
+     */
+    NO_TOKEN("B0500", "没有token"),
+    /**
      * 调用第三方服务出错
      */
     THIRD_PARTY_SERVICE_ERROR("C0001", "调用第三方服务出错"),

@@ -29,4 +29,8 @@ public final class GlobalConstants {
      * 线程池中的线程的名称前缀
      */
     public static final String THREAD_NAME_PREFIX = "async-service-";
+    /**
+     * 接口header
+     */
+    public static final String API_HEADER = "header";
 }
