@@ -10,8 +10,16 @@ var app = new Vue({
     },
     mounted() {
         this.getToken();
+        this.testAxios();
     },
     methods: {
+        async testAxios() {
+            let res = await axios({
+                method: 'get',
+                url: 'submit/token'
+            });
+            console.log(res);
+        },
         async getToken() {
             let res = await fetch("submit/token", {
                 method: 'get'
