@@ -4,7 +4,7 @@ import cn.hutool.core.util.IdUtil;
 import org.springframework.util.Base64Utils;
 
 /**
- * ApiTokenUtols
+ * ApiTokenUtils
  *
  * @author yangbing
  * @date 2021/1/14 下午8:28
