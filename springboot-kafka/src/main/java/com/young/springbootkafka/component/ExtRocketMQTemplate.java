@@ -1,6 +1,5 @@
 package com.young.springbootkafka.component;
 
-import org.apache.rocketmq.spring.annotation.ExtRocketMQTemplateConfiguration;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 
 /**
@@ -10,7 +9,7 @@ import org.apache.rocketmq.spring.core.RocketMQTemplate;
  * @date 2021/1/4 上午11:45
  */
 
-@ExtRocketMQTemplateConfiguration(nameServer = "${rocketmq.extNameServer}", group = "${rocketmq.producer.group}")
+//@ExtRocketMQTemplateConfiguration(nameServer = "${rocketmq.extNameServer}", group = "${rocketmq.producer.group}")
 public class ExtRocketMQTemplate extends RocketMQTemplate {
 
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--引入 element-ui 的样式，-->
+    <link rel="stylesheet" href="css/element-ui.css">
+    <!-- 必须先引入vue，  后使用element-ui -->
+    <script src="js/vue2.6.9.js"></script>
+    <!-- 引入element 的组件库-->
+    <script src="js/element-ui.js"></script>
+    <script src="js/axios.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <div>{{message}}</div>
+    <el-upload
+            class="upload-demo"
+            ref="upload"
+            :multiple="true"
+            action="file/upload"
+            :on-preview="handlePreview"
+            :on-remove="handleRemove"
+            :file-list="fileList"
+            :on-change="changeFile"
+            :on-success="uploadSuccess"
+            :auto-upload="false">
+        <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+        <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
+        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+    </el-upload>
+    <input type="file" @change="_changeFile"/>
+    <span @click="_upload">上传</span>
+    <br>
+    <span @click="onlinePreview">预览</span>
+    <br>
+    <button @click="testSubmitRepeat">提交</button>
+</div>
+</body>
+</html>
+<script src="js/index.js"></script>
