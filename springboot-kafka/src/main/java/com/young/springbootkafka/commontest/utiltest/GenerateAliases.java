@@ -13,39 +13,65 @@ import java.util.List;
  */
 public class GenerateAliases {
     public static void main(String[] args) {
-        String s = "\t\t<result property=\"belongCompany\" column=\"F_BELONG_COMPANY\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"belongCompanyName\" column=\"F_BELONG_COMPANY_NAME\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"contractEffectiveDate\" column=\"F_CONTRACT_EFFECTIVE_DATE\" jdbcType=\"TIMESTAMP\"/>\n" +
-                "\t\t<result property=\"contractLevel\" column=\"F_CONTRACT_LEVEL\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"contractName\" column=\"F_CONTRACT_NAME\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"contractNo\" column=\"F_CONTRACT_NO\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"contractNoName\" column=\"F_CONTRACT_NO_NAME\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"contractState\" column=\"F_CONTRACT_STATE\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"contractType\" column=\"F_CONTRACT_TYPE\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"dealScore\" column=\"F_DEAL_SCORE\" jdbcType=\"NUMERIC\"/>\n" +
-                "\t\t<result property=\"djmc\" column=\"F_DJMC\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"docNo\" column=\"F_DOC_NO\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"evaluateAttentionItem\" column=\"F_EVALUATE_ATTENTION_ITEM\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"evaluatePerson\" column=\"F_EVALUATE_PERSON\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"evaluatePersonName\" column=\"F_EVALUATE_PERSON_NAME\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"evaluateQuarter\" column=\"F_EVALUATE_QUARTER\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"evaluateQuarterName\" column=\"F_EVALUATE_QUARTER_NAME\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"evaluateTemplate\" column=\"F_EVALUATE_TEMPLATE\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"evaluateTemplateName\" column=\"F_EVALUATE_TEMPLATE_NAME\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"evaluateYear\" column=\"F_EVALUATE_YEAR\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"evaluateYearName\" column=\"F_EVALUATE_YEAR_NAME\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"indentGrade\" column=\"F_INDENT_GRADE\" jdbcType=\"NUMERIC\"/>\n" +
-                "\t\t<result property=\"nowAmount\" column=\"F_NOW_AMOUNT\" jdbcType=\"NUMERIC\"/>\n" +
-                "\t\t<result property=\"orignAmount\" column=\"F_ORIGN_AMOUNT\" jdbcType=\"NUMERIC\"/>\n" +
-                "\t\t<result property=\"procState\" column=\"F_PROC_STATE\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"procStateName\" column=\"F_PROC_STATE_NAME\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"quarterGrade\" column=\"F_QUARTER_GRADE\" jdbcType=\"NUMERIC\"/>\n" +
-                "\t\t<result property=\"reviewPerson\" column=\"F_REVIEW_PERSON\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"reviewPersonName\" column=\"F_REVIEW_PERSON_NAME\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"scoreDate\" column=\"F_SCORE_DATE\" jdbcType=\"TIMESTAMP\"/>\n" +
-                "\t\t<result property=\"vendorName\" column=\"F_VENDOR_NAME\" jdbcType=\"VARCHAR\"/>\n" +
-                "\t\t<result property=\"yearGrade\" column=\"F_YEAR_GRADE\" jdbcType=\"NUMERIC\"/>";
-        getColoum(s,"c8");
+        String s = "\t\t\t<id property=\"indocno\" column=\"INDOCNO\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"dmodt\" column=\"DMODT\" jdbcType=\"TIMESTAMP\"/>\n" +
+                "\t\t\t<result property=\"dregt\" column=\"DREGT\" jdbcType=\"TIMESTAMP\"/>\n" +
+                "\t\t\t<result property=\"gsqdcode\" column=\"GSQDCODE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"gsqdnm\" column=\"GSQDNM\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"iattcount\" column=\"IATTCOUNT\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"ibuildprice\" column=\"IBUILDPRICE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"icompanyid\" column=\"ICOMPANYID\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"icompanyno\" column=\"ICOMPANYNO\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"icurrentid\" column=\"ICURRENTID\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"idel\" column=\"IDEL\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"ideptid\" column=\"IDEPTID\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"ideptno\" column=\"IDEPTNO\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"idoctypeid\" column=\"IDOCTYPEID\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"iequipmentprice\" column=\"IEQUIPMENTPRICE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"iinstallprice\" column=\"IINSTALLPRICE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"ijsjjtarget\" column=\"IJSJJTARGET\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"ilengthUnit\" column=\"ILENGTH_UNIT\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"iline\" column=\"ILINE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"ilinkno\" column=\"ILINKNO\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"iotherprice\" column=\"IOTHERPRICE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"iparentid\" column=\"IPARENTID\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"ipostid\" column=\"IPOSTID\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"ipronum\" column=\"IPRONUM\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"isaveormodify\" column=\"ISAVEORMODIFY\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"isort\" column=\"ISORT\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"istate\" column=\"ISTATE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"istepcharttype\" column=\"ISTEPCHARTTYPE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"istepid\" column=\"ISTEPID\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"istepoperid\" column=\"ISTEPOPERID\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"itotalprice\" column=\"ITOTALPRICE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"itotalpriceUs\" column=\"ITOTALPRICE_US\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"saddr\" column=\"SADDR\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"schapterno\" column=\"SCHAPTERNO\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"scode\" column=\"SCODE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"scompanynm\" column=\"SCOMPANYNM\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"sdeptnm\" column=\"SDEPTNM\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"sdescribe\" column=\"SDESCRIBE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"sestimatecode\" column=\"SESTIMATECODE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"sline\" column=\"SLINE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"slinegsbm\" column=\"SLINEGSBM\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"slineno\" column=\"SLINENO\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"smodid\" column=\"SMODID\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"smodnm\" column=\"SMODNM\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"sname\" column=\"SNAME\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"snote\" column=\"SNOTE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"sphoto\" column=\"SPHOTO\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"spostnm\" column=\"SPOSTNM\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"spricecomponent\" column=\"SPRICECOMPONENT\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"sproorpricenm\" column=\"SPROORPRICENM\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"sregid\" column=\"SREGID\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"sregnm\" column=\"SREGNM\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"ssectionno\" column=\"SSECTIONNO\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"ssonnode\" column=\"SSONNODE\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"ssort\" column=\"SSORT\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"sstepnm\" column=\"SSTEPNM\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"sstepopernm\" column=\"SSTEPOPERNM\" jdbcType=\"VARCHAR\"/>\n" +
+                "\t\t\t<result property=\"sstepstate\" column=\"SSTEPSTATE\" jdbcType=\"VARCHAR\"/>";
+        getColoum(s,"g2");
     }
 
     private static void getColoum(String str,String per){

@@ -4,6 +4,8 @@ sh shutdown.sh
 #sentinel
 java -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard.jar &
 
+cp -r /home/packageA/. /home/cp/packageB/
+
 # 开机自启
 sudo systemctl enable docker
 # 启动docker服务
