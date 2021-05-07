@@ -8,26 +8,7 @@ public class UpdateBatchTest {
     public static void main(String[] args) {
         String str = "\t\tCREATE_BY_=#{createBy,jdbcType=VARCHAR},\n" +
                 "\t\tCREATE_TIME_=#{createTime,jdbcType=TIMESTAMP},\n" +
-                "\t\tF_ASSIST_ACCOUNTING=#{assistAccounting,jdbcType=VARCHAR},\n" +
-                "\t\tF_CASH_TYPE=#{cashType,jdbcType=VARCHAR},\n" +
-                "\t\tF_CASH_TYPE_NAME=#{cashTypeName,jdbcType=VARCHAR},\n" +
-                "\t\tF_CREATE_ACCOUNT=#{createAccount,jdbcType=VARCHAR},\n" +
-                "\t\tF_FAMILY_SUBJECT_NO=#{familySubjectNo,jdbcType=VARCHAR},\n" +
-                "\t\tF_MNEMONIC_CODE=#{mnemonicCode,jdbcType=VARCHAR},\n" +
-                "\t\tF_SUBJECT_DIRECTION=#{subjectDirection,jdbcType=VARCHAR},\n" +
-                "\t\tF_SUBJECT_DIRECTION_NAME=#{subjectDirectionName,jdbcType=VARCHAR},\n" +
-                "\t\tF_SUBJECT_NAME=#{subjectName,jdbcType=VARCHAR},\n" +
-                "\t\tF_SUBJECT_NO=#{subjectNo,jdbcType=VARCHAR},\n" +
-                "\t\tF_SUBJECT_TYPE=#{subjectType,jdbcType=VARCHAR},\n" +
-                "\t\tF_SUBJECT_TYPE_NAME=#{subjectTypeName,jdbcType=VARCHAR},\n" +
-                "\t\tGROUP_ID_=#{groupId,jdbcType=VARCHAR},\n" +
-                "\t\tINST_ID_=#{instId,jdbcType=VARCHAR},\n" +
-                "\t\tINST_STATUS_=#{instStatus,jdbcType=VARCHAR},\n" +
-                "\t\tPARENT_ID_=#{parentId,jdbcType=VARCHAR},\n" +
-                "\t\tREF_ID_=#{refId,jdbcType=VARCHAR},\n" +
-                "\t\tTENANT_ID_=#{tenantId,jdbcType=VARCHAR},\n" +
-                "\t\tUPDATE_BY_=#{updateBy,jdbcType=VARCHAR},\n" +
-                "\t\tUPDATE_TIME_=#{updateTime,jdbcType=TIMESTAMP}";
+                "\t\tF_ASSIST_ACCOUNTING=#{assistAccounting,jdbcType=VARCHAR}";
         String byWhat = "ID_=#{item.id}";
         String table = "nrcm_accounting_subject";
         //获取批量修改

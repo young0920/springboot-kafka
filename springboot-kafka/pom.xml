@@ -47,6 +47,7 @@
         <commons-net.version>3.6</commons-net.version>
         <jsch.version>0.1.55</jsch.version>
         <rocketmq-spring-boot-starter.version>2.1.0</rocketmq-spring-boot-starter.version>
+        <spring-boot-maven-plugin.version>2.2.2.RELEASE</spring-boot-maven-plugin.version>
     </properties>
 
     <dependencies>
@@ -262,6 +263,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot-maven-plugin.version}</version>
                 <configuration>
                     <!--fork :  如果没有该项配置，肯定devtools不会起作用，即应用不会restart -->
                     <fork>true</fork>
