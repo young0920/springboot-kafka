@@ -18,7 +18,7 @@ public class UpdateBatchTest {
         //获取批量修改
         getUpdateBatch(str, byWhat, table);
         //拼接 if  text != null
-//        getIfNullText(str);
+        getIfNullText(str);
     }
 
     private static void getUpdateBatch(String str, String byWhat, String table) {
