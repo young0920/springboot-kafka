@@ -3,6 +3,7 @@ package com.young.springbootkafka.commontest.utiltest;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -24,6 +25,16 @@ public class DateTest {
         System.out.println(NumberUtils.isCreatable("2"));
         //是否全数字
         System.out.println(NumberUtils.isDigits("2"));
+
+
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DAY_OF_MONTH, -1);
+        date = calendar.getTime();
+        String format = df.format(date);
+        System.out.println(format);
     }
 
     private static void printDate(String dateStart, String dateEnd) throws ParseException {

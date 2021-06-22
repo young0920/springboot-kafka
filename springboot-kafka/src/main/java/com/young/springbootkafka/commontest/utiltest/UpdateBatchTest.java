@@ -6,21 +6,25 @@ package com.young.springbootkafka.commontest.utiltest;
  */
 public class UpdateBatchTest {
     public static void main(String[] args) {
-        String str = "\t\tCREATE_BY_=#{createBy,jdbcType=VARCHAR},\n" +
-                "\t\tCREATE_TIME_=#{createTime,jdbcType=TIMESTAMP},\n" +
-                "\t\tF_ASSIST_ACCOUNTING=#{assistAccounting,jdbcType=VARCHAR}";
-        String byWhat = "ID_=#{item.id}";
-        String table = "nrcm_accounting_subject";
+        String str = "            UPDATE_BY_=#{updateBy,jdbcType=VARCHAR},\n" +
+                "            UPDATE_TIME_=#{updateTime,jdbcType=TIMESTAMP},\n" +
+                "            F_INVEST_TYPE=#{investType,jdbcType=VARCHAR},\n" +
+                "            F_INVEST_TYPE_NAME=#{investTypeName,jdbcType=VARCHAR},\n" +
+                "            F_PRO_CLASS=#{proClass,jdbcType=VARCHAR},\n" +
+                "            F_PRO_CLASS_NAME=#{proClassName,jdbcType=VARCHAR},\n" +
+                "            F_PRO_NAME=#{proName,jdbcType=VARCHAR},";
+        String byWhat = "F_PRO_NO=#{item.proNo}";
+        String table = "nrgz_pro_inf_base";
         //获取批量修改
         getUpdateBatch(str, byWhat, table);
         //拼接 if  text != null
-        getIfNullText(str);
+//        getIfNullText(str);
     }
 
     private static void getUpdateBatch(String str, String byWhat, String table) {
         System.out.println("***********************批量修改开始*********************");
         StringBuilder sb = new StringBuilder("    <update id=\"updateBatch\" parameterType=\"java.util.List\">\n");
-        sb.append("        UPDATE " + table + " SET\n");
+        sb.append("        UPDATE " + table + "\n");
         sb.append("        <trim prefix=\"set\" suffixOverrides=\",\">\n");
         String[] lineArray = str.split("\n");
         for (String eachLine : lineArray) {

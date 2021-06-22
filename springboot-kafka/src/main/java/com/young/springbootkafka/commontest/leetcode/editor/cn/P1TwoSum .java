@@ -18,34 +18,50 @@
 package com.young.springbootkafka.commontest.leetcode.editor.cn;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 两数之和
+ *
  * @author young
  */
-class P1TwoSum{
+class P1TwoSum {
     public static void main(String[] args) {
         Solution solution = new P1TwoSum().new Solution();
         // TO TEST
-        int[] ints = solution.twoSum(new int[]{2, 7, 11, 15}, 9);
+        int[] ints = solution.twoSum2(new int[]{2, 7, 11, 15}, 9);
         System.out.println(Arrays.toString(ints));
     }
+
     /**
-    * 两数之和
-    */ 
+     * 两数之和
+     */
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[j] == target - nums[i]) {
-                    return new int[] { i, j };
+    class Solution {
+        public int[] twoSum(int[] nums, int target) {
+            for (int i = 0; i < nums.length; i++) {
+                for (int j = i + 1; j < nums.length; j++) {
+                    if (nums[j] == target - nums[i]) {
+                        return new int[]{i, j};
+                    }
                 }
             }
+            return null;
         }
-        return null;
+
+        public int[] twoSum2(int[] nums, int target) {
+            Map<Integer, Integer> map = new HashMap<>();
+            for (int i = 0; i < nums.length; i++) {
+                int parter = target - nums[i];
+                if (map.containsKey(parter)) {
+                    return new int[]{map.get(parter), i};
+                }
+                map.put(nums[i], i);
+            }
+            return null;
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
