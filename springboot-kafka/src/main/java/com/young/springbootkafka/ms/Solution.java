@@ -1,7 +1,6 @@
 package com.young.springbootkafka.ms;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Solution
@@ -251,4 +250,54 @@ public class Solution {
         board[i][j] = word[k];
         return res;
     }
+
+
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        backtrack(0, nums, res, new ArrayList<>());
+        return res;
+
+    }
+
+    private void backtrack(int i, int[] nums, List<List<Integer>> res, ArrayList<Integer> tmp) {
+        res.add(new ArrayList<>(tmp));
+        for (int j = i; j < nums.length; j++) {
+            tmp.add(nums[j]);
+            backtrack(j + 1, nums, res, tmp);
+            tmp.remove(tmp.size() - 1);
+        }
+    }
+
+    public List<List<Integer>> subsets2(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        result.add(new ArrayList<>());
+        for (int num : nums) {
+            List<List<Integer>> newSubsets = new ArrayList<>();
+            for (List<Integer> subject : result) {
+                List<Integer> newSubset = new ArrayList<>(subject);
+                newSubset.add(num);
+                newSubsets.add(newSubset);
+            }
+            result.addAll(newSubsets);
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"});
+    }
+
+    public static List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> map = new HashMap<>();
+        for (String str : strs) {
+            char[] chars = str.toCharArray();
+            Arrays.sort(chars);
+            String strSort = String.valueOf(chars);
+            List<String> list = map.containsKey(strSort) ? map.get(strSort) : new ArrayList<>();
+            list.add(str);
+            map.put(strSort, list);
+        }
+        return new ArrayList<>(map.values());
+    }
+
 }

@@ -6,19 +6,20 @@ package com.young.springbootkafka.commontest.utiltest;
  */
 public class UpdateBatchTest {
     public static void main(String[] args) {
-        String str = "            UPDATE_BY_=#{updateBy,jdbcType=VARCHAR},\n" +
-                "            UPDATE_TIME_=#{updateTime,jdbcType=TIMESTAMP},\n" +
-                "            F_INVEST_TYPE=#{investType,jdbcType=VARCHAR},\n" +
-                "            F_INVEST_TYPE_NAME=#{investTypeName,jdbcType=VARCHAR},\n" +
-                "            F_PRO_CLASS=#{proClass,jdbcType=VARCHAR},\n" +
-                "            F_PRO_CLASS_NAME=#{proClassName,jdbcType=VARCHAR},\n" +
-                "            F_PRO_NAME=#{proName,jdbcType=VARCHAR},";
-        String byWhat = "F_PRO_NO=#{item.proNo}";
-        String table = "nrgz_pro_inf_base";
+        String str = "\t\t\t\tF_SUPPLIER=#{supplier,jdbcType=VARCHAR},\n" +
+                "\t\t\t\tF_SUPPLIER_NAME=#{supplierName,jdbcType=VARCHAR},\n" +
+                "\t\t\t\tF_UNIFIED_AUTH_CODE=#{unifiedAuthCode,jdbcType=VARCHAR},\n" +
+                "\t\t\t\tF_SUPPLIER_STATE=#{supplierState,jdbcType=VARCHAR},\n" +
+                "\t\t\t\tF_SUPPLIER_STATE_NAME=#{supplierStateName,jdbcType=VARCHAR},\n" +
+                "\t\t\t\tF_NOTE=#{note,jdbcType=VARCHAR},\n" +
+                "\t\t\t\tUPDATE_BY_=#{updateBy,jdbcType=VARCHAR},\n" +
+                "\t\t\t\tUPDATE_TIME_=#{updateTime,jdbcType=TIMESTAMP},";
+        String byWhat = "F_SUPPLIER_NO=#{item.supplierNo}";
+        String table = "nrgz_supplier_mgt";
         //获取批量修改
         getUpdateBatch(str, byWhat, table);
         //拼接 if  text != null
-        getIfNullText(str);
+//        getIfNullText(str);
     }
 
     private static void getUpdateBatch(String str, String byWhat, String table) {
