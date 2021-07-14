@@ -284,7 +284,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat","abt"});
+        groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat","abt","tba"});
     }
 
     public static List<List<String>> groupAnagrams(String[] strs) {
